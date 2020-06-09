@@ -12,6 +12,7 @@ module.exports = {
 
       base(process.env.TABLE_NAME)
         .select({
+          filterByFormula: `{Status} = 'Approved'`,
           sort: [
             {
               field: "Resource Title",
@@ -26,6 +27,12 @@ module.exports = {
               const item = {
                 id: record.id,
                 title: record.get("Resource Title"),
+                image: record.get("Featured Image"),
+                os: record.get("Operating System"),
+                pathway: record.get("Pathway"),
+                level: record.get("Skill Level"),
+                tags: record.get("Tags"),
+
                 // content: record.get("content"),
                 // publish_date: record.get("publish_date"),
               };
