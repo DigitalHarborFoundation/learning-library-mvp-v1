@@ -1,6 +1,6 @@
 import { PseudoBox, Image, Box, Badge, Text } from "@chakra-ui/core";
 
-const ResourceCard: React.FC = ({}) => {
+const ResourceCard: React.FC = ({ data }) => {
   return (
     <PseudoBox
       w="100%"
@@ -14,7 +14,8 @@ const ResourceCard: React.FC = ({}) => {
       }}
     >
       <Image
-        src="https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+        // src="https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+        src={data.image[0].url}
         alt="Cup of coffee with 'Begin' on it sitting on a wooden table"
         rounded="md"
       />
