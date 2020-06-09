@@ -8,13 +8,13 @@ const fetcher = async (url: string) => {
   if (!res.ok) {
     throw Error("There is problem with the data request.");
   }
-  const data = await res.json();
+  const { data } = await res.json();
   console.log("data from swr", data);
-  return data.allRecordsResponse.records;
+  return data;
 };
 
 const ResourcesIndexPage: NextPage = () => {
-  const { data, error } = useSWR(`/api/allRecords`, fetcher);
+  const { data, error } = useSWR(`/api/withAirtable`, fetcher);
 
   if (error) {
     return (
@@ -40,7 +40,6 @@ const ResourcesIndexPage: NextPage = () => {
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
-
       <ResourceCard />
     </Flex>
   );
