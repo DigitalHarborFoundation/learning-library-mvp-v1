@@ -1,13 +1,12 @@
-import { Heading } from "@chakra-ui/core";
+import { Flex, Heading } from "@chakra-ui/core";
 import { NextPage } from "next";
-import SiteLayout from "../../components/SiteLayout";
 
-const ResourceIndex: NextPage = () => {
+const ResourcesIndexPage: NextPage = () => {
   return (
-    <SiteLayout>
+    <Flex>
       <Heading as="h2">Test title</Heading>
-    </SiteLayout>
+    </Flex>
   );
 };
 
-export default ResourceIndex;
+export default ResourcesIndexPage;

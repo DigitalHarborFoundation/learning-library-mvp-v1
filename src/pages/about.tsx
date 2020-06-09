@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { Flex, Heading } from "@chakra-ui/core";
 import { NextPage } from "next";
 
-const IndexPage: NextPage = () => {
+const AboutPage: NextPage = () => {
   return (
     <Flex
       direction="column"
@@ -11,9 +11,9 @@ const IndexPage: NextPage = () => {
       maxWidth="960"
       margin="0 auto"
     >
-      <Heading as="h2">Welcome!</Heading>
+      <Heading as="h2">About!</Heading>
     </Flex>
   );
 };
 
-export default IndexPage;
+export default AboutPage;
