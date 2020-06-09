@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import { Flex, Heading } from "@chakra-ui/core";
 import { NextPage } from "next";
 
