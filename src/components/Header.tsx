@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Flex, Heading, Link as ChakraLink, PseudoBox } from "@chakra-ui/core";
+import { DarkModeSwitch } from "../components/DarkModeSwitch";
 
 const Header: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const Header: React.FC = () => {
             </Heading>
           </ChakraLink>
         </Link>
+        <DarkModeSwitch />
       </Flex>
     </Flex>
   );
