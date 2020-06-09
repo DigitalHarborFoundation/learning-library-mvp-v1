@@ -3,6 +3,9 @@ Airtable.configure({
   apiKey: process.env.API_KEY,
 });
 
+Interface Item = {
+
+}
 module.exports = {
   getAllRecords: () => {
     const base = new Airtable.base(process.env.BASE_ID);
@@ -28,16 +31,15 @@ module.exports = {
                 id: record.id,
                 title: record.get("Resource Title"),
                 image: record.get("Featured Image"),
+                url: record.get("URL"),
                 os: record.get("Operating System"),
                 pathway: record.get("Pathway"),
                 level: record.get("Skill Level"),
                 tags: record.get("Tags"),
-
-                // content: record.get("content"),
-                // publish_date: record.get("publish_date"),
+                description: record.get("Description"),
+                type: record.get("Content Type"),
               };
 
-              // Push post to
               allRecords.push(item);
               console.log(allRecords);
             });

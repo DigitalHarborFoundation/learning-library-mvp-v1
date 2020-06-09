@@ -40,7 +40,9 @@ const ResourcesIndexPage: NextPage = () => {
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
-      <ResourceCard />
+      {data.map((resource) => (
+        <ResourceCard key={resource.id} />
+      ))}
     </Flex>
   );
 };
