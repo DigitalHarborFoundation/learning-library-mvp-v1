@@ -5,11 +5,13 @@ import useSWR from "swr";
 import {
   Box,
   Button,
+  Tag,
   Flex,
   Heading,
   Text,
   Alert,
   Spinner,
+  Stack,
 } from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
@@ -25,9 +27,8 @@ const fetcher = async (url: string) => {
 
 const ResourcesIndexPage: NextPage = () => {
   const { query } = useRouter();
-  const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
 
-  const [filterPathway, setFilterPathway] = useState("");
+  const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
 
   const filterByPathway = () => {
     const filterPathwayResults = data.filter(
@@ -77,13 +78,28 @@ const ResourcesIndexPage: NextPage = () => {
       </Flex>
     );
   }
+
+  const pathways = [...new Set(data.map((item) => item.pathway[0]))];
+  console.log("pathways:", pathways);
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
-      <Button onClick={() => filterByPathway()}>Filter Pathway Test</Button>
+      {/* <Button onClick={() => filterByPathway()}>Filter Pathway Test</Button> */}
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
+      <Flex direction="row" align="center" justify="center">
+        <Text fontSize="md" paddingX={4}>
+          Pathways:
+        </Text>
+        <Stack direction="row" align="center" spacing={4}>
+          {pathways.map((pathway) => (
+            <Button size="sm" variantColor="cyan" variant="outline">
+              {pathway}
+            </Button>
+          ))}
+        </Stack>
+      </Flex>
       <ResourceGrid data={data} />
     </Flex>
   );
