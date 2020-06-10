@@ -29,13 +29,19 @@ const ResourcesIndexPage: NextPage = () => {
   const router = useRouter();
   const { query } = useRouter();
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
-  const [filterPathway, setFilterPathway] = useState(null);
+  const [filterPathway, setFilterPathway] = useState(query.pathway);
 
-  const handleRouteChange = (url) => {
-    console.log("App is changing to: ", url);
-  };
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      console.log("App is changing to: ", url);
+      console.log("url");
+    };
 
-  Router.events.on("routeChangeStart", handleRouteChange);
+    Router.events.on("routeChangeStart", handleRouteChange);
+    return () => {
+      Router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   const filteredByPathway = filterPathway
     ? data.filter((item) => item.pathway[0] === filterPathway)
@@ -85,6 +91,7 @@ const ResourcesIndexPage: NextPage = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
+      <pre>{query.pathway}</pre>
       {/* <Button onClick={() => filterByPathway()}>Filter Pathway Test</Button> */}
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
@@ -100,9 +107,10 @@ const ResourcesIndexPage: NextPage = () => {
               variantColor="cyan"
               variant="outline"
               onClick={() => {
-                // setFilterPathway(pathway);
-                router.push(`/resources/?pathway=${pathway}`);
-                console.log("filter set to:", pathway);
+                router.push(`/resources?pathway=${pathway}`);
+                console.log("query?", query.pathway);
+                setFilterPathway(query.pathway);
+                // console.log("filter set to:", pathway);
               }}
             >
               {pathway}
