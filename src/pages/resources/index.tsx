@@ -22,6 +22,7 @@ const fetcher = async (url: string) => {
   }
   const { data } = await res.json();
   console.log("data from swr", data);
+
   return data;
 };
 
@@ -29,23 +30,31 @@ const ResourcesIndexPage: NextPage = () => {
   const router = useRouter();
   const { query } = useRouter();
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
-  const [filterPathway, setFilterPathway] = useState(query.pathway);
+  const [filterPathway, setFilterPathway] = useState(null);
+  const [filterOS, setFilterOS] = useState(null);
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      console.log("App is changing to: ", url);
-      console.log("url");
-    };
+  // useEffect(() => {
+  //   const handleRouteChange = (url) => {
+  //     console.log("App is changing to: ", url);
+  //   };
 
-    Router.events.on("routeChangeStart", handleRouteChange);
-    return () => {
-      Router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
+  //   Router.events.on("routeChangeStart", handleRouteChange);
+  //   return () => {
+  //     Router.events.off("routeChangeStart", handleRouteChange);
+  //   };
+  // }, []);
 
   const filteredByPathway = filterPathway
     ? data.filter((item) => item.pathway[0] === filterPathway)
     : data;
+
+  const filteredByOS = filterOS
+    ? data.filter((item) => item.os === filterOS)
+    : data;
+
+  const composeFilters = (...args) => {
+    return args.reduce((acc, val) => [...acc, ...val]);
+  };
 
   if (error) {
     return (
@@ -85,14 +94,15 @@ const ResourcesIndexPage: NextPage = () => {
     );
   }
 
-  const pathways = [...new Set(data.map((item) => item.pathway[0]))];
-  console.log("pathways:", pathways);
+  const pathwaysList = [...new Set(data.map((item) => item.pathway[0]))];
+  const osList = [...new Set(data.map((item) => item.os))];
+  console.log("pathways:", pathwaysList);
+  console.log("os list", osList);
 
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
       <pre>{query.pathway}</pre>
-      {/* <Button onClick={() => filterByPathway()}>Filter Pathway Test</Button> */}
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
@@ -101,16 +111,14 @@ const ResourcesIndexPage: NextPage = () => {
           Pathways:
         </Text>
         <Stack direction="row" align="center" spacing={4}>
-          {pathways.map((pathway) => (
+          {pathwaysList.map((pathway) => (
             <Button
               size="sm"
               variantColor="cyan"
               variant="outline"
               onClick={() => {
-                router.push(`/resources?pathway=${pathway}`);
-                console.log("query?", query.pathway);
-                setFilterPathway(query.pathway);
-                // console.log("filter set to:", pathway);
+                // router.push(`/resources?pathway=${pathway}`);
+                setFilterPathway(pathway);
               }}
             >
               {pathway}
@@ -128,7 +136,38 @@ const ResourcesIndexPage: NextPage = () => {
           )}
         </Stack>
       </Flex>
-      <ResourceGrid data={filteredByPathway} />
+      <Flex direction="row" align="center" justify="center">
+        <Text fontSize="md" paddingX={4}>
+          Operating System:
+        </Text>
+        <Stack direction="row" align="center" spacing={4}>
+          {osList.map((os) => (
+            <Button
+              size="sm"
+              variantColor="cyan"
+              variant="outline"
+              onClick={() => {
+                // router.push(`/?os=${os}`);
+                setFilterOS(os);
+              }}
+            >
+              {os}
+            </Button>
+          ))}
+          {filterOS && (
+            <Button
+              size="sm"
+              variantColor="red"
+              variant="solid"
+              onClick={() => setFilterOS(null)}
+            >
+              Reset Operating System Filter
+            </Button>
+          )}
+        </Stack>
+      </Flex>
+      {/* <ResourceGrid data={composeFilters(filteredByPathway, filteredByOS)} /> */}
+      <ResourceGrid data={filteredByOS} />
     </Flex>
   );
 };
