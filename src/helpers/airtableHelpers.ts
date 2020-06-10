@@ -3,9 +3,6 @@ Airtable.configure({
   apiKey: process.env.API_KEY,
 });
 
-Interface Item = {
-
-}
 module.exports = {
   getAllRecords: () => {
     const base = new Airtable.base(process.env.BASE_ID);
