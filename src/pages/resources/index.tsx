@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
+import { useRouter, Router } from "next/router";
 import useSWR from "swr";
 import {
   Box,
@@ -30,6 +30,12 @@ const ResourcesIndexPage: NextPage = () => {
   const { query } = useRouter();
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
   const [filterPathway, setFilterPathway] = useState(null);
+
+  const handleRouteChange = (url) => {
+    console.log("App is changing to: ", url);
+  };
+
+  Router.events.on("routeChangeStart", handleRouteChange);
 
   const filteredByPathway = filterPathway
     ? data.filter((item) => item.pathway[0] === filterPathway)
@@ -75,6 +81,7 @@ const ResourcesIndexPage: NextPage = () => {
 
   const pathways = [...new Set(data.map((item) => item.pathway[0]))];
   console.log("pathways:", pathways);
+
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
