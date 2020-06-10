@@ -1,5 +1,6 @@
 import {
   PseudoBox,
+  AspectRatioBox,
   Image,
   Box,
   Badge,
@@ -14,7 +15,8 @@ const ResourceCard: React.FC = ({ data }) => {
     <PseudoBox
       w="100%"
       h="auto"
-      maxW="lg"
+      maxW="md"
+      overflow="hidden"
       rounded="md"
       boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2);"
       _hover={{
@@ -22,11 +24,14 @@ const ResourceCard: React.FC = ({ data }) => {
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
       }}
     >
-      <Image
-        src={data.image[0].url}
-        alt="Cup of coffee with 'Begin' on it sitting on a wooden table"
-        rounded="md"
-      />
+      <AspectRatioBox height="400px" ratio={16 / 9}>
+        <Image
+          src={data.image[0].url}
+          alt="Cup of coffee with 'Begin' on it sitting on a wooden table"
+          rounded="md"
+          objectFit="cover"
+        />
+      </AspectRatioBox>
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
           <Box
@@ -41,15 +46,7 @@ const ResourceCard: React.FC = ({ data }) => {
             {data.title}
           </Box>
         </Box>
-        <Box
-          mt="1"
-          fontWeight="normal"
-          as="p"
-          lineHeight="tight"
-          // isTruncated
-        >
-          {data.description}
-        </Box>
+
         <Button
           rightIcon="view"
           variantColor="gray"
