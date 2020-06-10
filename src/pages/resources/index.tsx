@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Text, Alert, Spinner } from "@chakra-ui/core";
+import { useState, useEffect } from "react";
 import { NextPage } from "next";
 import useSWR from "swr";
+import { Box, Flex, Heading, Text, Alert, Spinner } from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
@@ -18,19 +19,39 @@ const ResourcesIndexPage: NextPage = () => {
 
   if (error) {
     return (
-      <Alert status="error">
-        Failed to load data: {error.message}. Please reach out to
-        contact@digitalharbor.org
-      </Alert>
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        minHeight="100vh"
+      >
+        <Alert status="error">
+          Failed to load data: {error.message}. Please reach out to
+          contact@digitalharbor.org
+        </Alert>
+      </Flex>
     );
   }
 
   if (!data) {
     return (
-      <Box>
-        <Spinner />
-        <Alert status="info">Loading the resources...</Alert>
-      </Box>
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        minHeight="100vh"
+      >
+        <Flex direction="column" align="center" justify="center">
+          <Alert status="info">Loading the resources...</Alert>
+          <Spinner
+            size="xl"
+            thickness="2px"
+            emptyColor="cyan.100"
+            color="cyan.300"
+            margin={4}
+          />
+        </Flex>
+      </Flex>
     );
   }
 
