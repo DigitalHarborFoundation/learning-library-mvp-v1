@@ -55,32 +55,31 @@ module.exports = {
     });
   },
 
-  getRecordByID: (recordId) => {
-    const base = new Airtable.base(process.env.BASE_ID);
+  // getRecordByID: (recordId) => {
+  //   const base = new Airtable.base(process.env.BASE_ID);
+  //   return new Promise((resolve, reject) => {
+  //     base(process.env.TABLE_NAME).find(recordId, (error, record) => {
+  //       if (error) {
+  //         console.error(error);
+  //         reject({ error });
+  //       }
+  //       const item = {
+  //         id: record.id,
+  //         title: record.get("Resource Title"),
+  //         image: record.get("Featured Image"),
+  //         url: record.get("URL"),
+  //         os: record.get("Operating System"),
+  //         pathway: record.get("Pathway"),
+  //         level: record.get("Skill Level"),
+  //         tags: record.get("Tags"),
+  //         description: record.get("Description"),
+  //         type: record.get("Content Type"),
+  //       };
 
-    return new Promise((resolve, reject) => {
-      base(process.env.TABLE_NAME).find(recordId, (error, record) => {
-        if (error) {
-          console.error(error);
-          reject({ error });
-        }
-
-        const item = {
-          title: record.get("Resource Title"),
-          image: record.get("Featured Image"),
-          url: record.get("URL"),
-          os: record.get("Operating System"),
-          pathway: record.get("Pathway"),
-          level: record.get("Skill Level"),
-          tags: record.get("Tags"),
-          description: record.get("Description"),
-          type: record.get("Content Type"),
-        };
-
-        resolve(item);
-      });
-    });
-  },
+  //       resolve(item);
+  //     });
+  //   });
+  // },
 
   getRecordsByPathway: (pathwayName) => {
     const base = new Airtable.base(process.env.BASE_ID);

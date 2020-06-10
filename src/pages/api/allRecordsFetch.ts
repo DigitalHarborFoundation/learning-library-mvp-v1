@@ -6,12 +6,12 @@ const allRecords: NextApiHandler = async (req, res) => {
   const data = await fetch(
     `https://api.airtable.com/v0/${baseId}/Content%20Resources?api_key=${apiKey}`
   );
-  const allRecordsResponse = await data.json();
+  const recordResponse = await data.json();
 
-  if (allRecordsResponse) {
+  if (recordResponse) {
     return res.status(200).json({
       // response goes here
-      allRecordsResponse,
+      recordResponse,
     });
   } else {
     return res.status(404).json;

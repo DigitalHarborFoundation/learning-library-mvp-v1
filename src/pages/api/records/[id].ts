@@ -1,15 +1,22 @@
 import { NextApiHandler } from "next";
-import { getRecordByID } from "../../../helpers/airtableHelpers";
 
-const recordByID: NextApiHandler = async (req, res) => {
-  Promise.resolve(getRecordByID(req.query.id))
-    .then((data) => {
-      res.status(200).json({ data });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(404).end;
+const recordById = async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const baseId = process.env.BASE_ID;
+  const tableName = process.env.TABLE_NAME;
+
+  const data = await fetch(
+    `https://api.airtable.com/v0/${baseId}/${tableName}/${req.query.id}?api_key=${apiKey}`
+  );
+  const recordResponse = await data.json();
+
+  if (recordResponse) {
+    return res.status(200).json({
+      recordResponse,
     });
+  } else {
+    return res.status(404).json;
+  }
 };
 
-export default recordByID;
+export default recordById;
