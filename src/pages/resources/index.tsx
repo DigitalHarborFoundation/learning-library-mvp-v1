@@ -1,7 +1,16 @@
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import useSWR from "swr";
-import { Box, Flex, Heading, Text, Alert, Spinner } from "@chakra-ui/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Text,
+  Alert,
+  Spinner,
+} from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
@@ -15,7 +24,21 @@ const fetcher = async (url: string) => {
 };
 
 const ResourcesIndexPage: NextPage = () => {
+  const { query } = useRouter();
   const { data, error } = useSWR(`/api/withAirtable`, fetcher);
+
+  const [filterPathway, setFilterPathway] = useState("");
+
+  const filterByPathway = () => {
+    const filterPathwayResults = data.filter(
+      (item) => item.pathway[0].toLowerCase() === query.pathway.toLowerCase()
+    );
+    console.log(
+      `filterPathwwayResults for ${query.pathway}:`,
+      filterPathwayResults
+    );
+    setFilterPathway(filterPathwayResults);
+  };
 
   if (error) {
     return (
@@ -54,10 +77,10 @@ const ResourcesIndexPage: NextPage = () => {
       </Flex>
     );
   }
-
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
+      <Button onClick={() => filterByPathway()}>Filter Pathway Test</Button>
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
