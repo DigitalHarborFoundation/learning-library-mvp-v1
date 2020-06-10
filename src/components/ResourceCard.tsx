@@ -27,7 +27,7 @@ const ResourceCard: React.FC = ({ data }) => {
       //   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
       // }}
     >
-      <AspectRatioBox height="400px" ratio={16 / 9}>
+      <AspectRatioBox height="300px" ratio={16 / 9}>
         <Image
           src={data.image[0].url}
           alt="Cup of coffee with 'Begin' on it sitting on a wooden table"

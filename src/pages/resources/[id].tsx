@@ -7,6 +7,7 @@ import {
   Button,
   Flex,
   Heading,
+  Image,
   Text,
   Alert,
   Spinner,
@@ -26,7 +27,7 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-const ResourcePage: NextPage = ({ title }) => {
+const ResourcePage: NextPage = ({ title, image }) => {
   // const { data, error } = useSWR(`/api/records/${router.query.id}`, fetcher);
 
   // if (error) {
@@ -70,6 +71,7 @@ const ResourcePage: NextPage = ({ title }) => {
     <Flex direction="column" justify="center" align="center">
       {/* <Heading as="h2">{data.fields["Resource Title"]}</Heading> */}
       <Heading as="h2">{title}</Heading>
+      <Image src={image}></Image>
     </Flex>
   );
 };
@@ -84,7 +86,7 @@ export async function getServerSideProps(context) {
     props: {
       id: data.id,
       title: data.fields["Resource Title"],
-      // image: data.fields["Featured Image"],
+      image: data.fields["Featured Image"][0].url,
       // url: data.fields["URL"],
       // os: data.fields["Operating System"],
       // pathway: data.fields["Pathway"],
