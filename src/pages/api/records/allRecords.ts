@@ -1,7 +1,7 @@
 import { NextApiHandler } from "next";
-import { getAllRecords } from "../../helpers/airtableHelpers";
+import { getAllRecords } from "../../../helpers/airtableHelpers";
 
-const withAirtable: NextApiHandler = async (req, res) => {
+const allRecords: NextApiHandler = async (req, res) => {
   Promise.resolve(getAllRecords())
     .then((data) => {
       res.status(200).json({ data });
@@ -12,4 +12,4 @@ const withAirtable: NextApiHandler = async (req, res) => {
     });
 };
 
-export default withAirtable;
+export default allRecords;

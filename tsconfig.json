@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     // "isolatedModules": true,
     "jsx": "preserve",
+    // "isolatedModules": true
     "isolatedModules": true
   },
   "exclude": ["node_modules"],
@@ -20,6 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/pages/resources/index.js"
+    "src/pages/resources/index.js",
+    "src/helpers/airtableHelpers.ts"
   ]
 }

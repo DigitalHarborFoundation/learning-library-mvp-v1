@@ -25,7 +25,7 @@ const fetcher = async (url: string) => {
 
 const ResourcesIndexPage: NextPage = () => {
   const { query } = useRouter();
-  const { data, error } = useSWR(`/api/withAirtable`, fetcher);
+  const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
 
   const [filterPathway, setFilterPathway] = useState("");
 
