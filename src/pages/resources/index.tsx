@@ -27,19 +27,23 @@ const fetcher = async (url: string) => {
 
 const ResourcesIndexPage: NextPage = () => {
   const { query } = useRouter();
-
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
+  const [filterPathway, setFilterPathway] = useState(null);
 
-  const filterByPathway = () => {
-    const filterPathwayResults = data.filter(
-      (item) => item.pathway[0].toLowerCase() === query.pathway.toLowerCase()
-    );
-    console.log(
-      `filterPathwwayResults for ${query.pathway}:`,
-      filterPathwayResults
-    );
-    setFilterPathway(filterPathwayResults);
-  };
+  const filteredByPathway = filterPathway
+    ? data.filter((item) => item.pathway[0] === filterPathway)
+    : data;
+
+  // const filterByPathway = () => {
+  //   const filterPathwayResults = data.filter(
+  //     (item) => item.pathway[0].toLowerCase() === query.pathway.toLowerCase()
+  //   );
+  //   console.log(
+  //     `filterPathwwayResults for ${query.pathway}:`,
+  //     filterPathwayResults
+  //   );
+  //   setFilterPathway(filterPathwayResults);
+  // };
 
   if (error) {
     return (
@@ -94,13 +98,31 @@ const ResourcesIndexPage: NextPage = () => {
         </Text>
         <Stack direction="row" align="center" spacing={4}>
           {pathways.map((pathway) => (
-            <Button size="sm" variantColor="cyan" variant="outline">
+            <Button
+              size="sm"
+              variantColor="cyan"
+              variant="outline"
+              onClick={() => {
+                setFilterPathway(pathway);
+                console.log("filter set to:", pathway);
+              }}
+            >
               {pathway}
             </Button>
           ))}
+          {filterPathway && (
+            <Button
+              size="sm"
+              variantColor="red"
+              variant="solid"
+              onClick={() => setFilterPathway(null)}
+            >
+              Reset Pathway Filter
+            </Button>
+          )}
         </Stack>
       </Flex>
-      <ResourceGrid data={data} />
+      <ResourceGrid data={filteredByPathway} />
     </Flex>
   );
 };
