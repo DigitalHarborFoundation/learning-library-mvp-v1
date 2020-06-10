@@ -9,7 +9,7 @@ import {
   Flex,
 } from "@chakra-ui/core";
 
-const ResourceCard: React.FC = ({ data }: Object) => {
+const ResourceCard: React.FC = ({ data }) => {
   return (
     <PseudoBox
       w="100%"

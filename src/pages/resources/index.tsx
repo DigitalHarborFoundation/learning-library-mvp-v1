@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text, Alert, Spinner } from "@chakra-ui/core";
 import { NextPage } from "next";
 import useSWR from "swr";
-import ResourceCard from "../../components/ResourceCard";
+import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -40,9 +40,7 @@ const ResourcesIndexPage: NextPage = () => {
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
-      {data.map((resource) => (
-        <ResourceCard key={resource.id} data={resource} />
-      ))}
+      <ResourceGrid data={data} />
     </Flex>
   );
 };

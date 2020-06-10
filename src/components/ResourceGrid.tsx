@@ -1,9 +1,9 @@
 import { Box, Heading, Grid } from "@chakra-ui/core";
 import ResourceCard from "../components/ResourceCard";
 
-const ResourceGrid: React.FC = ({}) => {
+const ResourceGrid: React.FC = ({ data }) => {
   return (
-    <Box marginTop={4}>
+    <Box marginTop={4} marginX={4}>
       <Grid
         templateColumns={[
           "repeat(1, 1fr)",
@@ -13,9 +13,8 @@ const ResourceGrid: React.FC = ({}) => {
         ]}
         gap={4}
       >
-        {/* images will go in these boxes */}
         {data.map((item) => (
-          <ImageCard key={item.id} data={item} />
+          <ResourceCard key={item.id} data={item} />
         ))}
       </Grid>
     </Box>
