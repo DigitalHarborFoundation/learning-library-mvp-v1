@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   PseudoBox,
   AspectRatioBox,
@@ -56,13 +57,11 @@ const ResourceCard: React.FC = ({ data }) => {
         >
           {data.title}
         </Box>
-        <Button
-          rightIcon="view"
-          variantColor="gray"
-          onClick={() => console.log("will link to page")}
-        >
-          Learn More
-        </Button>
+        <Link href="resources/[id]" as={`/resources/${data.id}`}>
+          <Button rightIcon="view" variantColor="gray">
+            Learn More
+          </Button>
+        </Link>
       </Box>
     </PseudoBox>
   );
