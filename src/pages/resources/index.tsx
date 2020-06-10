@@ -26,6 +26,7 @@ const fetcher = async (url: string) => {
 };
 
 const ResourcesIndexPage: NextPage = () => {
+  const router = useRouter();
   const { query } = useRouter();
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
   const [filterPathway, setFilterPathway] = useState(null);
@@ -33,17 +34,6 @@ const ResourcesIndexPage: NextPage = () => {
   const filteredByPathway = filterPathway
     ? data.filter((item) => item.pathway[0] === filterPathway)
     : data;
-
-  // const filterByPathway = () => {
-  //   const filterPathwayResults = data.filter(
-  //     (item) => item.pathway[0].toLowerCase() === query.pathway.toLowerCase()
-  //   );
-  //   console.log(
-  //     `filterPathwwayResults for ${query.pathway}:`,
-  //     filterPathwayResults
-  //   );
-  //   setFilterPathway(filterPathwayResults);
-  // };
 
   if (error) {
     return (
@@ -103,7 +93,8 @@ const ResourcesIndexPage: NextPage = () => {
               variantColor="cyan"
               variant="outline"
               onClick={() => {
-                setFilterPathway(pathway);
+                // setFilterPathway(pathway);
+                router.push(`/resources/?pathway=${pathway}`);
                 console.log("filter set to:", pathway);
               }}
             >
