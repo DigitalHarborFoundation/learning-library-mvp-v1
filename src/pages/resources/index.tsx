@@ -32,6 +32,7 @@ const ResourcesIndexPage: NextPage = () => {
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
+  const [combinedItems, setCombinedItems] = useState(data);
 
   // useEffect(() => {
   //   const handleRouteChange = (url) => {
@@ -52,8 +53,15 @@ const ResourcesIndexPage: NextPage = () => {
     ? data.filter((item) => item.os === filterOS)
     : data;
 
-  const composeFilters = (...args) => {
-    return args.reduce((acc, val) => [...acc, ...val]);
+  const composeFilters = (data) => {
+    // const composed = filter((acc, val) => [...acc, ...val]);
+    if (data) {
+      const combined = data
+        .filter((x) => x.pathway[0] === filterPathway)
+        .filter((y) => y.os === filterOS);
+      setCombinedItems(combined);
+      console.log("combined:", combined);
+    }
   };
 
   if (error) {
@@ -103,6 +111,8 @@ const ResourcesIndexPage: NextPage = () => {
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
       <pre>{query.pathway}</pre>
+      {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
+      <Button onClick={() => composeFilters(data)}>Compose Test</Button>
       <Text>
         Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
       </Text>
@@ -166,8 +176,12 @@ const ResourcesIndexPage: NextPage = () => {
           )}
         </Stack>
       </Flex>
-      {/* <ResourceGrid data={composeFilters(filteredByPathway, filteredByOS)} /> */}
-      <ResourceGrid data={filteredByOS} />
+
+      {combinedItems ? (
+        <ResourceGrid data={combinedItems} />
+      ) : (
+        <ResourceGrid data={data} />
+      )}
     </Flex>
   );
 };
