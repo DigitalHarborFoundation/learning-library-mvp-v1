@@ -110,12 +110,19 @@ const ResourcesIndexPage: NextPage = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
-      <pre>{query.pathway}</pre>
       {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
       <Button onClick={() => composeFilters(data)}>Compose Test</Button>
-      <Text>
-        Displaying {data.length} {data.length === 1 ? "Resource" : "Resources"}
-      </Text>
+      {combinedItems ? (
+        <Text>
+          Displaying {combinedItems.length}{" "}
+          {combinedItems.length === 1 ? "Resource" : "Resources"}
+        </Text>
+      ) : (
+        <Text>
+          Displaying {data.length}{" "}
+          {data.length === 1 ? "Resource" : "Resources"}
+        </Text>
+      )}
       <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
           Pathways:
@@ -141,7 +148,7 @@ const ResourcesIndexPage: NextPage = () => {
               variant="solid"
               onClick={() => setFilterPathway(null)}
             >
-              Reset Pathway Filter
+              Reset Filter
             </Button>
           )}
         </Stack>
@@ -171,7 +178,7 @@ const ResourcesIndexPage: NextPage = () => {
               variant="solid"
               onClick={() => setFilterOS(null)}
             >
-              Reset Operating System Filter
+              Reset Filter
             </Button>
           )}
         </Stack>
