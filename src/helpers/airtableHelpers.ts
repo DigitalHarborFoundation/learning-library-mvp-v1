@@ -36,6 +36,7 @@ module.exports = {
                 tags: record.get("Tags"),
                 description: record.get("Description"),
                 type: record.get("Content Type"),
+                author: record.get("Author"),
               };
 
               allRecords.push(item);

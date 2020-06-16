@@ -20,6 +20,8 @@ type Props = {
     pathway: string;
     image: string[];
     url: string;
+    type: string;
+    author: string;
   };
 };
 
@@ -32,6 +34,7 @@ const ResourceCard = ({ data }: Props) => {
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
+      bg="white"
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
         <PseudoBox _hover={{ cursor: "pointer" }}>
@@ -64,7 +67,7 @@ const ResourceCard = ({ data }: Props) => {
           {data.title}
         </Box>
         <Link href="resources/[id]" as={`/resources/${data.id}`}>
-          <Button rightIcon="view" variantColor="gray">
+          <Button rightIcon="view" variantColor="purple" variant="outline">
             Learn More
           </Button>
         </Link>
