@@ -110,8 +110,8 @@ const ResourcesIndexPage: NextPage = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
-      {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
-      <Button onClick={() => composeFilters(data)}>Compose Test</Button>
+      {/* {combinedItems && <pre>combined items: {combinedItems.length}</pre>} */}
+      {/* <Button onClick={() => composeFilters(data)}>Compose Test</Button> */}
       {combinedItems ? (
         <Text>
           Displaying {combinedItems.length}{" "}
