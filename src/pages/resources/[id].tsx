@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+const ReactMarkdown = require("react-markdown");
 import useSWR from "swr";
 import {
   AspectRatioBox,
@@ -36,10 +37,6 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-function createMarkup(richText) {
-  return { __html: richText };
-}
-
 const ResourcePage: NextPage = ({
   title,
   image,
@@ -70,7 +67,7 @@ const ResourcePage: NextPage = ({
   //     </Flex>
   //   );
   // }
-  console.log(createMarkup(description));
+
   return (
     <Flex direction="column" justify="center" align="center">
       <Box
@@ -134,7 +131,9 @@ const ResourcePage: NextPage = ({
         </SimpleGrid>
         <Divider />
         {/* <Text>{description}</Text> */}
-        <Text dangerouslySetInnerHTML={createMarkup(description)} />
+        <Text>
+          <ReactMarkdown source={description} />
+        </Text>
       </Box>
     </Flex>
   );
