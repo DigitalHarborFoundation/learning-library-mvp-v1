@@ -52,6 +52,7 @@ const ResourcePage: NextPage = ({
   authorSite,
   type,
   rating,
+  level,
 }) => {
   // const { data, error } = useSWR(`/api/records/${router.query.id}`, fetcher);
 
@@ -88,9 +89,17 @@ const ResourcePage: NextPage = ({
           <AspectRatioBox height="300px" ratio={16 / 9}>
             <Image src={image} alt={title} objectFit="cover" />
           </AspectRatioBox>
-          <Flex direction="column" align="center">
-            <Text>{type}</Text>
-            <Box d="flex" mt="2" alignItems="center">
+          <Flex direction="column" align="flex-start">
+            <Box
+              color="gray.500"
+              fontWeight="semibold"
+              letterSpacing="wide"
+              fontSize="xs"
+              textTransform="uppercase"
+            >
+              {type} &bull; {level}
+            </Box>
+            <Box d="flex" marginY="1" alignItems="center">
               {Array(5)
                 .fill("")
                 .map((_, i) => (
@@ -100,11 +109,8 @@ const ResourcePage: NextPage = ({
                     color={i < rating ? "purple.500" : "purple.100"}
                   />
                 ))}
-              {/* <Box as="span" ml="2" color="gray.600" fontSize="md">
-                Rating
-              </Box> */}
             </Box>
-            <Box p="4" alignItems="center" justifyContent="center">
+            <Box paddingY={2} alignItems="center" justifyContent="center">
               <Flex direction="row">
                 <Badge rounded="md" marginRight="1" variantColor="purple">
                   {os}
@@ -124,15 +130,18 @@ const ResourcePage: NextPage = ({
                 ))}
               </Stack>
             )}
-            <ChakraLink href={url} isExternal>
-              {title} <Icon name="external-link" mx="2px" />
-            </ChakraLink>
-            <Box border="1px" rounded="md" borderColor="gray.200" padding={2}>
-              <Text>{author}</Text>
-              <ChakraLink href={authorSite} isExternal>
-                {authorSite} <Icon name="external-link" mx="2px" />
+            <Text>
+              Check it out:{" "}
+              <ChakraLink href={url} isExternal color="blue.500">
+                {title} <Icon name="external-link" mx="2px" />
               </ChakraLink>
-            </Box>
+            </Text>
+            <Text>
+              Contributed by{" "}
+              <ChakraLink href={authorSite} isExternal color="blue.500">
+                {author}
+              </ChakraLink>{" "}
+            </Text>
           </Flex>
         </SimpleGrid>
         <Divider />
