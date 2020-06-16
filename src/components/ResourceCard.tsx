@@ -12,7 +12,17 @@ import {
   Tag,
 } from "@chakra-ui/core";
 
-const ResourceCard: React.FC = ({ data }) => {
+type Props = {
+  data: {
+    title: string;
+    id: string;
+    os: string;
+    pathway: string;
+    url: string;
+  };
+};
+
+const ResourceCard = ({ data }: Props) => {
   return (
     <PseudoBox
       w="100%"
