@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             </Heading>
           </ChakraLink>
         </Link>
-        <DarkModeSwitch />
+        {/* <DarkModeSwitch /> */}
       </Flex>
     </Flex>
   );

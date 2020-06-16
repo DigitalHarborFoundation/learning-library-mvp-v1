@@ -1,16 +1,17 @@
 import { AppProps } from "next/app";
 import {
   ThemeProvider,
+  theme,
   CSSReset,
   Flex,
   ColorModeProvider,
 } from "@chakra-ui/core";
-import theme from "../theme";
+
 import SiteLayout from "../components/SiteLayout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <Flex direction="column" align="center" justify="center">
           <CSSReset />

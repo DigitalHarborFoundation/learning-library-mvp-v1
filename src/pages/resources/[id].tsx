@@ -85,7 +85,7 @@ const ResourcePage: NextPage = ({
         <Heading as="h2" textAlign="center">
           {title}
         </Heading>
-        <SimpleGrid columns={2} spacing={8} marginY={8}>
+        <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
           <AspectRatioBox height="300px" ratio={16 / 9}>
             <Image src={image} alt={title} objectFit="cover" />
           </AspectRatioBox>
@@ -145,18 +145,20 @@ const ResourcePage: NextPage = ({
                 ))}
               </Stack>
             )}
-            <Text>
-              Check it out:{" "}
-              <ChakraLink href={url} isExternal color="blue.500">
-                {title} <Icon name="external-link" mx="2px" />
-              </ChakraLink>
-            </Text>
-            <Text>
-              Contributed by{" "}
-              <ChakraLink href={authorSite} isExternal color="blue.500">
-                {author}
-              </ChakraLink>{" "}
-            </Text>
+            <Stack marginTop={4}>
+              <Text>
+                Check it out:{" "}
+                <ChakraLink href={url} isExternal color="blue.500">
+                  {title} <Icon name="external-link" mx="2px" />
+                </ChakraLink>
+              </Text>
+              <Text>
+                Contributed by{" "}
+                <ChakraLink href={authorSite} isExternal color="blue.500">
+                  {author}
+                </ChakraLink>{" "}
+              </Text>
+            </Stack>
           </Flex>
         </SimpleGrid>
         <Divider />
