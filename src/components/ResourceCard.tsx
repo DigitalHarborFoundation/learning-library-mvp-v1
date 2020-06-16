@@ -18,6 +18,7 @@ type Props = {
     id: string;
     os: string;
     pathway: string;
+    image: string[];
     url: string;
   };
 };
@@ -31,18 +32,9 @@ const ResourceCard = ({ data }: Props) => {
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
-      // boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2);"
-      // _hover={{
-      //   cursor: "pointer",
-      //   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
-      // }}
     >
       <AspectRatioBox height="300px" ratio={16 / 9}>
-        <Image
-          src={data.image[0].url}
-          alt="Cup of coffee with 'Begin' on it sitting on a wooden table"
-          objectFit="cover"
-        />
+        <Image src={data.image[0].url} alt={data.title} objectFit="cover" />
       </AspectRatioBox>
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
