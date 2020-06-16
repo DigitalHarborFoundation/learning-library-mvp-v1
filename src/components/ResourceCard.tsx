@@ -82,7 +82,10 @@ const ResourceCard = ({ data }: Props) => {
         >
           {data.title}
         </Box>
-        <Link href="resources/[id]" as={`/resources/${data.id}`}>
+        <Link
+          href="resources/[id]?recordId=${data.id}"
+          as={`/resources/${data.id}`}
+        >
           <Button rightIcon="view" variantColor="purple" variant="outline">
             Learn More
           </Button>
