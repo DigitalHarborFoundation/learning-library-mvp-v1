@@ -112,10 +112,20 @@ const ResourcePage: NextPage = ({
             </Box>
             <Box paddingY={2} alignItems="center" justifyContent="center">
               <Flex direction="row">
-                <Badge rounded="md" marginRight="1" variantColor="purple">
+                <Badge
+                  padding="1"
+                  rounded="md"
+                  marginRight="1"
+                  variantColor="purple"
+                >
                   {os}
                 </Badge>
-                <Badge rounded="md" marginLeft="1" variantColor="teal">
+                <Badge
+                  padding={1}
+                  rounded="md"
+                  marginLeft="1"
+                  variantColor="teal"
+                >
                   {pathway}
                 </Badge>
               </Flex>
@@ -123,7 +133,12 @@ const ResourcePage: NextPage = ({
             {tags && (
               <Stack spacing={2} isInline>
                 {tags.map((tag) => (
-                  <Tag rounded="full" size="md" variantColor="gray">
+                  <Tag
+                    rounded="md"
+                    size="md"
+                    variantColor="gray"
+                    variant="outline"
+                  >
                     <TagLabel>{tag}</TagLabel>
                     <TagIcon icon={TiTag} />
                   </Tag>
