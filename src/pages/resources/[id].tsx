@@ -84,7 +84,20 @@ const ResourcePage: NextPage = ({
           <Flex direction="column" align="center">
             <Text>{author}</Text>
             <Text>{type}</Text>
-            <Text>{rating}</Text>
+            <Box d="flex" mt="2" alignItems="center">
+              {Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <Icon
+                    key={i}
+                    name="star"
+                    color={i < rating ? "purple.500" : "purple.100"}
+                  />
+                ))}
+              {/* <Box as="span" ml="2" color="gray.600" fontSize="md">
+                Rating
+              </Box> */}
+            </Box>
             <Box p="4" alignItems="center" justifyContent="center">
               <Flex direction="row">
                 <Badge rounded="md" marginRight="1" variantColor="purple">
@@ -95,11 +108,13 @@ const ResourcePage: NextPage = ({
                 </Badge>
               </Flex>
             </Box>
-            <Stack spacing={2} isInline>
-              {tags.map((tag) => (
-                <Text>{tag}</Text>
-              ))}
-            </Stack>
+            {tags && (
+              <Stack spacing={2} isInline>
+                {tags.map((tag) => (
+                  <Text>{tag}</Text>
+                ))}
+              </Stack>
+            )}
             <ChakraLink href={url} isExternal>
               {title} <Icon name="external-link" mx="2px" />
             </ChakraLink>
@@ -126,7 +141,7 @@ export async function getServerSideProps(context) {
       os: data.fields["Operating System"],
       pathway: data.fields["Pathway"],
       level: data.fields["Skill Level"],
-      tags: data.fields["Tags"],
+      tags: data.fields["Tags"] || null,
       description: data.fields["Description"],
       type: data.fields["Content Type"],
       author: data.fields["Author"],
