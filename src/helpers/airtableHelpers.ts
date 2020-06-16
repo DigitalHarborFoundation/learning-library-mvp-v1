@@ -40,7 +40,6 @@ module.exports = {
               };
 
               allRecords.push(item);
-              console.log(allRecords);
             });
 
             fetchNextPage();

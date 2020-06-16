@@ -30,15 +30,15 @@ const apiKey = process.env.API_KEY;
 const baseId = process.env.BASE_ID;
 const tableName = process.env.TABLE_NAME;
 
-const fetcher = async (url: string) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw Error("There is problem with the data request.");
-  }
-  const { data } = await res.json();
-  console.log("data from swr", data);
-  return data;
-};
+// const fetcher = async (url: string) => {
+//   const res = await fetch(url);
+//   if (!res.ok) {
+//     throw Error("There is problem with the data request.");
+//   }
+//   const { data } = await res.json();
+//   console.log("data from swr", data);
+//   return data;
+// };
 
 const ResourcePage: NextPage = ({
   title,
@@ -168,9 +168,9 @@ const ResourcePage: NextPage = ({
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ params, query }) {
   const res = await fetch(
-    `https://api.airtable.com/v0/${baseId}/${tableName}/${context.params.id}?api_key=${apiKey}`
+    `https://api.airtable.com/v0/${baseId}/${tableName}/${params.id}?api_key=${apiKey}`
   );
   const data = await res.json();
 

@@ -11,6 +11,7 @@ import {
   Flex,
   Tag,
 } from "@chakra-ui/core";
+import kebabCase from "lodash.kebabcase";
 
 type Props = {
   data: {
@@ -83,8 +84,9 @@ const ResourceCard = ({ data }: Props) => {
           {data.title}
         </Box>
         <Link
-          href="resources/[id]?recordId=${data.id}"
+          href={`resources/[id]`}
           as={`/resources/${data.id}`}
+          // as={`/resources/${kebabCase(data.title)}?id=${data.id}`}
         >
           <Button rightIcon="view" variantColor="purple" variant="outline">
             Learn More
