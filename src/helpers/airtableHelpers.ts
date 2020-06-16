@@ -26,17 +26,17 @@ module.exports = {
             // Get the fields
             records.forEach((record) => {
               const item = {
-                id: record.id,
-                title: record.get("Resource Title"),
+                id: record.id || null,
+                title: record.get("Resource Title") || null,
                 image: record.get("Featured Image"),
-                url: record.get("URL"),
-                os: record.get("Operating System"),
-                pathway: record.get("Pathway"),
-                level: record.get("Skill Level"),
-                tags: record.get("Tags"),
-                description: record.get("Description"),
-                type: record.get("Content Type"),
-                author: record.get("Author"),
+                url: record.get("URL") || null,
+                os: record.get("Operating System") || null,
+                pathway: record.get("Pathway") || null,
+                level: record.get("Skill Level") || null,
+                tags: record.get("Tags") || null,
+                description: record.get("Description") || null,
+                type: record.get("Content Type") || null,
+                author: record.get("Author") || null,
               };
 
               allRecords.push(item);

@@ -14,7 +14,9 @@ const ResourceGrid: React.FC = ({ data }) => {
         gap={6}
       >
         {data.map((item) => (
-          <ResourceCard key={item.id} data={item} />
+          <>
+            <ResourceCard key={item.id} data={item} />
+          </>
         ))}
       </Grid>
     </Box>

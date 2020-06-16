@@ -20,8 +20,11 @@ import {
   Icon,
   Stack,
   Tag,
+  TagLabel,
+  TagIcon,
   Divider,
 } from "@chakra-ui/core";
+import { TiTag } from "react-icons/ti";
 
 const apiKey = process.env.API_KEY;
 const baseId = process.env.BASE_ID;
@@ -114,7 +117,10 @@ const ResourcePage: NextPage = ({
             {tags && (
               <Stack spacing={2} isInline>
                 {tags.map((tag) => (
-                  <Text>{tag}</Text>
+                  <Tag rounded="full" size="md" variantColor="gray">
+                    <TagLabel>{tag}</TagLabel>
+                    <TagIcon icon={TiTag} />
+                  </Tag>
                 ))}
               </Stack>
             )}
@@ -130,7 +136,6 @@ const ResourcePage: NextPage = ({
           </Flex>
         </SimpleGrid>
         <Divider />
-        {/* <Text>{description}</Text> */}
         <Text>
           <ReactMarkdown source={description} />
         </Text>

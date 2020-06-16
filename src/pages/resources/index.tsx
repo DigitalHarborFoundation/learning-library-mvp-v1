@@ -183,7 +183,6 @@ const ResourcesIndexPage: NextPage = () => {
           )}
         </Stack>
       </Flex>
-
       {combinedItems ? (
         <ResourceGrid data={combinedItems} />
       ) : (

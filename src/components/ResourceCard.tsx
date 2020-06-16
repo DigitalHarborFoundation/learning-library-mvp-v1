@@ -22,6 +22,7 @@ type Props = {
     url: string;
     type: string;
     author: string;
+    level: string;
   };
 };
 
@@ -38,9 +39,15 @@ const ResourceCard = ({ data }: Props) => {
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
         <PseudoBox _hover={{ cursor: "pointer" }}>
-          <AspectRatioBox height="300px" ratio={16 / 9}>
-            <Image src={data.image[0].url} alt={data.title} objectFit="cover" />
-          </AspectRatioBox>
+          {data.image && (
+            <AspectRatioBox height="300px" ratio={16 / 9}>
+              <Image
+                src={data.image[0].url}
+                alt={data.title}
+                objectFit="cover"
+              />
+            </AspectRatioBox>
+          )}
         </PseudoBox>
       </Link>
       <Box p="4" alignItems="center" justifyContent="center">
