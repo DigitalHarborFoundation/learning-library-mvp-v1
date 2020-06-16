@@ -52,15 +52,24 @@ const ResourceCard = ({ data }: Props) => {
             <Badge rounded="md" marginLeft="1" variantColor="teal">
               {data.pathway}
             </Badge>
+            <Box
+              color="gray.500"
+              fontWeight="semibold"
+              letterSpacing="wide"
+              fontSize="xs"
+              textTransform="uppercase"
+              marginLeft="2"
+            >
+              {data.type} &bull; {data.level}
+            </Box>
           </Flex>
         </Box>
         <Box
           as="h3"
-          color="gray.500"
-          fontWeight="semibold"
+          color="gray.600"
+          fontWeight="normal"
           letterSpacing="wide"
-          fontSize="xs"
-          textTransform="uppercase"
+          fontSize="md"
           ml={0}
           paddingY={2}
         >

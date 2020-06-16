@@ -19,6 +19,7 @@ import {
   Icon,
   Stack,
   Tag,
+  Divider,
 } from "@chakra-ui/core";
 
 const apiKey = process.env.API_KEY;
@@ -35,6 +36,10 @@ const fetcher = async (url: string) => {
   return data;
 };
 
+function createMarkup(richText) {
+  return { __html: richText };
+}
+
 const ResourcePage: NextPage = ({
   title,
   image,
@@ -44,6 +49,7 @@ const ResourcePage: NextPage = ({
   url,
   tags,
   author,
+  authorSite,
   type,
   rating,
 }) => {
@@ -64,6 +70,7 @@ const ResourcePage: NextPage = ({
   //     </Flex>
   //   );
   // }
+  console.log(createMarkup(description));
   return (
     <Flex direction="column" justify="center" align="center">
       <Box
@@ -82,7 +89,6 @@ const ResourcePage: NextPage = ({
             <Image src={image} alt={title} objectFit="cover" />
           </AspectRatioBox>
           <Flex direction="column" align="center">
-            <Text>{author}</Text>
             <Text>{type}</Text>
             <Box d="flex" mt="2" alignItems="center">
               {Array(5)
@@ -118,9 +124,17 @@ const ResourcePage: NextPage = ({
             <ChakraLink href={url} isExternal>
               {title} <Icon name="external-link" mx="2px" />
             </ChakraLink>
+            <Box border="1px" rounded="md" borderColor="gray.200" padding={2}>
+              <Text>{author}</Text>
+              <ChakraLink href={authorSite} isExternal>
+                {authorSite} <Icon name="external-link" mx="2px" />
+              </ChakraLink>
+            </Box>
           </Flex>
         </SimpleGrid>
-        <Text>{description}</Text>
+        <Divider />
+        {/* <Text>{description}</Text> */}
+        <Text dangerouslySetInnerHTML={createMarkup(description)} />
       </Box>
     </Flex>
   );
@@ -145,6 +159,7 @@ export async function getServerSideProps(context) {
       description: data.fields["Description"],
       type: data.fields["Content Type"],
       author: data.fields["Author"],
+      authorSite: data.fields["Author Site"] || null,
       rating: data.fields["Rating"],
     },
   };
