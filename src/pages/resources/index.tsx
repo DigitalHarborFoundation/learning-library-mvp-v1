@@ -29,7 +29,10 @@ const fetcher = async (url: string) => {
 const ResourcesIndexPage: NextPage = () => {
   const router = useRouter();
   const { query } = useRouter();
-  const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
+  const { data, error } = useSWR(
+    `https://learning-library-mvp-v1-p450nf7se.vercel.app/api/records/allRecords`,
+    fetcher
+  );
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
   const [combinedItems, setCombinedItems] = useState(data);
