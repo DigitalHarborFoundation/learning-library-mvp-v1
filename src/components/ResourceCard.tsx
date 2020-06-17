@@ -13,21 +13,21 @@ import {
 } from "@chakra-ui/core";
 import kebabCase from "lodash.kebabcase";
 
-type Props = {
-  data: {
-    title: string;
-    id: string;
-    os: string;
-    pathway: string;
-    image: string[];
-    url: string;
-    type: string;
-    author: string;
-    level: string;
-  };
-};
+// type Props = {
+//   data: {
+//     title: string;
+//     id: string;
+//     os: string;
+//     pathway: string;
+//     // image: string[];
+//     // url: string;
+//     type: string;
+//     author: string;
+//     level: string;
+//   };
+// };
 
-const ResourceCard = ({ data }: Props) => {
+const ResourceCard = ({ data }) => {
   return (
     <PseudoBox
       w="100%"
