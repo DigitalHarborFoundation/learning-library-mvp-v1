@@ -172,7 +172,8 @@ const ResourcePage = ({
 
 export async function getServerSideProps({ params, query }) {
   const res = await fetch(
-    `https://api.airtable.com/v0/${baseId}/${tableName}/${params.id}?api_key=${apiKey}`
+    `https://api.airtable.com/v0/${baseId}/${tableName}/${params.id}?api_key=${apiKey}`,
+    { method: "GET", mode: "no-cors", credentials: "same-origin" }
   );
   const data = await res.json();
 
