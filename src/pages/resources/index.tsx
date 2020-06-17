@@ -15,46 +15,52 @@ import {
 } from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
-const fetcher = async (url: string) => {
-  const res = await fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-    credentials: "same-origin",
-  });
-  if (!res.ok) {
-    throw Error("There is problem with the data request.");
-  }
-  const { records } = await res.json();
-  console.log("data from swr", records);
-  console.log("test:", records[0].fields.Pathway[0]);
+const apiKey = process.env.API_KEY;
+const baseId = process.env.BASE_ID;
+const tableName = process.env.TABLE_NAME;
 
-  return records;
-};
+// const fetcher = async (url: string) => {
+//   const res = await fetch(url, {
+//     method: "GET",
+//     mode: "no-cors",
+//     credentials: "same-origin",
+//   });
+//   if (!res.ok) {
+//     throw Error("There is problem with the data request.");
+//   }
+//   const { records } = await res.json();
+//   console.log("data from swr", records);
+//   console.log("test:", records[0].fields.Pathway[0]);
+
+//   return records;
+// };
 
 const ResourcesIndexPage = ({
-  title,
-  image,
-  description,
-  os,
-  pathway,
-  url,
-  tags,
-  author,
-  authorSite,
-  type,
-  rating,
-  level,
+  data,
+  // title,
+  // image,
+  // description,
+  // os,
+  // pathway,
+  // url,
+  // tags,
+  // author,
+  // authorSite,
+  // type,
+  // rating,
+  // level,
 }) => {
   const router = useRouter();
   const { query } = useRouter();
   const apiKey = process.env.API_KEY;
   const baseId = process.env.BASE_ID;
   const tableName = process.env.TABLE_NAME;
+
   // const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
   // const { data, error } = useSWR(`/api/records/allRecordsFetch`, fetcher);
-  const testURL = `https://api.airtable.com/v0/${baseId}/Content%20Resources?view=Approved%20Resources&api_key=${apiKey}`;
+  // const testURL = `https://api.airtable.com/v0/${baseId}/Content%20Resources?view=Approved%20Resources&api_key=${apiKey}`;
 
-  const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
+  // const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
@@ -90,21 +96,21 @@ const ResourcesIndexPage = ({
   //   }
   // };
 
-  if (error) {
-    return (
-      <Flex
-        direction="column"
-        justify="center"
-        align="center"
-        minHeight="100vh"
-      >
-        <Alert status="error">
-          Failed to load data: {error.message}. Please reach out to
-          contact@digitalharbor.org
-        </Alert>
-      </Flex>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <Flex
+  //       direction="column"
+  //       justify="center"
+  //       align="center"
+  //       minHeight="100vh"
+  //     >
+  //       <Alert status="error">
+  //         Failed to load data: {error.message}. Please reach out to
+  //         contact@digitalharbor.org
+  //       </Alert>
+  //     </Flex>
+  //   );
+  // }
 
   // if (!data) {
   //   return (
@@ -128,10 +134,14 @@ const ResourcesIndexPage = ({
   //   );
   // }
 
-  // const pathwaysList = [...new Set(data.map((item) => item.pathway[0]))];
-  // const osList = [...new Set(data.map((item) => item.os))];
-  // console.log("pathways:", pathwaysList);
-  // console.log("os list", osList);
+  const pathwaysList = [
+    ...new Set(data.map((item) => item.fields["Pathway"][0])),
+  ];
+  const osList = [
+    ...new Set(data.map((item) => item.fields["Operating System"])),
+  ];
+  console.log("pathways:", pathwaysList);
+  console.log("os list", osList);
 
   return (
     <Flex direction="column" justify="center" align="center">
@@ -149,7 +159,7 @@ const ResourcesIndexPage = ({
           {data.length === 1 ? "Resource" : "Resources"}
         </Text>
       )}
-      {/* <Flex direction="row" align="center" justify="center">
+      <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
           Pathways:
         </Text>
@@ -208,7 +218,7 @@ const ResourcesIndexPage = ({
             </Button>
           )}
         </Stack>
-      </Flex> */}
+      </Flex>
       {combinedItems ? (
         <ResourceGrid data={combinedItems} />
       ) : (
@@ -217,5 +227,18 @@ const ResourcesIndexPage = ({
     </Flex>
   );
 };
+
+export async function getServerSideProps({ params, query }) {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${baseId}/${tableName}?view=Approved%20Resources&api_key=${apiKey}`
+  );
+  const data = await res.json();
+
+  return {
+    props: {
+      data: data.records,
+    },
+  };
+}
 
 export default ResourcesIndexPage;

@@ -40,11 +40,11 @@ const ResourceCard = ({ data }) => {
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
         <PseudoBox _hover={{ cursor: "pointer" }}>
-          {data.image && (
+          {data.fields["Featured Image"] && (
             <AspectRatioBox height="300px" ratio={16 / 9}>
               <Image
-                src={data.image[0].url}
-                alt={data.title}
+                src={data.fields["Featured Image"][0].url}
+                alt={data.fields["Resource Title"]}
                 objectFit="cover"
               />
             </AspectRatioBox>
@@ -55,10 +55,10 @@ const ResourceCard = ({ data }) => {
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
             <Badge rounded="md" marginRight="1" variantColor="purple">
-              {data.os}
+              {data.fields["Operating System"]}
             </Badge>
             <Badge rounded="md" marginLeft="1" variantColor="teal">
-              {data.pathway}
+              {data.fields["Pathway"]}
             </Badge>
             <Box
               color="gray.500"
@@ -68,7 +68,7 @@ const ResourceCard = ({ data }) => {
               textTransform="uppercase"
               marginLeft="2"
             >
-              {data.type} &bull; {data.level}
+              {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
             </Box>
           </Flex>
         </Box>
