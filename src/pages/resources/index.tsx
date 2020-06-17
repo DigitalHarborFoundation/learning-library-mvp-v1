@@ -15,10 +15,6 @@ import {
 } from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
-const apiKey = process.env.API_KEY;
-const baseId = process.env.BASE_ID;
-const tableName = process.env.TABLE_NAME;
-
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
     method: "GET",
@@ -51,16 +47,6 @@ const ResourcesIndexPage = (
     // level,
   }
 ) => {
-  const router = useRouter();
-  const { query } = useRouter();
-  const apiKey = process.env.API_KEY;
-  const baseId = process.env.BASE_ID;
-  const tableName = process.env.TABLE_NAME;
-
-  // const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
-  // const { data, error } = useSWR(`/api/records/allRecordsFetch`, fetcher);
-  // const testURL = `https://api.airtable.com/v0/${baseId}/Content%20Resources?view=Approved%20Resources&api_key=${apiKey}`;
-
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
   const [filterPathway, setFilterPathway] = useState(null);
@@ -78,23 +64,26 @@ const ResourcesIndexPage = (
   //   };
   // }, []);
 
-  const filteredByPathway = filterPathway
-    ? data.filter((item) => item.pathway[0] === filterPathway)
-    : data;
+  // const filteredByPathway = filterPathway
+  //   ? data.filter((item) => item.fields["Pathway"][0] === filterPathway)
+  //   : data;
 
-  const filteredByOS = filterOS
-    ? data.filter((item) => item.os === filterOS)
-    : data;
+  // const filteredByOS = filterOS
+  //   ? data.filter((item) => item.fields["Operating System"] === filterOS)
+  //   : data;
 
   const composeFilters = (data) => {
-    // const composed = filter((acc, val) => [...acc, ...val]);
     if (data) {
       const combined = data
-        .filter((x) => x.pathway[0] === filterPathway)
-        .filter((y) => y.os === filterOS);
+        .filter((x) => x.fields["Pathway"][0] === filterPathway)
+        .filter((y) => y.fields["Operating System"] === filterOS);
       setCombinedItems(combined);
+      console.log("filterPathway", filterPathway);
+      console.log("filterOS", filterOS);
+
       console.log("combined:", combined);
     }
+    console.log("from compose", data);
   };
 
   if (error) {
@@ -147,8 +136,8 @@ const ResourcesIndexPage = (
   return (
     <Flex direction="column" justify="center" align="center">
       <Heading as="h2">Resources</Heading>
-      {/* {combinedItems && <pre>combined items: {combinedItems.length}</pre>} */}
-      {/* <Button onClick={() => composeFilters(data)}>Compose Test</Button> */}
+      {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
+      <Button onClick={() => composeFilters(data)}>Compose Test</Button>
       {combinedItems ? (
         <Text>
           Displaying {combinedItems.length}{" "}
@@ -228,23 +217,5 @@ const ResourcesIndexPage = (
     </Flex>
   );
 };
-
-// export async function getServerSideProps({ params, query }) {
-//   const res = await fetch(
-//     `https://api.airtable.com/v0/${baseId}/${tableName}?view=Approved%20Resources&api_key=${apiKey}`,
-//     {
-//       method: "GET",
-//       mode: "no-cors",
-//       credentials: "same-origin",
-//     }
-//   );
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data: data.records,
-//     },
-//   };
-// }
 
 export default ResourcesIndexPage;
