@@ -1,6 +1,4 @@
-import { NextApiHandler } from "next";
-
-const allRecords: NextApiHandler = async (req, res) => {
+const allRecords = async (req, res) => {
   const apiKey = process.env.API_KEY;
   const baseId = process.env.BASE_ID;
   const data = await fetch(
