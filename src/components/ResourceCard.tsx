@@ -42,11 +42,11 @@ const ResourceCard = ({ data }: Props) => {
         <PseudoBox _hover={{ cursor: "pointer" }}>
           {data.image && (
             <AspectRatioBox height="300px" ratio={16 / 9}>
-              <Image
+              {/* <Image
                 src={data.image[0].url}
                 alt={data.title}
                 objectFit="cover"
-              />
+              /> */}
             </AspectRatioBox>
           )}
         </PseudoBox>
