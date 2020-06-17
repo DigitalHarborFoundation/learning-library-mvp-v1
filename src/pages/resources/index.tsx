@@ -19,37 +19,38 @@ const apiKey = process.env.API_KEY;
 const baseId = process.env.BASE_ID;
 const tableName = process.env.TABLE_NAME;
 
-// const fetcher = async (url: string) => {
-//   const res = await fetch(url, {
-//     method: "GET",
-//     mode: "no-cors",
-//     credentials: "same-origin",
-//   });
-//   if (!res.ok) {
-//     throw Error("There is problem with the data request.");
-//   }
-//   const { records } = await res.json();
-//   console.log("data from swr", records);
-//   console.log("test:", records[0].fields.Pathway[0]);
+const fetcher = async (url: string) => {
+  const res = await fetch(url, {
+    method: "GET",
+    mode: "no-cors",
+    credentials: "same-origin",
+  });
+  if (!res.ok) {
+    throw Error("There is problem with the data request.");
+  }
+  const { records } = await res.json();
+  console.log("data from swr", records);
+  console.log("test:", records[0].fields.Pathway[0]);
 
-//   return records;
-// };
+  return records;
+};
 
-const ResourcesIndexPage = ({
-  data,
-  // title,
-  // image,
-  // description,
-  // os,
-  // pathway,
-  // url,
-  // tags,
-  // author,
-  // authorSite,
-  // type,
-  // rating,
-  // level,
-}) => {
+const ResourcesIndexPage = (
+  {
+    // title,
+    // image,
+    // description,
+    // os,
+    // pathway,
+    // url,
+    // tags,
+    // author,
+    // authorSite,
+    // type,
+    // rating,
+    // level,
+  }
+) => {
   const router = useRouter();
   const { query } = useRouter();
   const apiKey = process.env.API_KEY;
@@ -60,7 +61,7 @@ const ResourcesIndexPage = ({
   // const { data, error } = useSWR(`/api/records/allRecordsFetch`, fetcher);
   // const testURL = `https://api.airtable.com/v0/${baseId}/Content%20Resources?view=Approved%20Resources&api_key=${apiKey}`;
 
-  // const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
+  const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
@@ -96,43 +97,43 @@ const ResourcesIndexPage = ({
   //   }
   // };
 
-  // if (error) {
-  //   return (
-  //     <Flex
-  //       direction="column"
-  //       justify="center"
-  //       align="center"
-  //       minHeight="100vh"
-  //     >
-  //       <Alert status="error">
-  //         Failed to load data: {error.message}. Please reach out to
-  //         contact@digitalharbor.org
-  //       </Alert>
-  //     </Flex>
-  //   );
-  // }
+  if (error) {
+    return (
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        minHeight="100vh"
+      >
+        <Alert status="error">
+          Failed to load data: {error.message}. Please reach out to
+          contact@digitalharbor.org
+        </Alert>
+      </Flex>
+    );
+  }
 
-  // if (!data) {
-  //   return (
-  //     <Flex
-  //       direction="column"
-  //       justify="center"
-  //       align="center"
-  //       minHeight="100vh"
-  //     >
-  //       <Flex direction="column" align="center" justify="center">
-  //         <Alert status="info">Loading the resources...</Alert>
-  //         <Spinner
-  //           size="xl"
-  //           thickness="2px"
-  //           emptyColor="cyan.100"
-  //           color="cyan.300"
-  //           margin={4}
-  //         />
-  //       </Flex>
-  //     </Flex>
-  //   );
-  // }
+  if (!data) {
+    return (
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        minHeight="100vh"
+      >
+        <Flex direction="column" align="center" justify="center">
+          <Alert status="info">Loading the resources...</Alert>
+          <Spinner
+            size="xl"
+            thickness="2px"
+            emptyColor="cyan.100"
+            color="cyan.300"
+            margin={4}
+          />
+        </Flex>
+      </Flex>
+    );
+  }
 
   const pathwaysList = [
     ...new Set(data.map((item) => item.fields["Pathway"][0])),
@@ -228,22 +229,22 @@ const ResourcesIndexPage = ({
   );
 };
 
-export async function getServerSideProps({ params, query }) {
-  const res = await fetch(
-    `https://api.airtable.com/v0/${baseId}/${tableName}?view=Approved%20Resources&api_key=${apiKey}`,
-    {
-      method: "GET",
-      mode: "no-cors",
-      credentials: "same-origin",
-    }
-  );
-  const data = await res.json();
+// export async function getServerSideProps({ params, query }) {
+//   const res = await fetch(
+//     `https://api.airtable.com/v0/${baseId}/${tableName}?view=Approved%20Resources&api_key=${apiKey}`,
+//     {
+//       method: "GET",
+//       mode: "no-cors",
+//       credentials: "same-origin",
+//     }
+//   );
+//   const data = await res.json();
 
-  return {
-    props: {
-      data: data.records,
-    },
-  };
-}
+//   return {
+//     props: {
+//       data: data.records,
+//     },
+//   };
+// }
 
 export default ResourcesIndexPage;
