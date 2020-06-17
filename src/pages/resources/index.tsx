@@ -34,7 +34,7 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-const ResourcesIndexPage: NextPage = ({
+const ResourcesIndexPage = ({
   title,
   image,
   description,
