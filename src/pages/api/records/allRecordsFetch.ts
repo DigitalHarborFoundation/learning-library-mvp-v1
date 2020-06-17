@@ -6,14 +6,9 @@ const allRecordsFetch = async (req, res) => {
   );
   const { records } = await initialData.json();
 
-  if (records) {
-    return res.status(200).json({
-      // response goes here
-      records,
-    });
-  } else {
-    return res.status(404).json;
-  }
+  return res.status(200).json({
+    records,
+  });
 };
 
 export default allRecordsFetch;
