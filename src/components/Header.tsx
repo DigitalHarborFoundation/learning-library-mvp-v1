@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         <Link href="/" passHref>
           <ChakraLink color="cyan.100">
             <Heading as="h1" size="lg" color="white">
-              Learning Library v1
+              Learning Library
             </Heading>
           </ChakraLink>
         </Link>

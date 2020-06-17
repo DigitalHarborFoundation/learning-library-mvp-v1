@@ -137,7 +137,7 @@ const ResourcePage: NextPage = ({
                     rounded="md"
                     size="md"
                     variantColor="gray"
-                    variant="outline"
+                    variant="subtle"
                   >
                     <TagLabel>{tag}</TagLabel>
                     <TagIcon icon={TiTag} />
