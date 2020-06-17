@@ -31,46 +31,12 @@ const fetcher = async (url: string) => {
   return records;
 };
 
-const ResourcesIndexPage = (
-  {
-    // title,
-    // image,
-    // description,
-    // os,
-    // pathway,
-    // url,
-    // tags,
-    // author,
-    // authorSite,
-    // type,
-    // rating,
-    // level,
-  }
-) => {
+const ResourcesIndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
   const [combinedItems, setCombinedItems] = useState(data);
-
-  // useEffect(() => {
-  //   const handleRouteChange = (url) => {
-  //     console.log("App is changing to: ", url);
-  //   };
-
-  //   Router.events.on("routeChangeStart", handleRouteChange);
-  //   return () => {
-  //     Router.events.off("routeChangeStart", handleRouteChange);
-  //   };
-  // }, []);
-
-  // const filteredByPathway = filterPathway
-  //   ? data.filter((item) => item.fields["Pathway"][0] === filterPathway)
-  //   : data;
-
-  // const filteredByOS = filterOS
-  //   ? data.filter((item) => item.fields["Operating System"] === filterOS)
-  //   : data;
 
   const composeFilters = (data) => {
     if (data) {
@@ -190,7 +156,6 @@ const ResourcesIndexPage = (
               variantColor="cyan"
               variant="outline"
               onClick={() => {
-                // router.push(`/?os=${os}`);
                 setFilterOS(os);
               }}
             >
