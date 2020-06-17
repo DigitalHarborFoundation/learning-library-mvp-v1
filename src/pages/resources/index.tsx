@@ -89,7 +89,7 @@ const ResourcesIndexPage = (
   const composeFilters = (data) => {
     // const composed = filter((acc, val) => [...acc, ...val]);
     if (data) {
-      const combined = records
+      const combined = data
         .filter((x) => x.pathway[0] === filterPathway)
         .filter((y) => y.os === filterOS);
       setCombinedItems(combined);
