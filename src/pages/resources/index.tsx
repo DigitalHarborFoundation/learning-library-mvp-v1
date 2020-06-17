@@ -106,27 +106,27 @@ const ResourcesIndexPage = ({
     );
   }
 
-  if (!data) {
-    return (
-      <Flex
-        direction="column"
-        justify="center"
-        align="center"
-        minHeight="100vh"
-      >
-        <Flex direction="column" align="center" justify="center">
-          <Alert status="info">Loading the resources...</Alert>
-          <Spinner
-            size="xl"
-            thickness="2px"
-            emptyColor="cyan.100"
-            color="cyan.300"
-            margin={4}
-          />
-        </Flex>
-      </Flex>
-    );
-  }
+  // if (!data) {
+  //   return (
+  //     <Flex
+  //       direction="column"
+  //       justify="center"
+  //       align="center"
+  //       minHeight="100vh"
+  //     >
+  //       <Flex direction="column" align="center" justify="center">
+  //         <Alert status="info">Loading the resources...</Alert>
+  //         <Spinner
+  //           size="xl"
+  //           thickness="2px"
+  //           emptyColor="cyan.100"
+  //           color="cyan.300"
+  //           margin={4}
+  //         />
+  //       </Flex>
+  //     </Flex>
+  //   );
+  // }
 
   // const pathwaysList = [...new Set(data.map((item) => item.pathway[0]))];
   // const osList = [...new Set(data.map((item) => item.os))];

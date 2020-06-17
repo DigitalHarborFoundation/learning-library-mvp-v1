@@ -71,7 +71,6 @@ const ResourcePage = ({
   //     </Flex>
   //   );
   // }
-
   return (
     <Flex direction="column" justify="center" align="center">
       <Box
