@@ -78,24 +78,24 @@ const ResourcesIndexPage = (
   //   };
   // }, []);
 
-  // const filteredByPathway = filterPathway
-  //   ? data.filter((item) => item.pathway[0] === filterPathway)
-  //   : data;
+  const filteredByPathway = filterPathway
+    ? data.filter((item) => item.pathway[0] === filterPathway)
+    : data;
 
-  // const filteredByOS = filterOS
-  //   ? data.filter((item) => item.os === filterOS)
-  //   : data;
+  const filteredByOS = filterOS
+    ? data.filter((item) => item.os === filterOS)
+    : data;
 
-  // const composeFilters = (data) => {
-  //   // const composed = filter((acc, val) => [...acc, ...val]);
-  //   if (data) {
-  //     const combined = records
-  //       .filter((x) => x.pathway[0] === filterPathway)
-  //       .filter((y) => y.os === filterOS);
-  //     setCombinedItems(combined);
-  //     console.log("combined:", combined);
-  //   }
-  // };
+  const composeFilters = (data) => {
+    // const composed = filter((acc, val) => [...acc, ...val]);
+    if (data) {
+      const combined = records
+        .filter((x) => x.pathway[0] === filterPathway)
+        .filter((y) => y.os === filterOS);
+      setCombinedItems(combined);
+      console.log("combined:", combined);
+    }
+  };
 
   if (error) {
     return (
