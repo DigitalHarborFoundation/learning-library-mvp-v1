@@ -15,6 +15,10 @@ import {
 } from "@chakra-ui/core";
 import ResourceGrid from "../../components/ResourceGrid";
 
+const apiKey = process.env.API_KEY;
+const baseId = process.env.BASE_ID;
+const tableName = process.env.TABLE_NAME;
+
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
     method: "GET",
@@ -30,10 +34,30 @@ const fetcher = async (url: string) => {
   return data;
 };
 
-const ResourcesIndexPage: NextPage = () => {
+const ResourcesIndexPage: NextPage = ({
+  title,
+  image,
+  description,
+  os,
+  pathway,
+  url,
+  tags,
+  author,
+  authorSite,
+  type,
+  rating,
+  level,
+}) => {
   const router = useRouter();
   const { query } = useRouter();
   const { data, error } = useSWR(`/api/records/allRecords`, fetcher);
+  // const { data, error } = useSWR(
+  //   `https://learning-library-mvp-v1-6k7rqx3wx.vercel.app/api/records/allRecords`
+  // );
+  // const { data, error } = useSWR(
+  //   `https://api.airtable.com/v0/${baseId}/Content%20Resources?api_key=${apiKey}`
+  // );
+
   const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(null);
   const [combinedItems, setCombinedItems] = useState(data);
