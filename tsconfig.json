@@ -22,6 +22,6 @@
     "**/*.ts",
     "**/*.tsx",
     "src/pages/resources/index.js",
-    "src/helpers/airtableHelpers.ts"
+    "src/helpers/airtableHelpers.js"
   ]
 }

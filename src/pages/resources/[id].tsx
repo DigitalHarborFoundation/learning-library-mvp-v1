@@ -40,7 +40,7 @@ const tableName = process.env.TABLE_NAME;
 //   return data;
 // };
 
-const ResourcePage: NextPage = ({
+const ResourcePage = ({
   title,
   image,
   description,
