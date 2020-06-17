@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { getRecordsByOS } from "../../../../helpers/airtableHelpers";
+import { getRecordsByPathway } from "../../../../helpers/airtableHelpers";
 
 const recordsByOS: NextApiHandler = async (req, res) => {
   Promise.resolve(getRecordsByPathway(req.query.os))
