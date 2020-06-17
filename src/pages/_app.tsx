@@ -11,7 +11,7 @@ import SiteLayout from "../components/SiteLayout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <ColorModeProvider>
         <Flex direction="column" align="center" justify="center">
           <CSSReset />
