@@ -87,7 +87,7 @@ const ResourcePage: NextPage = ({
         </Heading>
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
           <AspectRatioBox height="300px" ratio={16 / 9}>
-            {/* <Image src={image} alt={title} objectFit="cover" /> */}
+            <Image src={image} alt={title} objectFit="cover" />
           </AspectRatioBox>
           <Flex direction="column" align="flex-start">
             <Box

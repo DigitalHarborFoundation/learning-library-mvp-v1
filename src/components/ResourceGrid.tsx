@@ -1,7 +1,7 @@
 import { Box, Heading, Grid } from "@chakra-ui/core";
 import ResourceCard from "../components/ResourceCard";
 
-const ResourceGrid: React.FC = ({ data }) => {
+const ResourceGrid = ({ data }) => {
   return (
     <Box marginY={4} marginX={12}>
       <Grid
