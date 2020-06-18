@@ -2,7 +2,7 @@ import PlaylistsPageLayout from "./PlaylistsPageLayout";
 
 // TODO: unify the data fetching into a single component?
 
-const PlaylistsData: React.FC = ({
+const PlaylistsData = ({
   title,
   longDescription,
   image,

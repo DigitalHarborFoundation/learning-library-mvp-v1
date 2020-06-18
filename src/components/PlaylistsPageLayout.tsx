@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/core";
 const ReactMarkdown = require("react-markdown");
 
-const PlaylistsPageLayout: React.FC = ({
+const PlaylistsPageLayout = ({
   title,
   longDescription,
   image,
