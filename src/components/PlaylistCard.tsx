@@ -41,10 +41,10 @@ const PlaylistCard = ({ data }) => {
       <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
         <PseudoBox _hover={{ cursor: "pointer" }}>
           {data.fields["Featured Image"] && (
-            <AspectRatioBox height="300px" ratio={16 / 9}>
+            <AspectRatioBox width="400px" height="300px" ratio={4 / 3}>
               <Image
                 src={data.fields["Featured Image"][0].url}
-                alt={data.fields["Playlist Title"]}
+                alt={`${data.fields["Playlist Title"]} Resource Playlist`}
                 objectFit="cover"
               />
             </AspectRatioBox>
