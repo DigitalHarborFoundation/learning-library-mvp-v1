@@ -6,6 +6,7 @@ import {
   Link as ChakraLink,
   PseudoBox,
   Stack,
+  Text,
 } from "@chakra-ui/core";
 import { GiBookshelf } from "react-icons/gi";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
@@ -42,12 +43,18 @@ const Header: React.FC = () => {
         {/* <DarkModeSwitch /> */}
         <Flex direction="row" align="center">
           <Link href="/resources">
-            <ChakraLink color="white" marginRight={4}>
-              Resources
-            </ChakraLink>
+            <a>
+              <Text fontSize="lg" color="white" marginRight={4}>
+                Resources
+              </Text>
+            </a>
           </Link>
           <Link href="/playlists">
-            <ChakraLink color="white">Playlists</ChakraLink>
+            <a>
+              <Text fontSize="lg" color="white">
+                Playlists
+              </Text>
+            </a>
           </Link>
         </Flex>
       </Flex>
