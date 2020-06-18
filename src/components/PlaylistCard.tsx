@@ -51,43 +51,57 @@ const PlaylistCard = ({ data }) => {
           )}
         </PseudoBox>
       </Link>
-      {/* <Box p="4" alignItems="center" justifyContent="center">
+      <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
-            <Badge rounded="md" marginRight="1" variantColor="purple">
+            {/* <Badge rounded="md" marginRight="1" variantColor="purple">
               {data.fields["Operating System"]}
             </Badge>
             <Badge rounded="md" marginLeft="1" variantColor="teal">
               {data.fields["Pathway"]}
-            </Badge>
+            </Badge> */}
             <Box
               color="gray.500"
               fontWeight="semibold"
               letterSpacing="wide"
               fontSize="xs"
               textTransform="uppercase"
-              marginLeft="2"
             >
-              {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
+              {data.fields["Skill Level"]}
             </Box>
           </Flex>
-        </Box> */}
-      <Box
-        as="h3"
-        color="gray.600"
-        fontWeight="normal"
-        letterSpacing="wide"
-        fontSize="md"
-        ml={0}
-        paddingY={2}
-      >
-        {data.fields["Playlist Title"]}
+        </Box>
+        <Box alignItems="center" justifyContent="center">
+          <Box
+            as="h3"
+            color="gray.600"
+            fontWeight="semibold"
+            letterSpacing="wide"
+            textTransform="uppercase"
+            fontSize="md"
+            ml={0}
+            paddingBottom={1}
+          >
+            {data.fields["Playlist Title"]}
+          </Box>
+          <Box
+            as="p"
+            color="gray.800"
+            fontWeight="normal"
+            letterSpacing="wide"
+            fontSize="md"
+            ml={0}
+            paddingBottom={4}
+          >
+            {data.fields["Description"]}
+          </Box>
+          <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
+            <Button rightIcon="view" variantColor="purple" variant="outline">
+              Explore Playlist
+            </Button>
+          </Link>
+        </Box>
       </Box>
-      <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
-        <Button rightIcon="view" variantColor="purple" variant="outline">
-          Explore Playlist
-        </Button>
-      </Link>
     </PseudoBox>
   );
 };
