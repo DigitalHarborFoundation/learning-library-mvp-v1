@@ -90,11 +90,11 @@ const PlaylistIndexPage = () => {
 
   return (
     <Flex direction="column" justify="center" align="center">
-      <Heading as="h2" marginTop={4}>
+      <Heading as="h2" marginTop={4} color="gray.800">
         Playlists
       </Heading>
       <Box maxWidth="960px" marginY={2}>
-        <Text fontSize="lg">
+        <Text fontSize="lg" color="gray.800">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
           repellat dolorem suscipit ipsam consequatur ipsa voluptas obcaecati
           totam cumque temporibus. Dicta quam nisi, nam ipsum numquam deserunt
