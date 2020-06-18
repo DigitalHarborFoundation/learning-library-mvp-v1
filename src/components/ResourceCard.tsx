@@ -51,6 +51,16 @@ const ResourceCard = ({ data }) => {
           )}
         </PseudoBox>
       </Link>
+      {/* <Box
+        color="gray.500"
+        fontWeight="normal"
+        letterSpacing="wide"
+        fontSize="md"
+        paddingLeft="4"
+        paddingTop="4"
+      >
+        {data.fields["Resource Title"]}
+      </Box> */}
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
@@ -83,11 +93,7 @@ const ResourceCard = ({ data }) => {
         >
           {data.title}
         </Box>
-        <Link
-          href={`resources/[id]`}
-          as={`/resources/${data.id}`}
-          // as={`/resources/${kebabCase(data.title)}?id=${data.id}`}
-        >
+        <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
           <Button rightIcon="view" variantColor="purple" variant="outline">
             Learn More
           </Button>

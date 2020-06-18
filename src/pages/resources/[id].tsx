@@ -26,10 +26,6 @@ import {
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
 
-const apiKey = process.env.API_KEY;
-const baseId = process.env.BASE_ID;
-const tableName = process.env.TABLE_NAME;
-
 // const fetcher = async (url: string) => {
 //   const res = await fetch(url);
 //   if (!res.ok) {
@@ -170,6 +166,10 @@ const ResourcePage = ({
 };
 
 export async function getServerSideProps({ params, query }) {
+  const apiKey = process.env.API_KEY;
+  const baseId = process.env.BASE_ID;
+  const tableName = process.env.TABLE_NAME;
+
   const res = await fetch(
     `https://api.airtable.com/v0/${baseId}/${tableName}/${params.id}?api_key=${apiKey}`,
     { method: "GET", mode: "no-cors", credentials: "same-origin" }
