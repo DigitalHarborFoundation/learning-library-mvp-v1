@@ -54,12 +54,6 @@ const PlaylistCard = ({ data }) => {
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
-            {/* <Badge rounded="md" marginRight="1" variantColor="purple">
-              {data.fields["Operating System"]}
-            </Badge>
-            <Badge rounded="md" marginLeft="1" variantColor="teal">
-              {data.fields["Pathway"]}
-            </Badge> */}
             <Box
               color="gray.500"
               fontWeight="semibold"

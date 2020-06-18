@@ -93,8 +93,18 @@ const PlaylistIndexPage = () => {
       <Heading as="h2" marginTop={4}>
         Playlists
       </Heading>
-
-      <PlaylistGrid data={data} />
+      <Box maxWidth="960px" marginY={2}>
+        <Text fontSize="lg">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
+          repellat dolorem suscipit ipsam consequatur ipsa voluptas obcaecati
+          totam cumque temporibus. Dicta quam nisi, nam ipsum numquam deserunt
+          minima laborum sit ab repudiandae molestias repellat corrupti animi
+          esse, sunt odio impedit beatae ratione praesentium!
+        </Text>
+      </Box>
+      <Box marginY={2}>
+        <PlaylistGrid data={data} />
+      </Box>
     </Flex>
   );
 };
