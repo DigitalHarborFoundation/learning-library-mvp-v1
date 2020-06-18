@@ -86,6 +86,12 @@ const PlaylistIndexPage = () => {
     );
   }
 
-  return <div>Hi</div>;
+  return (
+    <Flex direction="column" justify="center" align="center">
+      <Heading as="h2" marginTop={4}>
+        Playlists
+      </Heading>
+    </Flex>
+  );
 };
 export default PlaylistIndexPage;

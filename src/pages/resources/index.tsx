@@ -101,7 +101,9 @@ const ResourcesIndexPage = () => {
 
   return (
     <Flex direction="column" justify="center" align="center">
-      <Heading as="h2">Resources</Heading>
+      <Heading as="h2" marginTop={4}>
+        Resources
+      </Heading>
       {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
       <Button onClick={() => composeFilters(data)}>Compose Test</Button>
       {combinedItems ? (
