@@ -13,6 +13,7 @@ import { DarkModeSwitch } from "../components/DarkModeSwitch";
 const Header: React.FC = () => {
   return (
     <Flex
+      as="nav"
       direction="column"
       justify="center"
       align="center"
@@ -39,6 +40,16 @@ const Header: React.FC = () => {
           </a>
         </Link>
         {/* <DarkModeSwitch /> */}
+        <Flex direction="row" align="center">
+          <Link href="/resources">
+            <ChakraLink color="white" marginRight={4}>
+              Resources
+            </ChakraLink>
+          </Link>
+          <Link href="/playlists">
+            <ChakraLink color="white">Playlists</ChakraLink>
+          </Link>
+        </Flex>
       </Flex>
     </Flex>
   );
