@@ -13,6 +13,7 @@ import {
   Spinner,
   Stack,
 } from "@chakra-ui/core";
+import PlaylistGrid from "../../components/PlaylistGrid";
 // import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
@@ -26,6 +27,7 @@ const fetcher = async (url: string) => {
   }
   const { records } = await res.json();
   console.log("data from swr", records);
+  console.log("typeof data", typeof records);
 
   return records;
 };
@@ -91,6 +93,8 @@ const PlaylistIndexPage = () => {
       <Heading as="h2" marginTop={4}>
         Playlists
       </Heading>
+
+      <PlaylistGrid data={data} />
     </Flex>
   );
 };

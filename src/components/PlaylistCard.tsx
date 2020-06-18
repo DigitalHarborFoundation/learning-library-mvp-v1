@@ -83,7 +83,7 @@ const PlaylistCard = ({ data }) => {
       >
         {data.fields["Playlist Title"]}
       </Box>
-      <Link href={`/playlists/${pageLink}`}>
+      <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
         <Button rightIcon="view" variantColor="purple" variant="outline">
           Explore Playlist
         </Button>

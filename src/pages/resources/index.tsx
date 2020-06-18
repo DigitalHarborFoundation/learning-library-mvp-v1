@@ -26,6 +26,8 @@ const fetcher = async (url: string) => {
   }
   const { records } = await res.json();
   console.log("data from swr", records);
+  console.log("typeof data", typeof records);
+
   console.log("test:", records[0].fields.Pathway[0]);
 
   return records;
