@@ -43,7 +43,7 @@ const ResourcesIndexPage = () => {
   const composeFilters = (data) => {
     if (data) {
       const combined = data
-        .filter((x) => x.fields["Pathway"][0] === filterPathway)
+        .filter((x) => x.fields["Pathway"] === filterPathway)
         .filter((y) => y.fields["Operating System"] === filterOS);
       setCombinedItems(combined);
       console.log("filterPathway", filterPathway);
@@ -92,9 +92,7 @@ const ResourcesIndexPage = () => {
     );
   }
 
-  const pathwaysList = [
-    ...new Set(data.map((item) => item.fields["Pathway"][0])),
-  ];
+  const pathwaysList = [...new Set(data.map((item) => item.fields["Pathway"]))];
   const osList = [
     ...new Set(data.map((item) => item.fields["Operating System"])),
   ];
