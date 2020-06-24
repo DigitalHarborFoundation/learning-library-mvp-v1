@@ -32,6 +32,9 @@ const ResourceCard = ({ data }) => {
     <PseudoBox
       w="100%"
       h="auto"
+      // display="flex"
+      // flexDirection="column"
+      // flexGrow={1}
       maxW="md"
       overflow="hidden"
       rounded="lg"
@@ -51,7 +54,11 @@ const ResourceCard = ({ data }) => {
           )}
         </PseudoBox>
       </Link>
-      {/* <Box
+      <Box
+        as="h3"
+        display="flex"
+        flexDirection="column"
+        flexGrow={2}
         color="gray.500"
         fontWeight="normal"
         letterSpacing="wide"
@@ -60,7 +67,7 @@ const ResourceCard = ({ data }) => {
         paddingTop="4"
       >
         {data.fields["Resource Title"]}
-      </Box> */}
+      </Box>
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
