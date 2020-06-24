@@ -43,16 +43,13 @@ const ResourcePage = ({
   return (
     <Flex direction="column" justify="center" align="center">
       <Box
-        maxWidth="960px"
+        maxWidth="1080px"
         marginY={8}
         paddingX={8}
         paddingY={4}
         bg="white"
         rounded="md"
       >
-        <Heading as="h2" textAlign="center">
-          {title}
-        </Heading>
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
           <ChakraLink href={url} isExternal>
             <AspectRatioBox height="300px" ratio={16 / 9}>
@@ -60,26 +57,42 @@ const ResourcePage = ({
             </AspectRatioBox>
           </ChakraLink>
           <Flex direction="column" align="flex-start">
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-            >
-              {type} &bull; {level}
-            </Box>
-            <Box d="flex" marginY="1" alignItems="center">
-              {Array(5)
-                .fill("")
-                .map((_, i) => (
-                  <Icon
-                    key={i}
-                    name="star"
-                    color={i < rating ? "purple.500" : "purple.100"}
-                  />
-                ))}
-            </Box>
+            <ChakraLink href={url} isExternal color="blue.500">
+              <Heading as="h2">{title}</Heading>
+              {/* <Icon name="external-link" mx="2px" /> */}
+            </ChakraLink>
+            <Text>
+              Contributed by{" "}
+              <ChakraLink href={authorSite} isExternal color="blue.500">
+                {author}
+                <Icon name="external-link" mx="2px" />
+              </ChakraLink>
+              <Divider />
+            </Text>
+            <Flex direction="row" align="center" justify="center">
+              <Box
+                color="gray.500"
+                fontWeight="semibold"
+                letterSpacing="wide"
+                fontSize="xs"
+                textTransform="uppercase"
+                marginRight={2}
+              >
+                {type} &bull; {level}
+              </Box>
+              <Box d="flex" marginY="1" alignItems="center">
+                {Array(5)
+                  .fill("")
+                  .map((_, i) => (
+                    <Icon
+                      key={i}
+                      name="star"
+                      color={i < rating ? "purple.500" : "purple.100"}
+                      paddingBottom={1}
+                    />
+                  ))}
+              </Box>
+            </Flex>
             <Box paddingY={2} alignItems="center" justifyContent="center">
               <Flex direction="row">
                 <Badge
@@ -115,7 +128,19 @@ const ResourcePage = ({
                 ))}
               </Stack>
             )}
-            <Stack marginTop={4}>
+            <Box d="flex" marginY="1" alignItems="center">
+              {Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <Icon
+                    key={i}
+                    name="star"
+                    color={i < rating ? "purple.500" : "purple.100"}
+                    paddingBottom={1}
+                  />
+                ))}
+            </Box>
+            {/* <Stack marginTop={4}>
               <Text>
                 Check it out:{" "}
                 <ChakraLink href={url} isExternal color="blue.500">
@@ -128,7 +153,7 @@ const ResourcePage = ({
                   {author}
                 </ChakraLink>{" "}
               </Text>
-            </Stack>
+            </Stack> */}
           </Flex>
         </SimpleGrid>
         <Divider />
