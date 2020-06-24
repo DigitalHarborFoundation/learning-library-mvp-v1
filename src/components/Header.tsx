@@ -29,7 +29,6 @@ const Header: React.FC = () => {
         w={["100vw", "100vw", "80vw", "80vw"]}
       >
         <Link href="/" passHref>
-          {/* <ChakraLink color="cyan.100"> */}
           <a>
             <Flex direction="row" align="center">
               <Box as={GiBookshelf} size="32px" color="white" marginRight={4} />
@@ -37,10 +36,8 @@ const Header: React.FC = () => {
                 Learning Library
               </Heading>
             </Flex>
-            {/* </ChakraLink> */}
           </a>
         </Link>
-        {/* <DarkModeSwitch /> */}
         <Flex direction="row" align="center">
           <Link href="/resources">
             <a>
