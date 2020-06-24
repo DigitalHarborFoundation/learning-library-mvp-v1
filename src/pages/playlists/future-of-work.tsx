@@ -1,7 +1,7 @@
 import { Heading } from "@chakra-ui/core";
 import PlaylistsData from "../../components/PlaylistData";
 
-const DigitalLiteracyPage = ({
+const FutureOfWorkPage = ({
   title,
   longDescription,
   image,
@@ -19,7 +19,7 @@ const DigitalLiteracyPage = ({
   );
 };
 
-export default DigitalLiteracyPage;
+export default FutureOfWorkPage;
 
 export async function getServerSideProps({ params, query }) {
   const apiKey = process.env.API_KEY;
