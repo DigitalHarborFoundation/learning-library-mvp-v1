@@ -12,7 +12,7 @@ const ResourcesIndexPage = () => {
   });
   return (
     <Flex direction="column" justify="center" align="center" minHeight="100vh">
-      <Alert status="info">Redirecting to the resources page.</Alert>
+      <Alert status="info">Redirecting you to the resources page.</Alert>
     </Flex>
   );
 };

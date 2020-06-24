@@ -39,13 +39,13 @@ const Header: React.FC = () => {
           </a>
         </Link>
         <Flex direction="row" align="center">
-          <Link href="/resources">
+          {/* <Link href="/resources">
             <a>
               <Text fontSize="lg" color="white" marginRight={4}>
                 Resources
               </Text>
             </a>
-          </Link>
+          </Link> */}
           <Link href="/playlists">
             <a>
               <Text fontSize="lg" color="white" marginRight={4}>
