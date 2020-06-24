@@ -54,9 +54,11 @@ const ResourcePage = ({
           {title}
         </Heading>
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
-          <AspectRatioBox height="300px" ratio={16 / 9}>
-            <Image src={image} alt={title} objectFit="cover" />
-          </AspectRatioBox>
+          <ChakraLink href={url} isExternal>
+            <AspectRatioBox height="300px" ratio={16 / 9}>
+              <Image src={image} alt={title} objectFit="cover" />
+            </AspectRatioBox>
+          </ChakraLink>
           <Flex direction="column" align="flex-start">
             <Box
               color="gray.500"
