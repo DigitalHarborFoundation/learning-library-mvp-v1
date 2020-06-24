@@ -51,8 +51,22 @@ const Header: React.FC = () => {
           </Link>
           <Link href="/playlists">
             <a>
-              <Text fontSize="lg" color="white">
+              <Text fontSize="lg" color="white" marginRight={4}>
                 Playlists
+              </Text>
+            </a>
+          </Link>
+          <Link href="/help">
+            <a>
+              <Text fontSize="lg" color="white" marginRight={4}>
+                Help
+              </Text>
+            </a>
+          </Link>
+          <Link href="/about">
+            <a>
+              <Text fontSize="lg" color="white" marginRight={4}>
+                About
               </Text>
             </a>
           </Link>
