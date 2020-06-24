@@ -26,16 +26,6 @@ import {
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
 
-// const fetcher = async (url: string) => {
-//   const res = await fetch(url);
-//   if (!res.ok) {
-//     throw Error("There is problem with the data request.");
-//   }
-//   const { data } = await res.json();
-//   console.log("data from swr", data);
-//   return data;
-// };
-
 const ResourcePage = ({
   title,
   image,
@@ -50,23 +40,6 @@ const ResourcePage = ({
   rating,
   level,
 }) => {
-  // const { data, error } = useSWR(`/api/records/${router.query.id}`, fetcher);
-
-  // if (error) {
-  //   return (
-  //     <Flex
-  //       direction="column"
-  //       justify="center"
-  //       align="center"
-  //       minHeight="100vh"
-  //     >
-  //       <Alert status="error">
-  //         Failed to load resource: {error.message}. Please reach out to
-  //         contact@digitalharbor.org
-  //       </Alert>
-  //     </Flex>
-  //   );
-  // }
   return (
     <Flex direction="column" justify="center" align="center">
       <Box
