@@ -16,7 +16,7 @@ const AboutPage: NextPage = () => {
         rounded="md"
       >
         <Heading as="h2" textAlign="center">
-          Learning Library
+          About the Learning Library
         </Heading>
         <Link href="/resources">
           <ChakraLink>Link to something?</ChakraLink>
