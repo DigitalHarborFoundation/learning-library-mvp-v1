@@ -128,7 +128,7 @@ const ResourcePage = ({
                 ))}
               </Stack>
             )}
-            <Box d="flex" marginY="1" alignItems="center">
+            {/* <Box d="flex" marginY="1" alignItems="center">
               {Array(5)
                 .fill("")
                 .map((_, i) => (
@@ -139,7 +139,7 @@ const ResourcePage = ({
                     paddingBottom={1}
                   />
                 ))}
-            </Box>
+            </Box> */}
             {/* <Stack marginTop={4}>
               <Text>
                 Check it out:{" "}
