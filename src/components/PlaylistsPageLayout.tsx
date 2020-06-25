@@ -14,7 +14,7 @@ const ReactMarkdown = require("react-markdown");
 
 const PlaylistsPageLayout = ({
   title,
-  longDescription,
+  landingPageCopy,
   image,
   resourceLinks,
   linkTitles,
@@ -40,7 +40,7 @@ const PlaylistsPageLayout = ({
 
         <Box paddingY={4}>
           <Text>
-            <ReactMarkdown source={longDescription} />
+            <ReactMarkdown source={landingPageCopy} />
           </Text>
         </Box>
         <Heading as="h3" size="lg">

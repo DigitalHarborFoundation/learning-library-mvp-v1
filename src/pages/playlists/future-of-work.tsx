@@ -11,7 +11,7 @@ const FutureOfWorkPage = ({
   return (
     <PlaylistsData
       title={title}
-      longDescription={longDescription}
+      landingPageCopy={landingPageCopy}
       image={image}
       resourceLinks={resourceLinks}
       linkTitles={linkTitles}
@@ -42,7 +42,7 @@ export async function getServerSideProps({ params, query }) {
       longDescription: data.fields["Long Description"] || null,
       level: data.fields["Skill Level"] || null,
       tags: data.fields["Tags"] || null,
-      pageCopy: data.fields["Landing Page Copy"] || null,
+      landingPageCopy: data.fields["Landing Page Copy"] || null,
     },
   };
 }
