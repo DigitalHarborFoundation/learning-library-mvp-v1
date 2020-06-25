@@ -95,14 +95,14 @@ const PlaylistIndexPage = () => {
       </Heading>
       <Box maxWidth="960px" marginY={2}>
         <Stack spacing={4}>
-          <Text fontSize="lg" color="gray.800">
+          <Text color="gray.800">
             In addition to collecting and sorting a variety of resources, we’ve
             created playlist views to help guide you through specific content
             areas. These resources are grouped and arranged in an order that we
             think will help you make the most sense of the material and improve
             skills over time.
           </Text>
-          <Text fontSize="lg" color="gray.800">
+          <Text color="gray.800">
             No one of these playlists is a complete guide or course, but they
             are a great start in your journey to learning within a subject area.
             We will continue to add playlists and update features here, so check
