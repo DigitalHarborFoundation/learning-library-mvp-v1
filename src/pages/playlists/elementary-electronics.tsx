@@ -3,7 +3,7 @@ import PlaylistsData from "../../components/PlaylistData";
 
 const ElementaryElectronicsPage = ({
   title,
-  longDescription,
+  landingPageCopy,
   image,
   resourceLinks,
   linkTitles,
@@ -11,7 +11,7 @@ const ElementaryElectronicsPage = ({
   return (
     <PlaylistsData
       title={title}
-      longDescription={longDescription}
+      landingPageCopy={landingPageCopy}
       image={image}
       resourceLinks={resourceLinks}
       linkTitles={linkTitles}
@@ -39,10 +39,9 @@ export async function getServerSideProps({ params, query }) {
       linkTitles: data.fields["Link Titles"] || null,
       image: data.fields["Featured Image"][0].url || null,
       description: data.fields["Description"] || null,
-      longDescription: data.fields["Long Description"] || null,
       level: data.fields["Skill Level"] || null,
       tags: data.fields["Tags"] || null,
-      pageCopy: data.fields["Landing Page Copy"] || null,
+      landingPageCopy: data.fields["Landing Page Copy"] || null,
     },
   };
 }

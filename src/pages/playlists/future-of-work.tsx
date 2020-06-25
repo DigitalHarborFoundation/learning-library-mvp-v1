@@ -39,7 +39,6 @@ export async function getServerSideProps({ params, query }) {
       linkTitles: data.fields["Link Titles"] || null,
       image: data.fields["Featured Image"][0].url || null,
       description: data.fields["Description"] || null,
-      longDescription: data.fields["Long Description"] || null,
       level: data.fields["Skill Level"] || null,
       tags: data.fields["Tags"] || null,
       landingPageCopy: data.fields["Landing Page Copy"] || null,
