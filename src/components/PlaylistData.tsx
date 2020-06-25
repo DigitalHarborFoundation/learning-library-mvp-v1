@@ -4,7 +4,7 @@ import PlaylistsPageLayout from "./PlaylistsPageLayout";
 
 const PlaylistsData = ({
   title,
-  landingPageCopy
+  landingPageCopy,
   image,
   resourceLinks,
   linkTitles,

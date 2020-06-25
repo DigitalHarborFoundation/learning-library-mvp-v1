@@ -3,7 +3,7 @@ import PlaylistsData from "../../components/PlaylistData";
 
 const FutureOfWorkPage = ({
   title,
-  longDescription,
+  landingPageCopy,
   image,
   resourceLinks,
   linkTitles,
