@@ -42,21 +42,19 @@ const PlaylistsPageLayout = ({
         </AspectRatioBox>
 
         <Box paddingY={4}>
-          <Text>
-            <ReactMarkdown
-              css={css`
-                > ul {
-                  padding-top: 1rem;
-                  padding-bottom: 1rem;
-                  padding-left: 2rem;
-                }
-                > p:first-child {
-                  padding-bottom: 1rem;
-                }
-              `}
-              source={landingPageCopy}
-            />
-          </Text>
+          <ReactMarkdown
+            css={css`
+              > ul {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                padding-left: 2rem;
+              }
+              > p:first-of-type {
+                padding-bottom: 1rem;
+              }
+            `}
+            source={landingPageCopy}
+          />
         </Box>
         <Heading as="h3" size="lg">
           Resources
