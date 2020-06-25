@@ -12,6 +12,9 @@ import {
   Alert,
   Spinner,
   Stack,
+  Checkbox,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/core";
 import ResourceGrid from "../components/ResourceGrid";
 
@@ -25,10 +28,6 @@ const fetcher = async (url: string) => {
     throw Error("There is problem with the data request.");
   }
   const { records } = await res.json();
-  console.log("data from swr", records);
-  console.log("typeof data", typeof records);
-
-  console.log("test:", records[0].fields.Pathway);
 
   return records;
 };
@@ -36,9 +35,22 @@ const fetcher = async (url: string) => {
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
-  const [filterPathway, setFilterPathway] = useState(null);
+  const [filterPathway, setFilterPathway] = useState([]);
   const [filterOS, setFilterOS] = useState(null);
   const [combinedItems, setCombinedItems] = useState(data);
+
+  const handleFilterChange = (e) => {
+    console.log("handleFilterChange", e);
+    if (e !== "All") {
+      const combined = data.filter((x) => x.fields["Pathway"] === e);
+      setCombinedItems(combined);
+    } else {
+      setCombinedItems(null);
+    }
+    console.log("filterPathway changed", e);
+    console.log("filterPathway:", filterPathway);
+    console.log("combined items", combinedItems);
+  };
 
   const composeFilters = (data) => {
     if (data) {
@@ -96,8 +108,6 @@ const IndexPage = () => {
   const osList = [
     ...new Set(data.map((item) => item.fields["Operating System"])),
   ];
-  console.log("pathways:", pathwaysList);
-  console.log("os list", osList);
 
   return (
     <Flex direction="column" justify="center" align="center">
@@ -122,19 +132,12 @@ const IndexPage = () => {
           Pathways:
         </Text>
         <Stack direction="row" align="center" spacing={4}>
-          {pathwaysList.map((pathway) => (
-            <Button
-              size="sm"
-              variantColor="cyan"
-              variant="outline"
-              onClick={() => {
-                // router.push(`/resources?pathway=${pathway}`);
-                setFilterPathway(pathway);
-              }}
-            >
-              {pathway}
-            </Button>
-          ))}
+          <RadioGroup onChange={(e) => handleFilterChange(e.target.value)}>
+            {pathwaysList.map((pathway, index) => (
+              <Radio value={pathway}>{pathway}</Radio>
+            ))}
+            <Radio value="All">All</Radio>
+          </RadioGroup>
           {filterPathway && (
             <Button
               size="sm"
@@ -153,16 +156,16 @@ const IndexPage = () => {
         </Text>
         <Stack direction="row" align="center" spacing={4}>
           {osList.map((os) => (
-            <Button
+            <Checkbox
               size="sm"
               variantColor="cyan"
-              variant="outline"
-              onClick={() => {
+              // variant="outline"
+              onChange={() => {
                 setFilterOS(os);
               }}
             >
               {os}
-            </Button>
+            </Checkbox>
           ))}
           {filterOS && (
             <Button
