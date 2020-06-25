@@ -35,21 +35,46 @@ const fetcher = async (url: string) => {
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
-  const [filterPathway, setFilterPathway] = useState([]);
-  const [filterOS, setFilterOS] = useState(null);
+  const [filterPathway, setFilterPathway] = useState(false);
+  const [filterOS, setFilterOS] = useState(false);
   const [combinedItems, setCombinedItems] = useState(data);
 
-  const handleFilterChange = (e) => {
-    console.log("handleFilterChange", e);
-    if (e !== "All") {
-      const combined = data.filter((x) => x.fields["Pathway"] === e);
+  const handleFilterChange = (e, category) => {
+    if (filterOS && filterPathway) {
+      console.log("combined!");
+      const combined = data
+        .filter((x) => x.fields["Pathway"] === e)
+        .filter((y) => y.fields["Operating System"] === e);
       setCombinedItems(combined);
-    } else {
-      setCombinedItems(null);
     }
-    console.log("filterPathway changed", e);
-    console.log("filterPathway:", filterPathway);
-    console.log("combined items", combinedItems);
+
+    if (category === "os") {
+      setFilterOS(true);
+      console.log("os!");
+      console.log("filterOS:", filterOS);
+
+      if (e !== "All") {
+        const combined = data.filter((x) => x.fields["Operating System"] === e);
+        setCombinedItems(combined);
+      } else {
+        setCombinedItems(null);
+      }
+      console.log("filterOS changed", e);
+      console.log("combined items", combinedItems);
+    }
+    if (category === "pathway") {
+      setFilterPathway(true);
+      console.log("handleFilterChange", e);
+      console.log("filterPathway:", filterPathway);
+      if (e !== "All") {
+        const combined = data.filter((x) => x.fields["Pathway"] === e);
+        setCombinedItems(combined);
+      } else {
+        setCombinedItems(null);
+      }
+      console.log("filterPathway changed", e);
+      console.log("combined items", combinedItems);
+    }
   };
 
   const composeFilters = (data) => {
@@ -132,7 +157,7 @@ const IndexPage = () => {
         </Text>
         <Stack direction="row" align="center" spacing={4}>
           <RadioGroup
-            onChange={(e) => handleFilterChange(e.target.value)}
+            onChange={(e) => handleFilterChange(e.target.value, "pathway")}
             isInline
           >
             {pathwaysList.map((pathway, index) => (
@@ -147,18 +172,15 @@ const IndexPage = () => {
           Operating System:
         </Text>
         <Stack direction="row" align="center" spacing={4}>
-          {osList.map((os) => (
-            <Checkbox
-              size="sm"
-              variantColor="cyan"
-              // variant="outline"
-              onChange={() => {
-                setFilterOS(os);
-              }}
-            >
-              {os}
-            </Checkbox>
-          ))}
+          <RadioGroup
+            onChange={(e) => handleFilterChange(e.target.value, "os")}
+            isInline
+          >
+            {osList.map((os) => (
+              <Radio value={os}>{os}</Radio>
+            ))}
+            <Radio value="All">All</Radio>
+          </RadioGroup>
         </Stack>
       </Flex>
       {combinedItems ? (
