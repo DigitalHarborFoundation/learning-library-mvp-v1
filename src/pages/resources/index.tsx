@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Router from "next/router";
 import { Flex, Alert } from "@chakra-ui/core";
 
-const ResourcesIndexPage = () => {
+const ResourcesIndexPage: NextPage = () => {
   useEffect(() => {
     const { pathname } = Router;
     if (pathname === "/resources") {
