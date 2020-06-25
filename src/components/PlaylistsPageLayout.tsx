@@ -35,7 +35,6 @@ const PlaylistsPageLayout = ({
         <Heading as="h2" size="xl" paddingY={4} textAlign="center">
           {title} Playlist
         </Heading>
-
         <AspectRatioBox maxWidth="600px" ratio={16 / 9}>
           <Image src={image} alt={title} objectFit="cover" />
         </AspectRatioBox>

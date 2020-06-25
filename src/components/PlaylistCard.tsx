@@ -30,18 +30,17 @@ import kebabCase from "lodash.kebabcase";
 const PlaylistCard = ({ data }) => {
   return (
     <PseudoBox
-      w="100%"
+      w="400px"
       h="auto"
       maxW="md"
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
-      bg="white"
     >
       <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
         <PseudoBox _hover={{ cursor: "pointer" }}>
           {data.fields["Featured Image"] && (
-            <AspectRatioBox width="400px" height="300px" ratio={4 / 3}>
+            <AspectRatioBox width="100%" height="300px" ratio={4 / 3}>
               <Image
                 src={data.fields["Featured Image"][0].url}
                 alt={`${data.fields["Playlist Title"]} Resource Playlist`}
