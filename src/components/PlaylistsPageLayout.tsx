@@ -21,7 +21,6 @@ const PlaylistsPageLayout = ({
   resourceLinks,
   linkTitles,
 }) => {
-  console.log(landingPageCopy);
   return (
     <Flex direction="column" justify="center" align="center ">
       <Box
@@ -61,7 +60,7 @@ const PlaylistsPageLayout = ({
         </Heading>
         <Stack>
           {resourceLinks.map((resource, index) => (
-            <Link href={`/resources/${resource}`}>
+            <Link key={index} href={`/resources/${resource}`}>
               <ChakraLink color="blue.400">{linkTitles[index]}</ChakraLink>
             </Link>
           ))}
