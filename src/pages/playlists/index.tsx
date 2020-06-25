@@ -94,13 +94,21 @@ const PlaylistIndexPage = () => {
         Playlists
       </Heading>
       <Box maxWidth="960px" marginY={2}>
-        <Text fontSize="lg" color="gray.800">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda
-          repellat dolorem suscipit ipsam consequatur ipsa voluptas obcaecati
-          totam cumque temporibus. Dicta quam nisi, nam ipsum numquam deserunt
-          minima laborum sit ab repudiandae molestias repellat corrupti animi
-          esse, sunt odio impedit beatae ratione praesentium!
-        </Text>
+        <Stack spacing={4}>
+          <Text fontSize="lg" color="gray.800">
+            In addition to collecting and sorting a variety of resources, we’ve
+            created playlist views to help guide you through specific content
+            areas. These resources are grouped and arranged in an order that we
+            think will help you make the most sense of the material and improve
+            skills over time.
+          </Text>
+          <Text fontSize="lg" color="gray.800">
+            No one of these playlists is a complete guide or course, but they
+            are a great start in your journey to learning within a subject area.
+            We will continue to add playlists and update features here, so check
+            back often!
+          </Text>
+        </Stack>
       </Box>
       <Box marginY={2}>
         <PlaylistGrid data={data} />
