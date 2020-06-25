@@ -26,10 +26,10 @@ const HelpPage: NextPage = () => {
         rounded="md"
       >
         <Stack spacing={4}>
-          <Text>
+          <Text color="gray.800">
             Asking for help is a crucial skill in learning. DHF wants to help!
           </Text>
-          <Text>
+          <Text color="gray.800">
             Please let us know what questions you have by submitting a help
             ticket. Follow{" "}
             <ChakraLink
@@ -43,7 +43,7 @@ const HelpPage: NextPage = () => {
             problem, and then a more detailed description of your problem or
             question.
           </Text>
-          <Text>
+          <Text color="gray.800">
             DHF staff will do their best to get back to you promptly. If you
             have additional questions or concerns, please email{" "}
             <ChakraLink
@@ -54,7 +54,7 @@ const HelpPage: NextPage = () => {
               contact@digitalharbor.org
             </ChakraLink>
           </Text>
-          <Text as="em">
+          <Text as="em" color="gray.800">
             We hope to increase support throughout July. Please check your
             emails and refer to this page for updates.
           </Text>

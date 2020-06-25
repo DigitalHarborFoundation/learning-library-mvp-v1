@@ -25,20 +25,20 @@ const AboutPage: NextPage = () => {
         rounded="md"
       >
         <Stack spacing={4}>
-          <Text>
+          <Text color="gray.800">
             We initially created this resource library as part of our Tech
             Lending Library initiative. We recognize that all learners using
             technology need help finding resources, whether they’re using a
             computer for the first time or are experienced designers or
             programmers.
           </Text>
-          <Text>
+          <Text color="gray.800">
             The Learning Library is a living and growing database of resources
             curated by Digital Harbor Foundation. Some of this content is made
             up of courses and lessons we’ve written, while others are collected
             from a broad community of makers and educators.
           </Text>
-          <Text>
+          <Text color="gray.800">
             A key feature of this database is to provide learners the ability to
             search and sort based on their interests, skill levels, and the
             tools they have access to. We are constantly working to improve
