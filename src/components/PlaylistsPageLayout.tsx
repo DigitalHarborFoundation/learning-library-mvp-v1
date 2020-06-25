@@ -1,3 +1,4 @@
+/*@jsx jsx*/
 import Link from "next/link";
 import {
   Box,
@@ -10,6 +11,7 @@ import {
   Link as ChakraLink,
   Stack,
 } from "@chakra-ui/core";
+import { jsx, css } from "@emotion/core";
 const ReactMarkdown = require("react-markdown");
 
 const PlaylistsPageLayout = ({
@@ -20,7 +22,7 @@ const PlaylistsPageLayout = ({
   linkTitles,
 }) => {
   return (
-    <Flex direction="column" justify="center" align="center">
+    <Flex direction="column" justify="center" align="center ">
       <Box
         maxWidth="960px"
         minWidth="960px"
@@ -40,7 +42,14 @@ const PlaylistsPageLayout = ({
 
         <Box paddingY={4}>
           <Text>
-            <ReactMarkdown source={landingPageCopy} />
+            <ReactMarkdown
+              css={css`
+                > ul {
+                  padding-left: 2rem;
+                }
+              `}
+              source={landingPageCopy}
+            />
           </Text>
         </Box>
         <Heading as="h3" size="lg">
