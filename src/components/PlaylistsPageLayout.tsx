@@ -21,6 +21,7 @@ const PlaylistsPageLayout = ({
   resourceLinks,
   linkTitles,
 }) => {
+  console.log(landingPageCopy);
   return (
     <Flex direction="column" justify="center" align="center ">
       <Box
@@ -45,7 +46,12 @@ const PlaylistsPageLayout = ({
             <ReactMarkdown
               css={css`
                 > ul {
+                  padding-top: 1rem;
+                  padding-bottom: 1rem;
                   padding-left: 2rem;
+                }
+                > p:first-child {
+                  padding-bottom: 1rem;
                 }
               `}
               source={landingPageCopy}
