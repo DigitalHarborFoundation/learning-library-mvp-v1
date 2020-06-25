@@ -114,7 +114,6 @@ const IndexPage = () => {
       <Heading as="h2" marginTop={4}>
         Resources
       </Heading>
-      {combinedItems && <pre>combined items: {combinedItems.length}</pre>}
       <Button onClick={() => composeFilters(data)}>Compose Test</Button>
       {combinedItems ? (
         <Text>
@@ -132,22 +131,15 @@ const IndexPage = () => {
           Pathways:
         </Text>
         <Stack direction="row" align="center" spacing={4}>
-          <RadioGroup onChange={(e) => handleFilterChange(e.target.value)}>
+          <RadioGroup
+            onChange={(e) => handleFilterChange(e.target.value)}
+            isInline
+          >
             {pathwaysList.map((pathway, index) => (
               <Radio value={pathway}>{pathway}</Radio>
             ))}
             <Radio value="All">All</Radio>
           </RadioGroup>
-          {filterPathway && (
-            <Button
-              size="sm"
-              variantColor="red"
-              variant="solid"
-              onClick={() => setFilterPathway(null)}
-            >
-              Reset Filter
-            </Button>
-          )}
         </Stack>
       </Flex>
       <Flex direction="row" align="center" justify="center">
@@ -167,16 +159,6 @@ const IndexPage = () => {
               {os}
             </Checkbox>
           ))}
-          {filterOS && (
-            <Button
-              size="sm"
-              variantColor="red"
-              variant="solid"
-              onClick={() => setFilterOS(null)}
-            >
-              Reset Filter
-            </Button>
-          )}
         </Stack>
       </Flex>
       {combinedItems ? (
