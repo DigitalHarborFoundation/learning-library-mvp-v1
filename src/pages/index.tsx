@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NextPage } from "next";
 import { useRouter, Router } from "next/router";
 import useSWR from "swr";
@@ -15,6 +15,7 @@ import {
   Checkbox,
   Radio,
   RadioGroup,
+  useDisclosure,
 } from "@chakra-ui/core";
 import ResourceGrid from "../components/ResourceGrid";
 
@@ -48,8 +49,7 @@ const IndexPage = () => {
       setCombinedItems(combined);
     }
 
-    if (category === "os") {
-      setFilterOS(true);
+    if (category === "os" && filterOS) {
       console.log("os!");
       console.log("filterOS:", filterOS);
 
@@ -62,8 +62,7 @@ const IndexPage = () => {
       console.log("filterOS changed", e);
       console.log("combined items", combinedItems);
     }
-    if (category === "pathway") {
-      setFilterPathway(true);
+    if (category === "pathway" && filterPathway) {
       console.log("handleFilterChange", e);
       console.log("filterPathway:", filterPathway);
       if (e !== "All") {
@@ -135,7 +134,7 @@ const IndexPage = () => {
   ];
 
   return (
-    <Flex direction="column" justify="center" align="center">
+    <Flex direction="column" justify="center" align="center" gridArea="main">
       <Heading as="h2" marginTop={4}>
         Resources
       </Heading>
@@ -157,7 +156,10 @@ const IndexPage = () => {
         </Text>
         <Stack direction="row" align="center" spacing={4}>
           <RadioGroup
-            onChange={(e) => handleFilterChange(e.target.value, "pathway")}
+            onChange={(e) => {
+              setFilterPathway(true);
+              handleFilterChange(e.target.value, "pathway");
+            }}
             isInline
           >
             {pathwaysList.map((pathway, index) => (
@@ -173,7 +175,10 @@ const IndexPage = () => {
         </Text>
         <Stack direction="row" align="center" spacing={4}>
           <RadioGroup
-            onChange={(e) => handleFilterChange(e.target.value, "os")}
+            onChange={(e) => {
+              setFilterOS(true);
+              handleFilterChange(e.target.value, "os");
+            }}
             isInline
           >
             {osList.map((os) => (
