@@ -163,7 +163,7 @@ const IndexPage = () => {
             isInline
           >
             {pathwaysList.map((pathway, index) => (
-              <Radio value={pathway}>{pathway}</Radio>
+              <Radio value={index}>{pathway}</Radio>
             ))}
             <Radio value="All">All</Radio>
           </RadioGroup>
@@ -181,8 +181,8 @@ const IndexPage = () => {
             }}
             isInline
           >
-            {osList.map((os) => (
-              <Radio value={os}>{os}</Radio>
+            {osList.map((os, index) => (
+              <Radio value={index}>{os}</Radio>
             ))}
             <Radio value="All">All</Radio>
           </RadioGroup>
