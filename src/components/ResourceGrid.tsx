@@ -3,7 +3,7 @@ import ResourceCard from "../components/ResourceCard";
 
 const ResourceGrid = ({ data }) => {
   return (
-    <Box marginY={4} marginX={12}>
+    <Box marginY={4} marginX={[4, 4, 10, 12]}>
       <Grid
         templateColumns={[
           "repeat(1, 1fr)",

@@ -77,17 +77,17 @@ const ResourceCard = ({ data }) => {
             <Badge rounded="md" marginLeft="1" variantColor="teal">
               {data.fields["Pathway"]}
             </Badge>
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-              marginLeft="2"
-            >
-              {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
-            </Box>
           </Flex>
+          <Box
+            color="gray.500"
+            fontWeight="semibold"
+            letterSpacing="wide"
+            fontSize="xs"
+            textTransform="uppercase"
+            marginLeft="2"
+          >
+            {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
+          </Box>
         </Box>
         <Box
           as="h3"
