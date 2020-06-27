@@ -25,9 +25,9 @@ const PlaylistsPageLayout = ({
     <Flex direction="column" justify="center" align="center ">
       <Box
         maxWidth="960px"
-        minWidth="960px"
         marginY={8}
         paddingX={8}
+        marginX={[4, 4, 10, 12]}
         paddingY={4}
         bg="white"
         rounded="md"
