@@ -18,7 +18,7 @@ const AboutPage: NextPage = () => {
       marginX={[4, 4, 10, 12]}
     >
       <Heading as="h2" textAlign="center" marginTop={4}>
-        About the Learning Library
+        About This Tool
       </Heading>
       <Box
         maxWidth="960px"
