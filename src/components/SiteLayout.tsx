@@ -6,7 +6,7 @@ const SiteLayout: React.FC = ({ children }) => {
   return (
     <Box overflowX="hidden" margin="0 auto" bg="gray.100" minHeight="100vh">
       <Header />
-      <Box>{children}</Box>
+      <Box minHeight="90vh">{children}</Box>
     </Box>
   );
 };

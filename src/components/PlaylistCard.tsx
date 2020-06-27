@@ -30,7 +30,6 @@ import kebabCase from "lodash.kebabcase";
 const PlaylistCard = ({ data }) => {
   return (
     <PseudoBox
-      w="400px"
       h="auto"
       maxW="md"
       overflow="hidden"

@@ -18,7 +18,6 @@ const HelpPage: NextPage = () => {
       </Heading>
       <Box
         maxWidth="960px"
-        minWidth="960px"
         marginY={8}
         paddingX={8}
         paddingY={4}
