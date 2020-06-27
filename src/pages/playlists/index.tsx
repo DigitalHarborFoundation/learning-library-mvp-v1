@@ -98,7 +98,14 @@ const PlaylistIndexPage = () => {
       <Heading as="h2" marginTop={4} color="gray.800">
         Playlists
       </Heading>
-      <Box maxWidth="960px" marginY={2}>
+      <Box
+        maxWidth="960px"
+        marginY={8}
+        paddingX={8}
+        paddingY={4}
+        bg="white"
+        rounded="md"
+      >
         <Stack spacing={4}>
           <Text color="gray.800">
             In addition to collecting and sorting a variety of resources, we’ve
@@ -114,9 +121,9 @@ const PlaylistIndexPage = () => {
             back often!
           </Text>
         </Stack>
-      </Box>
-      <Box marginY={2}>
-        <PlaylistGrid data={data} />
+        <Box marginY={2}>
+          <PlaylistGrid data={data} />
+        </Box>
       </Box>
     </Flex>
   );
