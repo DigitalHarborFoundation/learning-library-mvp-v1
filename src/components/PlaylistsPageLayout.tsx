@@ -57,13 +57,19 @@ const PlaylistsPageLayout = ({
         <Heading as="h3" size="lg">
           Resources
         </Heading>
-        <Stack>
-          {resourceLinks.map((resource, index) => (
-            <Link key={index} href={`/resources/${resource}`}>
-              <ChakraLink color="blue.400">{linkTitles[index]}</ChakraLink>
-            </Link>
-          ))}
-        </Stack>
+        {resourceLinks ? (
+          <Stack>
+            {resourceLinks.map((resource, index) => (
+              <Link key={index} href={`/resources/${resource}`}>
+                <ChakraLink color="blue.400">{linkTitles[index]}</ChakraLink>
+              </Link>
+            ))}
+          </Stack>
+        ) : (
+          <Text>
+            There are currently no resources in this playlist. Check back soon.
+          </Text>
+        )}
       </Box>
     </Flex>
   );
