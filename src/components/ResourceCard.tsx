@@ -81,7 +81,7 @@ const ResourceCard = ({ data }) => {
           <Box
             color="gray.500"
             fontWeight="semibold"
-            letterSpacing="wide"
+            letterSpacing={["normal", "normal", "wide", "wide"]}
             fontSize="xs"
             textTransform="uppercase"
             marginLeft="2"
