@@ -101,12 +101,12 @@ const PlaylistIndexPage = () => {
       <Box
         maxWidth="960px"
         marginY={8}
-        paddingX={8}
+        paddingX={[2, 2, 2, 2]}
         paddingY={4}
         bg="white"
         rounded="md"
       >
-        <Stack spacing={4}>
+        <Stack spacing={4} paddingX={2}>
           <Text color="gray.800">
             In addition to collecting and sorting a variety of resources, we’ve
             created playlist views to help guide you through specific content

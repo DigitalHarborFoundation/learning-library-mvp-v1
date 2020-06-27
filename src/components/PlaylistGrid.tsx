@@ -5,7 +5,7 @@ import PlaylistCard from "../components/PlaylistCard";
 
 const PlaylistGrid = ({ data }) => {
   return (
-    <Box marginY={4} marginX={[4, 4, 10, 12]}>
+    <Box marginY={4} marginX={[2, 4, 10, 12]}>
       <Grid
         templateColumns={[
           "repeat(1, 1fr)",
