@@ -11,7 +11,12 @@ import {
 
 const AboutPage: NextPage = () => {
   return (
-    <Flex direction="column" align="center" justify="center">
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      marginX={[4, 4, 10, 12]}
+    >
       <Heading as="h2" textAlign="center" marginTop={4}>
         About the Learning Library
       </Heading>

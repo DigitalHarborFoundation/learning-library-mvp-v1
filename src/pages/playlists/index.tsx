@@ -89,7 +89,12 @@ const PlaylistIndexPage = () => {
   }
 
   return (
-    <Flex direction="column" justify="center" align="center">
+    <Flex
+      direction="column"
+      justify="center"
+      align="center"
+      marginX={[4, 4, 10, 12]}
+    >
       <Heading as="h2" marginTop={4} color="gray.800">
         Playlists
       </Heading>

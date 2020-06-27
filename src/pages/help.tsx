@@ -12,7 +12,12 @@ import {
 
 const HelpPage: NextPage = () => {
   return (
-    <Flex direction="column" align="center" justify="center">
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      marginX={[4, 4, 10, 12]}
+    >
       <Heading as="h2" textAlign="center" marginTop={4}>
         Getting Help
       </Heading>
