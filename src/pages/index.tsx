@@ -36,7 +36,7 @@ const fetcher = async (url: string) => {
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
 
-  const [filterPathway, setFilterPathway] = useState(false);
+  const [filterPathway, setFilterPathway] = useState(null);
   const [filterOS, setFilterOS] = useState(false);
   const [combinedItems, setCombinedItems] = useState(data);
 
@@ -66,7 +66,9 @@ const IndexPage = () => {
       console.log("handleFilterChange", e);
       console.log("filterPathway:", filterPathway);
       if (e !== "All") {
-        const combined = data.filter((x) => x.fields["Pathway"] === e);
+        const combined = data.filter(
+          (x) => x.fields["Pathway"] === pathwaysList[e]
+        );
         setCombinedItems(combined);
       } else {
         setCombinedItems(null);
@@ -135,20 +137,16 @@ const IndexPage = () => {
 
   return (
     <Flex direction="column" justify="center" align="center" gridArea="main">
-      <Heading as="h2" marginTop={4}>
-        Resources
-      </Heading>
-      <Button onClick={() => composeFilters(data)}>Compose Test</Button>
       {combinedItems ? (
-        <Text>
+        <Heading as="h2" marginTop={4}>
           Displaying {combinedItems.length}{" "}
           {combinedItems.length === 1 ? "Resource" : "Resources"}
-        </Text>
+        </Heading>
       ) : (
-        <Text>
+        <Heading as="h2" marginTop={4}>
           Displaying {data.length}{" "}
           {data.length === 1 ? "Resource" : "Resources"}
-        </Text>
+        </Heading>
       )}
       <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
@@ -160,16 +158,19 @@ const IndexPage = () => {
               setFilterPathway(true);
               handleFilterChange(e.target.value, "pathway");
             }}
+            value={1}
             isInline
           >
             {pathwaysList.map((pathway, index) => (
-              <Radio value={index}>{pathway}</Radio>
+              <Radio variantColor="cyan" value={index}>
+                {pathway}
+              </Radio>
             ))}
             <Radio value="All">All</Radio>
           </RadioGroup>
         </Stack>
       </Flex>
-      <Flex direction="row" align="center" justify="center">
+      {/* <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
           Operating System:
         </Text>
@@ -187,7 +188,7 @@ const IndexPage = () => {
             <Radio value="All">All</Radio>
           </RadioGroup>
         </Stack>
-      </Flex>
+      </Flex> */}
       {combinedItems ? (
         <ResourceGrid data={combinedItems} />
       ) : (

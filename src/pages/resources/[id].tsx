@@ -46,6 +46,7 @@ const ResourcePage = ({
         maxWidth="1080px"
         marginY={8}
         paddingX={8}
+        marginX={[4, 4, 10, 12]}
         paddingY={4}
         bg="white"
         rounded="md"
