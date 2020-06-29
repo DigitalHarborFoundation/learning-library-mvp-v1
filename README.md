@@ -6,12 +6,12 @@ Check it out: [https://library.digitalharbor.org/](https://library.digitalharbor
 
 ## Inspiration
 
-- Many folks have expressed the need for a resource database that pulls from *vetted* resources with user-friendly searching
+- Many folks have expressed the need for a resource database that pulls from _vetted_ resources with user-friendly searching
 - We wanted a way to provide open, curated resources for learners that act as a starting point
 
 ## Features
 
-- Frontend app pulls curated resources from an [Airtable](https://www.digitalharbor.org/) database
+- Frontend app pulls curated resources from an [Airtable](https://airtable.com/) database
 - Resource pages are shareable
 - Ability to filter by pathway
 - Playlists are curated lists of resources
