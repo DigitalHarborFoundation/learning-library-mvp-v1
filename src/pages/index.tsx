@@ -16,7 +16,9 @@ import {
   Radio,
   RadioGroup,
   useDisclosure,
+  Select,
 } from "@chakra-ui/core";
+import { RiFilter3Line } from "react-icons/ri";
 import ResourceGrid from "../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
@@ -35,8 +37,8 @@ const fetcher = async (url: string) => {
 
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
-
-  const [filterPathway, setFilterPathway] = useState(null);
+  const [filterPathwayValue, setFilterPathwayValue] = useState(0);
+  const [filterPathway, setFilterPathway] = useState(false);
   const [filterOS, setFilterOS] = useState(false);
   const [combinedItems, setCombinedItems] = useState(data);
 
@@ -64,7 +66,9 @@ const IndexPage = () => {
     }
     if (category === "pathway" && filterPathway) {
       console.log("handleFilterChange", e);
+      setFilterPathwayValue(e);
       console.log("filterPathway:", filterPathway);
+      console.log("filterPathwayValue", filterPathwayValue);
       if (e !== "All") {
         const combined = data.filter(
           (x) => x.fields["Pathway"] === pathwaysList[e]
@@ -78,19 +82,19 @@ const IndexPage = () => {
     }
   };
 
-  const composeFilters = (data) => {
-    if (data) {
-      const combined = data
-        .filter((x) => x.fields["Pathway"] === filterPathway)
-        .filter((y) => y.fields["Operating System"] === filterOS);
-      setCombinedItems(combined);
-      console.log("filterPathway", filterPathway);
-      console.log("filterOS", filterOS);
+  // const composeFilters = (data) => {
+  //   if (data) {
+  //     const combined = data
+  //       .filter((x) => x.fields["Pathway"] === filterPathway)
+  //       .filter((y) => y.fields["Operating System"] === filterOS);
+  //     setCombinedItems(combined);
+  //     console.log("filterPathway", filterPathway);
+  //     console.log("filterOS", filterOS);
 
-      console.log("combined:", combined);
-    }
-    console.log("from compose", data);
-  };
+  //     console.log("combined:", combined);
+  //   }
+  //   console.log("from compose", data);
+  // };
 
   if (error) {
     return (
@@ -149,26 +153,41 @@ const IndexPage = () => {
         </Heading>
       )}
       <Flex direction="row" align="center" justify="center">
-        <Text fontSize="md" paddingX={4}>
+        {/* <Text fontSize="md" paddingX={4}>
           Pathways:
-        </Text>
-        <Stack direction="row" align="center" spacing={4}>
-          <RadioGroup
+        </Text> */}
+        {/* <Stack direction="row" align="center" spacing={4}> */}
+        {/* <RadioGroup
             onChange={(e) => {
               setFilterPathway(true);
               handleFilterChange(e.target.value, "pathway");
             }}
-            value={1}
+            value={filterPathwayValue}
             isInline
+          > */}
+        <Select
+          icon={RiFilter3Line}
+          variant="outline"
+          marginTop={4}
+          onChange={(e) => {
+            console.log("filter selected:", e.target.value);
+            setFilterPathway(true);
+            handleFilterChange(e.target.value, "pathway");
+          }}
+          placeholder="Filter by Pathway"
+        >
+          <option
+            value="All"
+            onChange={(e) => console.log("changed to all", e)}
           >
-            {pathwaysList.map((pathway, index) => (
-              <Radio variantColor="cyan" value={index}>
-                {pathway}
-              </Radio>
-            ))}
-            <Radio value="All">All</Radio>
-          </RadioGroup>
-        </Stack>
+            All
+          </option>
+          {pathwaysList.map((pathway, index) => (
+            <option value={index}>{pathway}</option>
+          ))}
+        </Select>
+        {/* </RadioGroup> */}
+        {/* </Stack> */}
       </Flex>
       {/* <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
