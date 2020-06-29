@@ -1,6 +1,28 @@
-# Learning Library MVP v1
+# Learning Library
 
-Searchable database of curated resources, lessons, etc.
+A searchable database of curated resources, lessons, and other types of learning content. Built for the [Digital Harbor Foundation](https://www.digitalharbor.org/).
 
-Frontend: Built with NextJS, Typescript, Chakra UI, and SWR.
-Backend: Airtable!
+Check it out: [https://library.digitalharbor.org/](https://library.digitalharbor.org/)
+
+## Inspiration
+
+- Many folks have expressed the need for a resource database that pulls from *vetted* resources with user-friendly searching
+- We wanted a way to provide open, curated resources for learners that act as a starting point
+
+## Features
+
+- Frontend app pulls curated resources from an [Airtable](https://www.digitalharbor.org/) database
+- Resource pages are shareable
+- Ability to filter by pathway
+- Playlists are curated lists of resources
+
+## Coming Soon
+
+- Multiple filters (OS, skill level)
+- Shareable searches (sharing your filters with someone)
+- Upvoting process - current ratings are based on curator ratings, but ultimately will have a process for users to upvote resources
+
+## Made With
+
+- [Next.js (React)](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [ChakraUI](https://chakra-ui.com/), [SWR](https://swr.now.sh/), and [Airtable](https://airtable.com/).
+- Hosted on [Vercel](https://vercel.com/)
