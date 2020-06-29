@@ -69,6 +69,12 @@ const IndexPage = () => {
       setFilterPathwayValue(e);
       console.log("filterPathway:", filterPathway);
       console.log("filterPathwayValue", filterPathwayValue);
+      if (e === null) {
+        const combined = data.filter(
+          (x) => x.fields["Pathway"] === pathwaysList[e]
+        );
+        setCombinedItems(combined);
+      }
       if (e !== "All") {
         const combined = data.filter(
           (x) => x.fields["Pathway"] === pathwaysList[e]
@@ -152,10 +158,18 @@ const IndexPage = () => {
           {data.length === 1 ? "Resource" : "Resources"}
         </Heading>
       )}
-      <Flex direction="row" align="center" justify="center">
-        {/* <Text fontSize="md" paddingX={4}>
-          Pathways:
-        </Text> */}
+      <Flex direction="row" align="center" justify="center" paddingRight={4}>
+        <Box
+          as="span"
+          color="gray.500"
+          fontWeight="normal"
+          letterSpacing="wide"
+          fontSize="md"
+          paddingLeft="4"
+          paddingTop="4"
+        >
+          Filter by Pathway:
+        </Box>
         {/* <Stack direction="row" align="center" spacing={4}> */}
         {/* <RadioGroup
             onChange={(e) => {
@@ -174,21 +188,16 @@ const IndexPage = () => {
             setFilterPathway(true);
             handleFilterChange(e.target.value, "pathway");
           }}
-          placeholder="Filter by Pathway"
         >
-          <option
-            value="All"
-            onChange={(e) => console.log("changed to all", e)}
-          >
-            All
-          </option>
+          <option value="All">All</option>
           {pathwaysList.map((pathway, index) => (
             <option value={index}>{pathway}</option>
           ))}
         </Select>
-        {/* </RadioGroup> */}
-        {/* </Stack> */}
       </Flex>
+      {/* </RadioGroup> */}
+      {/* </Stack> */}
+      {/* </Flex> */}
       {/* <Flex direction="row" align="center" justify="center">
         <Text fontSize="md" paddingX={4}>
           Operating System:
