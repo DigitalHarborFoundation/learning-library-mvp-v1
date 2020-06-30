@@ -5,17 +5,11 @@ import useSWR from "swr";
 import {
   Box,
   Button,
-  Tag,
   Flex,
   Heading,
   Text,
   Alert,
   Spinner,
-  Stack,
-  Checkbox,
-  Radio,
-  RadioGroup,
-  useDisclosure,
   Select,
 } from "@chakra-ui/core";
 import { RiFilter3Line } from "react-icons/ri";
@@ -38,7 +32,7 @@ const fetcher = async (url: string) => {
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
   const [filterPathwayValue, setFilterPathwayValue] = useState(0);
-  const [filterPathway, setFilterPathway] = useState(false);
+  const [filterPathway, setFilterPathway] = useState(true);
   const [filterOS, setFilterOS] = useState(false);
   const [combinedItems, setCombinedItems] = useState(data);
 
@@ -185,7 +179,7 @@ const IndexPage = () => {
           marginTop={4}
           onChange={(e) => {
             console.log("filter selected:", e.target.value);
-            setFilterPathway(true);
+            // setFilterPathway(true);
             handleFilterChange(e.target.value, "pathway");
           }}
         >
