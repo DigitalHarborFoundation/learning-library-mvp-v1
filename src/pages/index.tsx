@@ -82,20 +82,6 @@ const IndexPage = () => {
     }
   };
 
-  // const composeFilters = (data) => {
-  //   if (data) {
-  //     const combined = data
-  //       .filter((x) => x.fields["Pathway"] === filterPathway)
-  //       .filter((y) => y.fields["Operating System"] === filterOS);
-  //     setCombinedItems(combined);
-  //     console.log("filterPathway", filterPathway);
-  //     console.log("filterOS", filterOS);
-
-  //     console.log("combined:", combined);
-  //   }
-  //   console.log("from compose", data);
-  // };
-
   if (error) {
     return (
       <Flex
@@ -164,15 +150,6 @@ const IndexPage = () => {
         >
           Filter by Pathway:
         </Box>
-        {/* <Stack direction="row" align="center" spacing={4}> */}
-        {/* <RadioGroup
-            onChange={(e) => {
-              setFilterPathway(true);
-              handleFilterChange(e.target.value, "pathway");
-            }}
-            value={filterPathwayValue}
-            isInline
-          > */}
         <Select
           icon={RiFilter3Line}
           variant="outline"
@@ -189,28 +166,6 @@ const IndexPage = () => {
           ))}
         </Select>
       </Flex>
-      {/* </RadioGroup> */}
-      {/* </Stack> */}
-      {/* </Flex> */}
-      {/* <Flex direction="row" align="center" justify="center">
-        <Text fontSize="md" paddingX={4}>
-          Operating System:
-        </Text>
-        <Stack direction="row" align="center" spacing={4}>
-          <RadioGroup
-            onChange={(e) => {
-              setFilterOS(true);
-              handleFilterChange(e.target.value, "os");
-            }}
-            isInline
-          >
-            {osList.map((os, index) => (
-              <Radio value={index}>{os}</Radio>
-            ))}
-            <Radio value="All">All</Radio>
-          </RadioGroup>
-        </Stack>
-      </Flex> */}
       {combinedItems ? (
         <ResourceGrid data={combinedItems} />
       ) : (
