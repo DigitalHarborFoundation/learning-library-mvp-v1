@@ -156,7 +156,6 @@ const IndexPage = () => {
           marginTop={4}
           onChange={(e) => {
             console.log("filter selected:", e.target.value);
-            // setFilterPathway(true);
             handleFilterChange(e.target.value, "pathway");
           }}
         >
