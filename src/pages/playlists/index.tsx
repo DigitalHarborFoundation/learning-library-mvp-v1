@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter, Router } from "next/router";
+import Router from "next/router";
 import useSWR from "swr";
 import {
   Box,
