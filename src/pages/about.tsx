@@ -7,6 +7,7 @@ import {
   Link as ChakraLink,
   Stack,
   Text,
+  Divider,
 } from "@chakra-ui/core";
 
 const AboutPage: NextPage = () => {
@@ -48,6 +49,7 @@ const AboutPage: NextPage = () => {
             tools they have access to. We are constantly working to improve
             these features, so please check back regularly for updates.
           </Text>
+          <Divider />
           <Text color="gray.800">
             This application is open source. If you're interested in seeing the
             code or contributing, please check out the{" "}
