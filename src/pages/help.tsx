@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
   Icon,
+  Divider,
 } from "@chakra-ui/core";
 
 const HelpPage: NextPage = () => {
@@ -61,6 +62,23 @@ const HelpPage: NextPage = () => {
           <Text as="em" color="gray.800">
             We hope to increase support throughout July. Please check your
             emails and refer to this page for updates.
+          </Text>
+          <Divider />
+          <Text color="gray.800">
+            For technical assistance or support with this app (such as errors),
+            please contact{" "}
+            <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
+              Jonathan Prozzi
+            </ChakraLink>{" "}
+            or file an issue on{" "}
+            <ChakraLink
+              href="https://github.com/jonathanprozzi/learning-library-mvp-v1"
+              color="blue.500"
+              isExternal
+            >
+              GitHub
+            </ChakraLink>
+            .
           </Text>
         </Stack>
       </Box>
