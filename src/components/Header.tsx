@@ -7,9 +7,11 @@ import {
   PseudoBox,
   Stack,
   Text,
+  Icon,
+  IconButton,
 } from "@chakra-ui/core";
 import { GiBookshelf } from "react-icons/gi";
-import { DarkModeSwitch } from "../components/DarkModeSwitch";
+import { GoMarkGithub } from "react-icons/go";
 
 const Header: React.FC = () => {
   return (
@@ -27,6 +29,7 @@ const Header: React.FC = () => {
       <Flex
         direction="row"
         justify="space-around"
+        align="center"
         width={["100vw", "100vw", "80vw", "80vw"]}
         paddingX={[4, 4, 6, 8]}
       >
@@ -40,14 +43,7 @@ const Header: React.FC = () => {
             </Flex>
           </a>
         </Link>
-        <Flex direction="row" align="center">
-          {/* <Link href="/resources">
-            <a>
-              <Text fontSize="lg" color="white" marginRight={4}>
-                Resources
-              </Text>
-            </a>
-          </Link> */}
+        <Flex direction="row" align="center" justify="center">
           <Link href="/playlists">
             <a>
               <Text fontSize="lg" color="white" marginRight={4}>
@@ -69,6 +65,20 @@ const Header: React.FC = () => {
               </Text>
             </a>
           </Link>
+          <ChakraLink
+            href="https://github.com/jonathanprozzi/learning-library-mvp-v1"
+            isExternal
+          >
+            <IconButton
+              as={GoMarkGithub}
+              size="sm"
+              aria-label="Link to GitHub repository"
+              color="white"
+              variant="unstyled"
+              _hover={{ bg: "black", color: "white" }}
+              isRound
+            ></IconButton>
+          </ChakraLink>
         </Flex>
       </Flex>
     </Flex>

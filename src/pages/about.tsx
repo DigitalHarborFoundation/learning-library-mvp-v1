@@ -48,6 +48,22 @@ const AboutPage: NextPage = () => {
             tools they have access to. We are constantly working to improve
             these features, so please check back regularly for updates.
           </Text>
+          <Text color="gray.800">
+            This application is open source. If you're interested in seeing the
+            code or contributing, please check out the{" "}
+            <ChakraLink
+              href="https://github.com/jonathanprozzi/learning-library-mvp-v1"
+              color="blue.500"
+              isExternal
+            >
+              GitHub repo
+            </ChakraLink>{" "}
+            or contact{" "}
+            <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
+              Jonathan Prozzi
+            </ChakraLink>
+            .
+          </Text>
         </Stack>
       </Box>
     </Flex>
