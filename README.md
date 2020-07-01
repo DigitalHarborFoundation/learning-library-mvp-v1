@@ -1,6 +1,6 @@
 # Learning Library
 
-A searchable database of curated resources, lessons, and other types of learning content. Built for the [Digital Harbor Foundation](https://www.digitalharbor.org/).
+A searchable database of curated resources, lessons, and other types of learning content. Built with the [Digital Harbor Foundation](https://www.digitalharbor.org/).
 
 Check it out: [https://library.digitalharbor.org/](https://library.digitalharbor.org/)
 
@@ -11,7 +11,8 @@ Check it out: [https://library.digitalharbor.org/](https://library.digitalharbor
 
 ## Features
 
-- Frontend app pulls curated resources from an [Airtable](https://airtable.com/) database
+- DHF staff are vetting resources across a variety of topics such as fabrication, design, and general tech literacy
+- Frontend app pulls these curated resources from an [Airtable](https://airtable.com/) database
 - Resource pages are shareable
 - Ability to filter by pathway
 - Playlists are curated lists of resources
@@ -21,6 +22,7 @@ Check it out: [https://library.digitalharbor.org/](https://library.digitalharbor
 - Multiple filters (OS, skill level)
 - Shareable searches (sharing your filters with someone)
 - Upvoting process - current ratings are based on curator ratings, but ultimately will have a process for users to upvote resources
+- Community resource submission process
 
 ## Made With
 
