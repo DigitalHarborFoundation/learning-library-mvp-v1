@@ -67,7 +67,10 @@ const HelpPage: NextPage = () => {
           <Text color="gray.800">
             For technical assistance or support with this app (such as errors),
             please contact{" "}
-            <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
+            <ChakraLink
+              href="mailto:jonathan@digitalharbor.org"
+              color="blue.500"
+            >
               Jonathan Prozzi
             </ChakraLink>{" "}
             or file an issue on{" "}
