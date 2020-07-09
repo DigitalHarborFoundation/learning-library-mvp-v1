@@ -61,10 +61,7 @@ const AboutPage: NextPage = () => {
               GitHub repo
             </ChakraLink>{" "}
             or contact{" "}
-            <ChakraLink
-              href="mailto:jonathan@digitalharbor.org"
-              color="blue.500"
-            >
+            <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
               Jonathan Prozzi
             </ChakraLink>
             .
