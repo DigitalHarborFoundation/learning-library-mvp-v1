@@ -140,7 +140,6 @@ const IndexPage = () => {
       )}
       <Flex direction="row" align="center" justify="center" paddingRight={4}>
         <Box
-          as="span"
           color="gray.700"
           fontWeight="normal"
           letterSpacing="wide"
@@ -148,9 +147,10 @@ const IndexPage = () => {
           paddingLeft="4"
           paddingTop="4"
         >
-          Filter by Pathway:
+          <label htmlFor="filter-pathway-select">Filter by Pathway:</label>
         </Box>
         <Select
+          id="filter-pathway-select"
           icon={RiFilter3Line}
           variant="outline"
           marginTop={4}
