@@ -141,7 +141,7 @@ const IndexPage = () => {
       <Flex direction="row" align="center" justify="center" paddingRight={4}>
         <Box
           as="span"
-          color="gray.500"
+          color="gray.700"
           fontWeight="normal"
           letterSpacing="wide"
           fontSize="md"

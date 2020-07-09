@@ -59,7 +59,7 @@ const ResourceCard = ({ data }) => {
         display="flex"
         flexDirection="column"
         flexGrow={2}
-        color="gray.500"
+        color="gray.700"
         fontWeight="normal"
         letterSpacing="wide"
         fontSize="md"
@@ -79,26 +79,16 @@ const ResourceCard = ({ data }) => {
             </Badge>
           </Flex>
           <Box
-            color="gray.500"
+            color="gray.700"
             fontWeight="semibold"
             letterSpacing={["normal", "normal", "wide", "wide"]}
             fontSize="xs"
             textTransform="uppercase"
             marginLeft="2"
+            paddingBottom={4}
           >
             {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
           </Box>
-        </Box>
-        <Box
-          as="h3"
-          color="gray.600"
-          fontWeight="normal"
-          letterSpacing="wide"
-          fontSize="md"
-          ml={0}
-          paddingY={2}
-        >
-          {data.title}
         </Box>
         <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
           <Button rightIcon="view" variantColor="purple" variant="outline">
