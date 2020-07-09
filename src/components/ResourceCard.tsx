@@ -68,7 +68,13 @@ const ResourceCard = ({ data }) => {
       >
         {data.fields["Resource Title"]}
       </Box>
-      <Box p="4" alignItems="center" justifyContent="center">
+      <Box
+        paddingTop="2"
+        paddingLeft="4"
+        paddingBottom="4"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
             <Badge rounded="md" marginRight="1" variantColor="purple">
@@ -85,7 +91,7 @@ const ResourceCard = ({ data }) => {
             fontSize="xs"
             textTransform="uppercase"
             marginLeft="2"
-            paddingBottom={4}
+            paddingBottom={6}
           >
             {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
           </Box>
