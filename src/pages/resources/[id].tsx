@@ -63,7 +63,7 @@ const ResourcePage = ({
               {/* <Icon name="external-link" mx="2px" /> */}
             </ChakraLink>
             <Text>
-              Contributed by{" "}
+              Source:{" "}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
                 <Icon name="external-link" mx="2px" />
