@@ -14,7 +14,18 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
+          <meta
+            name="description"
+            content="The Learning Library is a living and growing database of resources curated by Digital Harbor Foundation. Some of this content is made up of courses and lessons we’ve written, while others are collected from a broad community of makers and educators."
+          />
+          <meta property="og:title" content="Learning Library" key="ogtitle" />
+          <meta
+            property="og:description"
+            content="The Learning Library is a living and growing database of resources curated by Digital Harbor Foundation. Some of this content is made up of courses and lessons we’ve written, while others are collected from a broad community of makers and educators."
+            key="ogdesc"
+          />
           <link rel="shortcut icon" href="/favicon.ico" />
           <script
             async
