@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {NextSeo} from 'next-seo'
+import { NextSeo } from "next-seo";
 import { NextPage } from "next";
 import { useRouter, Router } from "next/router";
 import useSWR from "swr";
@@ -101,8 +101,6 @@ const IndexPage = () => {
 
   if (!data) {
     return (
-      <>
-      <NextSeo/>
       <Flex
         direction="column"
         justify="center"
@@ -174,7 +172,6 @@ const IndexPage = () => {
         <ResourceGrid data={data} />
       )}
     </Flex>
-    </>
   );
 };
 
