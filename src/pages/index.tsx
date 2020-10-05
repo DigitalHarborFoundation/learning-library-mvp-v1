@@ -148,9 +148,7 @@ const IndexPage = () => {
           paddingLeft="4"
           paddingTop="4"
         >
-          <label htmlFor="filter-pathway-select">
-            [New branch test] Filter by Pathway:
-          </label>
+          <label htmlFor="filter-pathway-select">Filter by Pathway:</label>
         </Box>
         <Select
           id="filter-pathway-select"
