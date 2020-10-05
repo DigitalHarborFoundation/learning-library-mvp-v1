@@ -4,11 +4,14 @@ const allRecordsFetch = async (req, res) => {
   const initialData = await fetch(
     `https://api.airtable.com/v0/${baseId}/Content%20Resources?view=Approved%20Resources&api_key=${apiKey}`
   );
-  const { records } = await initialData.json();
+  const { records, offset } = await initialData.json();
 
   if (records) {
+    console.log(records);
+    console.log(offset ? `offset: ${offset}` : "no offset");
     return res.status(200).json({
-      records,
+      records: records,
+      offset: offset,
     });
   } else {
     return res.status(404).json;
