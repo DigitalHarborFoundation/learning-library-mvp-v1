@@ -25,13 +25,13 @@ const fetcher = async (url: string) => {
   if (!res.ok) {
     throw Error("There is problem with the data request.");
   }
-  const { records } = await res.json();
+  const data = await res.json();
 
-  return records;
+  return data;
 };
 
 const IndexPage = () => {
-  const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
+  const { data, error } = useSWR("api/records/getAllRecords", fetcher);
   // const {data, error} = useSWR('api/records/getAllRecords, fetcher')
   const [filterPathwayValue, setFilterPathwayValue] = useState(0);
   const [filterPathway, setFilterPathway] = useState(true);
