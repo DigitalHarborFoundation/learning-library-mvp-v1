@@ -36,14 +36,14 @@ const ResourceCard = ({ data }) => {
       // flexDirection="column"
       // flexGrow={1}
       maxW="md"
-      minWidth="md"
+      // minWidth="md"
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
       bg="white"
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
-        <PseudoBox _hover={{ cursor: "pointer" }}>
+        <PseudoBox _hover={{ cursor: "pointer" }} minWidth="md">
           {data.fields["Featured Image"] && (
             <AspectRatioBox height="300px" ratio={16 / 9}>
               <Image

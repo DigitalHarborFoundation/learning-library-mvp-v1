@@ -20,18 +20,19 @@ const Header: React.FC = () => {
       direction="column"
       justify="center"
       align="center"
+      minWidth="100vw"
       height="8vh"
-      w="100vw"
       bg="black"
       boxShadow="md"
       paddingY={8}
+      paddingX={8}
     >
       <Flex
         direction="row"
         justify="space-around"
         align="center"
-        width={["100vw", "100vw", "80vw", "80vw"]}
-        paddingX={[4, 4, 6, 8]}
+        // width={["100vw", "100vw", "80vw", "80vw"]}
+        paddingX={[7, 4, 6, 8]}
       >
         <Link href="/" passHref>
           <a>
