@@ -7,6 +7,7 @@ const getAllRecords = (req, res) => {
       table
         .select({
           view: "Approved Resources",
+          sort: [{ field: "Created", direction: "desc" }],
         })
         .eachPage(
           (records, fetchNextPage) => {
