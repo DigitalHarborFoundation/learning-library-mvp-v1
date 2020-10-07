@@ -36,6 +36,7 @@ const ResourceCard = ({ data }) => {
       // flexDirection="column"
       // flexGrow={1}
       maxW="md"
+      minWidth="md"
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
