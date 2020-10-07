@@ -32,6 +32,7 @@ const fetcher = async (url: string) => {
 
 const IndexPage = () => {
   const { data, error } = useSWR("api/records/allRecordsFetch", fetcher);
+  // const {data, error} = useSWR('api/records/getAllRecords, fetcher')
   const [filterPathwayValue, setFilterPathwayValue] = useState(0);
   const [filterPathway, setFilterPathway] = useState(true);
   const [filterOS, setFilterOS] = useState(false);
