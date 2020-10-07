@@ -31,7 +31,7 @@ const Header: React.FC = () => {
         direction="row"
         justify="space-around"
         align="center"
-        // width={["100vw", "100vw", "80vw", "80vw"]}
+        width={["100vw", "100vw", "80vw", "80vw"]}
         paddingX={[7, 4, 6, 8]}
       >
         <Link href="/" passHref>
