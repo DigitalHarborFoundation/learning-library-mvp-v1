@@ -128,7 +128,13 @@ const IndexPage = () => {
   ];
 
   return (
-    <Flex direction="column" justify="center" align="center" gridArea="main">
+    <Flex
+      direction="column"
+      justify="center"
+      align="center"
+      gridArea="main"
+      marginX={[4, 4, 10, 12]}
+    >
       {combinedItems ? (
         <Heading as="h2" marginTop={4}>
           Displaying {combinedItems.length}{" "}
