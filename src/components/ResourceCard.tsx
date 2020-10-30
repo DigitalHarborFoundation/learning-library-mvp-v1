@@ -44,15 +44,21 @@ const ResourceCard = ({ data }) => {
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
         <PseudoBox _hover={{ cursor: "pointer" }} minWidth="md">
-          {data.fields["Featured Image"] && (
-            <AspectRatioBox height="300px" ratio={16 / 9}>
+          <AspectRatioBox height="300px" ratio={16 / 9}>
+            {data.fields["Featured Image"] ? (
               <Image
                 src={data.fields["Featured Image"][0].url}
                 alt={data.fields["Resource Title"]}
                 objectFit="cover"
               />
-            </AspectRatioBox>
-          )}
+            ) : (
+              <Image
+                src="/dhf-library-social-scaled.jpg"
+                alt=""
+                objectFit="cover"
+              />
+            )}
+          </AspectRatioBox>
         </PseudoBox>
       </Link>
       <Box
