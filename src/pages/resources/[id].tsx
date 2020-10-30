@@ -7,17 +7,12 @@ import {
   AspectRatio,
   Box,
   Badge,
-  Button,
   Flex,
   Heading,
   Image,
   Text,
-  Alert,
-  Spinner,
-  Grid,
   SimpleGrid,
   Link as ChakraLink,
-  Icon,
   Stack,
   Tag,
   TagLabel,
@@ -25,7 +20,7 @@ import {
   Divider,
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 
 const ResourcePage = ({
   title,
@@ -86,9 +81,8 @@ const ResourcePage = ({
                 {Array(5)
                   .fill("")
                   .map((_, i) => (
-                    <Icon
+                    <StarIcon
                       key={i}
-                      name="star"
                       color={i < rating ? "purple.500" : "purple.100"}
                       paddingBottom={1}
                     />
