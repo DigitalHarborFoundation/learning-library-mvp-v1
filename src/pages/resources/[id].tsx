@@ -64,7 +64,7 @@ const ResourcePage = ({
                 {author}
                 <Icon as={GoLinkExternal} mx="2px" />
               </ChakraLink>
-              <Divider />
+              <Divider marginY={2} />
             </Text>
             <Flex direction="row" align="center" justify="center">
               <Box
