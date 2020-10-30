@@ -13,7 +13,6 @@ import SiteLayout from "../components/SiteLayout";
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ChakraProvider resetCSS={true}>
-      {/* <ColorModeProvider> */}
       <Flex direction="column" align="center" justify="center">
         <SiteLayout>
           <DefaultSeo
