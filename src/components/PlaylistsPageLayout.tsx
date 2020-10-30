@@ -35,11 +35,11 @@ const PlaylistsPageLayout = ({
         <Heading as="h2" size="xl" paddingY={4} textAlign="center">
           {title} Playlist
         </Heading>
-        <AspectRatioBox maxWidth="600px" ratio={16 / 9}>
+        <AspectRatioBox width="100%" ratio={16 / 9}>
           <Image src={image} alt={title} objectFit="cover" />
         </AspectRatioBox>
 
-        <Box paddingY={4}>
+        <Box paddingY={4} maxWidth="65ch">
           <ReactMarkdown
             css={css`
               > ul {
