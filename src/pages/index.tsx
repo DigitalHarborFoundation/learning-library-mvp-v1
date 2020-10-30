@@ -158,6 +158,7 @@ const IndexPage = () => {
           id="filter-pathway-select"
           icon={<RiFilter3Line />}
           variant="outline"
+          bg="white"
           marginTop={4}
           onChange={(e) => {
             console.log("filter selected:", e.target.value);

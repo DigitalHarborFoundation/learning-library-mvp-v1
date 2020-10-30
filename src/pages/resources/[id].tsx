@@ -13,14 +13,15 @@ import {
   Text,
   SimpleGrid,
   Link as ChakraLink,
-  Stack,
+  HStack,
   Tag,
   TagLabel,
   TagRightIcon,
   Divider,
+  Icon,
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
-import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
+import { GoLinkExternal, GoStar } from "react-icons/go";
 
 const ResourcePage = ({
   title,
@@ -56,15 +57,14 @@ const ResourcePage = ({
           <Flex direction="column" align="flex-start">
             <ChakraLink href={url} isExternal color="blue.500">
               <Heading as="h2">{title}</Heading>
-              {/* <Icon name="external-link" mx="2px" /> */}
             </ChakraLink>
             <Text>
               Source:{" "}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
-                <ExternalLinkIcon mx="2px" />
+                <Icon as={GoLinkExternal} mx="2px" />
               </ChakraLink>
-              <Divider />
+              <Divider marginY={2} />
             </Text>
             <Flex direction="row" align="center" justify="center">
               <Box
@@ -81,10 +81,10 @@ const ResourcePage = ({
                 {Array(5)
                   .fill("")
                   .map((_, i) => (
-                    <StarIcon
+                    <Icon
+                      as={GoStar}
                       key={i}
                       color={i < rating ? "purple.500" : "purple.100"}
-                      paddingBottom={1}
                     />
                   ))}
               </Box>
@@ -110,19 +110,20 @@ const ResourcePage = ({
               </Flex>
             </Box>
             {tags && (
-              <Stack spacing={2} isInline>
+              <HStack spacing={2} isInline>
                 {tags.map((tag) => (
                   <Tag
                     rounded="md"
                     size="md"
                     colorScheme="gray"
                     variant="subtle"
+                    id={tag}
                   >
                     <TagLabel>{tag}</TagLabel>
                     <TagRightIcon as={TiTag} />
                   </Tag>
                 ))}
-              </Stack>
+              </HStack>
             )}
             {/* <Box d="flex" marginY="1" alignItems="center">
               {Array(5)
