@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Link as ChakraLink,
-  PseudoBox,
   Stack,
   Text,
   Icon,

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const ReactMarkdown = require("react-markdown");
 import useSWR from "swr";
 import {
-  AspectRatioBox,
+  AspectRatio,
   Box,
   Badge,
   Button,
@@ -53,9 +53,9 @@ const ResourcePage = ({
       >
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
           <ChakraLink href={url} isExternal>
-            <AspectRatioBox height="300px" ratio={16 / 9}>
+            <AspectRatio height="300px" ratio={16 / 9}>
               <Image src={image} alt={title} objectFit="cover" />
-            </AspectRatioBox>
+            </AspectRatio>
           </ChakraLink>
           <Flex direction="column" align="flex-start">
             <ChakraLink href={url} isExternal color="blue.500">
@@ -100,7 +100,7 @@ const ResourcePage = ({
                   padding="1"
                   rounded="md"
                   marginRight="1"
-                  variantColor="purple"
+                  colorScheme="purple"
                 >
                   {os}
                 </Badge>
@@ -108,7 +108,7 @@ const ResourcePage = ({
                   padding={1}
                   rounded="md"
                   marginLeft="1"
-                  variantColor="teal"
+                  colorScheme="teal"
                 >
                   {pathway}
                 </Badge>
@@ -120,7 +120,7 @@ const ResourcePage = ({
                   <Tag
                     rounded="md"
                     size="md"
-                    variantColor="gray"
+                    colorScheme="gray"
                     variant="subtle"
                   >
                     <TagLabel>{tag}</TagLabel>

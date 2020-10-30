@@ -6,7 +6,7 @@ import {
   Heading,
   Text,
   SimpleGrid,
-  AspectRatioBox,
+  AspectRatio,
   Image,
   Link as ChakraLink,
   Stack,
@@ -35,9 +35,9 @@ const PlaylistsPageLayout = ({
         <Heading as="h2" size="xl" paddingY={4} textAlign="center">
           {title} Playlist
         </Heading>
-        <AspectRatioBox width="100%" ratio={16 / 9}>
+        <AspectRatio width="100%" ratio={16 / 9}>
           <Image src={image} alt={title} objectFit="cover" />
-        </AspectRatioBox>
+        </AspectRatio>
 
         <Box paddingY={4} maxWidth="65ch">
           <ReactMarkdown
