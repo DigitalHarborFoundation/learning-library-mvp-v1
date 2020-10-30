@@ -1,17 +1,7 @@
 import Link from "next/link";
-import {
-  PseudoBox,
-  AspectRatioBox,
-  Image,
-  Box,
-  Badge,
-  Text,
-  ButtonGroup,
-  Button,
-  Flex,
-  Tag,
-} from "@chakra-ui/core";
+import { AspectRatio, Image, Box, Button, Flex } from "@chakra-ui/core";
 import kebabCase from "lodash.kebabcase";
+import { ViewIcon } from "@chakra-ui/icons";
 
 // type Props = {
 //   data: {
@@ -29,25 +19,19 @@ import kebabCase from "lodash.kebabcase";
 
 const PlaylistCard = ({ data }) => {
   return (
-    <PseudoBox
-      h="auto"
-      maxW="md"
-      overflow="hidden"
-      rounded="lg"
-      borderWidth="1px"
-    >
+    <Box h="auto" maxW="md" overflow="hidden" rounded="lg" borderWidth="1px">
       <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
-        <PseudoBox _hover={{ cursor: "pointer" }}>
+        <Box _hover={{ cursor: "pointer" }}>
           {data.fields["Featured Image"] && (
-            <AspectRatioBox width="100%" height="300px" ratio={4 / 3}>
+            <AspectRatio width="100%" height="300px" ratio={4 / 3}>
               <Image
                 src={data.fields["Featured Image"][0].url}
                 alt={`${data.fields["Playlist Title"]} Resource Playlist`}
                 objectFit="cover"
               />
-            </AspectRatioBox>
+            </AspectRatio>
           )}
-        </PseudoBox>
+        </Box>
       </Link>
       <Box p="4" alignItems="center" justifyContent="center">
         <Box d="flex" alignItems="baseline">
@@ -88,13 +72,17 @@ const PlaylistCard = ({ data }) => {
             {data.fields["Description"]}
           </Box>
           <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
-            <Button rightIcon="view" variantColor="purple" variant="outline">
+            <Button
+              rightIcon={<ViewIcon />}
+              colorScheme="purple"
+              variant="outline"
+            >
               Explore Playlist
             </Button>
           </Link>
         </Box>
       </Box>
-    </PseudoBox>
+    </Box>
   );
 };
 

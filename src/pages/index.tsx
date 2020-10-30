@@ -156,7 +156,7 @@ const IndexPage = () => {
         </Box>
         <Select
           id="filter-pathway-select"
-          icon={RiFilter3Line}
+          icon={<RiFilter3Line />}
           variant="outline"
           marginTop={4}
           onChange={(e) => {

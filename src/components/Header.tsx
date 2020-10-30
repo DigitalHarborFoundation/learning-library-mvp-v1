@@ -4,10 +4,7 @@ import {
   Flex,
   Heading,
   Link as ChakraLink,
-  PseudoBox,
-  Stack,
   Text,
-  Icon,
   IconButton,
 } from "@chakra-ui/core";
 import { GiBookshelf } from "react-icons/gi";

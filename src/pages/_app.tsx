@@ -1,7 +1,7 @@
 import { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import {
-  ThemeProvider,
+  ChakraProvider,
   theme,
   CSSReset,
   Flex,
@@ -12,10 +12,8 @@ import SiteLayout from "../components/SiteLayout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider>
-      {/* <ColorModeProvider> */}
+    <ChakraProvider resetCSS={true}>
       <Flex direction="column" align="center" justify="center">
-        <CSSReset />
         <SiteLayout>
           <DefaultSeo
             title="Learning Library"
@@ -43,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </SiteLayout>
       </Flex>
       {/* </ColorModeProvider> */}
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 

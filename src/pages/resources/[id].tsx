@@ -4,27 +4,23 @@ import { useRouter } from "next/router";
 const ReactMarkdown = require("react-markdown");
 import useSWR from "swr";
 import {
-  AspectRatioBox,
+  AspectRatio,
   Box,
   Badge,
-  Button,
   Flex,
   Heading,
   Image,
   Text,
-  Alert,
-  Spinner,
-  Grid,
   SimpleGrid,
   Link as ChakraLink,
-  Icon,
   Stack,
   Tag,
   TagLabel,
-  TagIcon,
+  TagRightIcon,
   Divider,
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
+import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 
 const ResourcePage = ({
   title,
@@ -53,9 +49,9 @@ const ResourcePage = ({
       >
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={8} marginY={8}>
           <ChakraLink href={url} isExternal>
-            <AspectRatioBox height="300px" ratio={16 / 9}>
+            <AspectRatio height="300px" ratio={16 / 9}>
               <Image src={image} alt={title} objectFit="cover" />
-            </AspectRatioBox>
+            </AspectRatio>
           </ChakraLink>
           <Flex direction="column" align="flex-start">
             <ChakraLink href={url} isExternal color="blue.500">
@@ -66,7 +62,7 @@ const ResourcePage = ({
               Source:{" "}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
-                <Icon name="external-link" mx="2px" />
+                <ExternalLinkIcon mx="2px" />
               </ChakraLink>
               <Divider />
             </Text>
@@ -85,9 +81,8 @@ const ResourcePage = ({
                 {Array(5)
                   .fill("")
                   .map((_, i) => (
-                    <Icon
+                    <StarIcon
                       key={i}
-                      name="star"
                       color={i < rating ? "purple.500" : "purple.100"}
                       paddingBottom={1}
                     />
@@ -100,7 +95,7 @@ const ResourcePage = ({
                   padding="1"
                   rounded="md"
                   marginRight="1"
-                  variantColor="purple"
+                  colorScheme="purple"
                 >
                   {os}
                 </Badge>
@@ -108,7 +103,7 @@ const ResourcePage = ({
                   padding={1}
                   rounded="md"
                   marginLeft="1"
-                  variantColor="teal"
+                  colorScheme="teal"
                 >
                   {pathway}
                 </Badge>
@@ -120,11 +115,11 @@ const ResourcePage = ({
                   <Tag
                     rounded="md"
                     size="md"
-                    variantColor="gray"
+                    colorScheme="gray"
                     variant="subtle"
                   >
                     <TagLabel>{tag}</TagLabel>
-                    <TagIcon icon={TiTag} />
+                    <TagRightIcon as={TiTag} />
                   </Tag>
                 ))}
               </Stack>

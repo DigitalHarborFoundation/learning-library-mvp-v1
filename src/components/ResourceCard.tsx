@@ -1,9 +1,8 @@
 import Link from "next/link";
 import {
-  PseudoBox,
-  AspectRatioBox,
-  Image,
   Box,
+  AspectRatio,
+  Image,
   Badge,
   Text,
   ButtonGroup,
@@ -11,6 +10,7 @@ import {
   Flex,
   Tag,
 } from "@chakra-ui/core";
+import { ViewIcon } from "@chakra-ui/icons";
 import kebabCase from "lodash.kebabcase";
 
 // type Props = {
@@ -29,7 +29,7 @@ import kebabCase from "lodash.kebabcase";
 
 const ResourceCard = ({ data }) => {
   return (
-    <PseudoBox
+    <Box
       w="100%"
       h="auto"
       // display="flex"
@@ -43,8 +43,8 @@ const ResourceCard = ({ data }) => {
       bg="white"
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
-        <PseudoBox _hover={{ cursor: "pointer" }} minWidth="md">
-          <AspectRatioBox height="300px" ratio={16 / 9}>
+        <Box _hover={{ cursor: "pointer" }} minWidth="md">
+          <AspectRatio height="300px" ratio={16 / 9}>
             {data.fields["Featured Image"] ? (
               <Image
                 src={data.fields["Featured Image"][0].url}
@@ -58,8 +58,8 @@ const ResourceCard = ({ data }) => {
                 objectFit="cover"
               />
             )}
-          </AspectRatioBox>
-        </PseudoBox>
+          </AspectRatio>
+        </Box>
       </Link>
       <Box
         as="h3"
@@ -84,10 +84,10 @@ const ResourceCard = ({ data }) => {
       >
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
-            <Badge rounded="md" marginRight="1" variantColor="purple">
+            <Badge rounded="md" marginRight="1" colorScheme="purple">
               {data.fields["Operating System"]}
             </Badge>
-            <Badge rounded="md" marginLeft="1" variantColor="teal">
+            <Badge rounded="md" marginLeft="1" colorScheme="teal">
               {data.fields["Pathway"]}
             </Badge>
           </Flex>
@@ -104,12 +104,16 @@ const ResourceCard = ({ data }) => {
           {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
         </Box>
         <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
-          <Button rightIcon="view" variantColor="purple" variant="outline">
+          <Button
+            colorScheme="purple"
+            variant="outline"
+            rightIcon={<ViewIcon />}
+          >
             Learn More
           </Button>
         </Link>
       </Box>
-    </PseudoBox>
+    </Box>
   );
 };
 
