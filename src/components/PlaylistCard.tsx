@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AspectRatio, Image, Box, Button, Flex } from "@chakra-ui/core";
 import kebabCase from "lodash.kebabcase";
-import { ViewIcon } from "@chakra-ui/icons";
+import { GoEye } from "react-icons/go";
 
 // type Props = {
 //   data: {
@@ -73,7 +73,7 @@ const PlaylistCard = ({ data }) => {
           </Box>
           <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
             <Button
-              rightIcon={<ViewIcon />}
+              rightIcon={<GoEye />}
               colorScheme="purple"
               variant="outline"
             >
