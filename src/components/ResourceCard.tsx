@@ -10,6 +10,7 @@ import {
   Flex,
   Tag,
 } from "@chakra-ui/core";
+import { ViewIcon } from "@chakra-ui/icons";
 import kebabCase from "lodash.kebabcase";
 
 // type Props = {
@@ -103,7 +104,11 @@ const ResourceCard = ({ data }) => {
           {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
         </Box>
         <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
-          <Button rightIcon="view" colorScheme="purple" variant="outline">
+          <Button
+            colorScheme="purple"
+            variant="outline"
+            rightIcon={<ViewIcon />}
+          >
             Learn More
           </Button>
         </Link>

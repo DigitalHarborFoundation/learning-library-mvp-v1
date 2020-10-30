@@ -1,16 +1,7 @@
 import Link from "next/link";
-import {
-  AspectRatio,
-  Image,
-  Box,
-  Badge,
-  Text,
-  ButtonGroup,
-  Button,
-  Flex,
-  Tag,
-} from "@chakra-ui/core";
+import { AspectRatio, Image, Box, Button, Flex } from "@chakra-ui/core";
 import kebabCase from "lodash.kebabcase";
+import { ViewIcon } from "@chakra-ui/icons";
 
 // type Props = {
 //   data: {
@@ -81,7 +72,11 @@ const PlaylistCard = ({ data }) => {
             {data.fields["Description"]}
           </Box>
           <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
-            <Button rightIcon="view" colorScheme="purple" variant="outline">
+            <Button
+              rightIcon={<ViewIcon />}
+              colorScheme="purple"
+              variant="outline"
+            >
               Explore Playlist
             </Button>
           </Link>
