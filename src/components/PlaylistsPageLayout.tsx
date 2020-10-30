@@ -81,13 +81,13 @@ const PlaylistsPageLayout = ({
                 {resourceLinks
                   .filter((item, index) => pathway === linkPathways[index])
                   .map((resource, index) => (
-                    <>
+                    <Stack>
                       <Link key={index} href={`/resources/${resource}`}>
                         <ChakraLink color="blue.400">
                           {linkTitles[index]}
                         </ChakraLink>
                       </Link>
-                    </>
+                    </Stack>
                   ))}
               </AccordionPanel>
             </AccordionItem>
