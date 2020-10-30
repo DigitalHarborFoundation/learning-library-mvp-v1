@@ -21,10 +21,11 @@ import {
   Stack,
   Tag,
   TagLabel,
-  TagIcon,
+  TagRightIcon,
   Divider,
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const ResourcePage = ({
   title,
@@ -66,7 +67,7 @@ const ResourcePage = ({
               Source:{" "}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
-                <Icon name="external-link" mx="2px" />
+                <ExternalLinkIcon mx="2px" />
               </ChakraLink>
               <Divider />
             </Text>
@@ -124,7 +125,7 @@ const ResourcePage = ({
                     variant="subtle"
                   >
                     <TagLabel>{tag}</TagLabel>
-                    <TagIcon icon={TiTag} />
+                    <TagRightIcon as={TiTag} />
                   </Tag>
                 ))}
               </Stack>
