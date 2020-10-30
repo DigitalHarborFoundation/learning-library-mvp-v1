@@ -18,9 +18,10 @@ import {
   TagLabel,
   TagRightIcon,
   Divider,
+  Icon,
 } from "@chakra-ui/core";
 import { TiTag } from "react-icons/ti";
-import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
+import { GoLinkExternal, GoStar } from "react-icons/go";
 
 const ResourcePage = ({
   title,
@@ -56,13 +57,12 @@ const ResourcePage = ({
           <Flex direction="column" align="flex-start">
             <ChakraLink href={url} isExternal color="blue.500">
               <Heading as="h2">{title}</Heading>
-              {/* <Icon name="external-link" mx="2px" /> */}
             </ChakraLink>
             <Text>
               Source:{" "}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
-                <ExternalLinkIcon mx="2px" />
+                <Icon as={GoLinkExternal} mx="2px" />
               </ChakraLink>
               <Divider />
             </Text>
@@ -81,10 +81,10 @@ const ResourcePage = ({
                 {Array(5)
                   .fill("")
                   .map((_, i) => (
-                    <StarIcon
+                    <Icon
+                      as={GoStar}
                       key={i}
                       color={i < rating ? "purple.500" : "purple.100"}
-                      paddingBottom={1}
                     />
                   ))}
               </Box>
