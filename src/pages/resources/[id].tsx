@@ -13,7 +13,7 @@ import {
   Text,
   SimpleGrid,
   Link as ChakraLink,
-  Stack,
+  HStack,
   Tag,
   TagLabel,
   TagRightIcon,
@@ -110,19 +110,20 @@ const ResourcePage = ({
               </Flex>
             </Box>
             {tags && (
-              <Stack spacing={2} isInline>
+              <HStack spacing={2} isInline>
                 {tags.map((tag) => (
                   <Tag
                     rounded="md"
                     size="md"
                     colorScheme="gray"
                     variant="subtle"
+                    id={tag}
                   >
                     <TagLabel>{tag}</TagLabel>
                     <TagRightIcon as={TiTag} />
                   </Tag>
                 ))}
-              </Stack>
+              </HStack>
             )}
             {/* <Box d="flex" marginY="1" alignItems="center">
               {Array(5)
