@@ -92,10 +92,7 @@ const IndexPage = () => {
         align="center"
         minHeight="100vh"
       >
-        <Alert status="error">
-          Failed to load data: {error.message}. Please reach out to
-          contact@digitalharbor.org
-        </Alert>
+        <Alert status="error">Failed to load data: {error.message}.</Alert>
       </Flex>
     );
   }

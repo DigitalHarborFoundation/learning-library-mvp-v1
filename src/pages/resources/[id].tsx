@@ -181,7 +181,9 @@ export async function getServerSideProps({ params, query }) {
     props: {
       id: data.id,
       title: data.fields["Resource Title"],
-      image: data.fields["Featured Image"][0].url,
+      image: data.fields["Featured Image"]
+        ? data.fields["Featured Image"][0].url
+        : "/dhf-library-social-scaled.jpg",
       url: data.fields["URL"],
       os: data.fields["Operating System"],
       pathway: data.fields["Pathway"],
