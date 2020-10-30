@@ -8,7 +8,9 @@ const PlaylistsData = ({
   image,
   resourceLinks,
   linkTitles,
+  linkPathways,
 }) => {
+  console.log("pagelayout", linkPathways);
   return (
     <PlaylistsPageLayout
       title={title}
@@ -16,6 +18,7 @@ const PlaylistsData = ({
       image={image}
       resourceLinks={resourceLinks}
       linkTitles={linkTitles}
+      linkPathways={linkPathways}
     />
   );
 };

@@ -7,6 +7,7 @@ const ElementaryElectronicsPage = ({
   image,
   resourceLinks,
   linkTitles,
+  linkPathways,
 }) => {
   return (
     <PlaylistsData
@@ -15,6 +16,7 @@ const ElementaryElectronicsPage = ({
       image={image}
       resourceLinks={resourceLinks}
       linkTitles={linkTitles}
+      linkPathways={linkPathways}
     ></PlaylistsData>
   );
 };
@@ -37,6 +39,7 @@ export async function getServerSideProps({ params, query }) {
       title: data.fields["Playlist Title"] || null,
       resourceLinks: data.fields["Resource Links"] || null,
       linkTitles: data.fields["Link Titles"] || null,
+      linkPathways: data.fields["Link Pathways"] || null,
       image: data.fields["Featured Image"][0].url || null,
       description: data.fields["Description"] || null,
       level: data.fields["Skill Level"] || null,
