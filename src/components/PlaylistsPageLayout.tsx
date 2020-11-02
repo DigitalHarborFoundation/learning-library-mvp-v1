@@ -64,11 +64,11 @@ const PlaylistsPageLayout = ({
             source={landingPageCopy}
           />
         </Box>
-        <Heading as="h3" size="lg">
+        <Heading as="h3" size="lg" paddingBottom={2}>
           Resources
         </Heading>
 
-        <Accordion>
+        <Accordion allowToggle>
           {uniquePathways.map((pathway) => (
             <AccordionItem>
               <AccordionButton>
