@@ -5,11 +5,15 @@ import {
   Flex,
   Heading,
   Text,
-  SimpleGrid,
   AspectRatio,
   Image,
   Link as ChakraLink,
   Stack,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/core";
 import { jsx, css } from "@emotion/core";
 const ReactMarkdown = require("react-markdown");
@@ -20,7 +24,12 @@ const PlaylistsPageLayout = ({
   image,
   resourceLinks,
   linkTitles,
+  linkPathways,
 }) => {
+  const uniquePathways = [...new Set(linkPathways)];
+  console.log({ resourceLinks });
+  console.log({ linkPathways });
+
   return (
     <Flex direction="column" justify="center" align="center ">
       <Box
@@ -35,6 +44,7 @@ const PlaylistsPageLayout = ({
         <Heading as="h2" size="xl" paddingY={4} textAlign="center">
           {title} Playlist
         </Heading>
+
         <AspectRatio width="100%" ratio={16 / 9}>
           <Image src={image} alt={title} objectFit="cover" />
         </AspectRatio>
@@ -54,10 +64,36 @@ const PlaylistsPageLayout = ({
             source={landingPageCopy}
           />
         </Box>
-        <Heading as="h3" size="lg">
+        <Heading as="h3" size="lg" paddingBottom={2}>
           Resources
         </Heading>
-        {resourceLinks ? (
+
+        <Accordion allowToggle>
+          {uniquePathways.map((pathway) => (
+            <AccordionItem>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  {pathway}
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+              <AccordionPanel pb={4}>
+                {resourceLinks
+                  .filter((item, index) => pathway === linkPathways[index])
+                  .map((resource, index) => (
+                    <Stack>
+                      <Link key={index} href={`/resources/${resource}`}>
+                        <ChakraLink color="blue.400">
+                          {linkTitles[index]}
+                        </ChakraLink>
+                      </Link>
+                    </Stack>
+                  ))}
+              </AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+        {/* {resourceLinks ? (
           <Stack>
             {resourceLinks.map((resource, index) => (
               <Link key={index} href={`/resources/${resource}`}>
@@ -69,7 +105,7 @@ const PlaylistsPageLayout = ({
           <Text>
             There are currently no resources in this playlist. Check back soon.
           </Text>
-        )}
+        )} */}
       </Box>
     </Flex>
   );
