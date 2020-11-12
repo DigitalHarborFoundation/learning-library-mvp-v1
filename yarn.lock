@@ -1895,10 +1895,10 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.164.tgz#52348bcf909ac7b4c1bcbeda5c23135176e5dfa0"
   integrity sha512-fXCEmONnrtbYUc5014avwBeMdhHHO8YJCkOBflUL9EoJBSKZ1dei+VO74fA7JkTHZ1GvZack2TyIw5U+1lT8jg==
 
-"@types/node@^14.0.14":
-  version "14.11.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.11.5.tgz#fecad41c041cae7f2404ad4b2d0742fdb628b305"
-  integrity sha512-jVFzDV6NTbrLMxm4xDSIW/gKnk8rQLF9wAzLWIOg+5nU6ACrIMndeBdXci0FGtqJbP9tQvm6V39eshc96TO2wQ==
+"@types/node@>=8.0.0 <15":
+  version "14.14.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.7.tgz#8ea1e8f8eae2430cf440564b98c6dfce1ec5945d"
+  integrity sha512-Zw1vhUSQZYw+7u5dAwNbIA9TuTotpzY/OF7sJM9FqPOF3SPjKnxrjoTktXDZgUjybf4cWVBP7O8wvKdSaGHweg==
 
 "@types/node@^14.0.9":
   version "14.0.9"
@@ -2143,16 +2143,16 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-airtable@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/airtable/-/airtable-0.10.0.tgz#29f7f5fb209b898b72238fe847142cf2a41210b2"
-  integrity sha512-6gBUG+z1kqvwyHYWlc+y74TfYpc18mvmNuVcefjlvd6MSgLP9Hk47ByyBS6Ke8zdSk6kBTDpdiwCjoJQUpu6yg==
+airtable@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/airtable/-/airtable-0.10.1.tgz#0b311002bb44b39f19bf7c4bd2d47d75c733bf87"
+  integrity sha512-obFW+R3ly2mKtCj0D/xto0ggUvYwdM0RJT3VJ9wvgqoxDkzqg2mNtkuTNfYjF6wWQA0GvoHG9guqzgBBqFjItw==
   dependencies:
-    "@types/node" "^14.0.14"
+    "@types/node" ">=8.0.0 <15"
     abort-controller "^3.0.0"
     abortcontroller-polyfill "^1.4.0"
-    lodash "4.17.19"
-    node-fetch "^2.6.0"
+    lodash "^4.17.19"
+    node-fetch "^2.6.1"
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -4188,7 +4188,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@4.17.19, lodash@^4.17.11, lodash@^4.17.13:
+lodash@^4.17.11, lodash@^4.17.13:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
@@ -4544,7 +4544,7 @@ node-fetch@2.6.0:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
-node-fetch@^2.6.0:
+node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
@@ -5773,10 +5773,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-swr@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.5.tgz#848a80e7b23b96d7221468555d8688d3efdecbc7"
-  integrity sha512-sZNed7JBEnFC42+XFWJ+aYGGVg5D3qNyISZOke3oL/gM1UNm0tsj9mbhTPT99SV9DzbKbT1NFTTRandPdhvpUA==
+swr@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.8.tgz#b3c3c7fa278913d22dbe1f3f28c07df9da9be944"
+  integrity sha512-EHRlaqoBtHsB2wOB+dQJ74DrZvaRGu4BaIQrhkD+/rj8/UGo2iQXN+rCcYnV7/VAreBJBmm9+lDkwZmUqWEkKA==
   dependencies:
     dequal "2.0.2"
 
