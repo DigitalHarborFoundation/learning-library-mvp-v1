@@ -19,25 +19,18 @@ const RequestForm = () => {
   const smsRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const SignupSchema = Yup.object().shape({
-    acceptedTerms: Yup.bool().oneOf(
-      [true],
-      "Accepting the Terms of Service and Privacy Policy is required."
-    ),
-    smsNumber: Yup.string()
-      .nullable()
-      .matches(smsRegExp, "Phone number is not valid. Please try again."),
-    name: Yup.string().nullable().optional,
+    // acceptedTerms: Yup.bool().oneOf(
+    //   [true],
+    //   "Accepting the Terms of Service and Privacy Policy is required."
+    // ),
+    // smsNumber: Yup.string()
+    //   .nullable()
+    //   .matches(smsRegExp, "Phone number is not valid. Please try again."),
+    name: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+    // .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
   });
 
-  const validateName = (value) => {
-    let error;
-    if (!value) {
-      error = "Name is required";
-    } else if (value !== "Jonathan") {
-      error = "Please enter that's not Jonatahn!";
-    }
-    return error;
-  };
   // const handleSubmit = async (values) => {
   //   setSending(true);
 
@@ -70,24 +63,46 @@ const RequestForm = () => {
           // smsNumber: null,
           // acceptedTerms: false,
           // imageInfo: img,
-          name: "testing",
+          name: "",
+          email: "",
         }}
-        // validationSchema={SignupSchema}
+        validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
+          setSending(true);
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
           }, 1000);
+          setSending(false);
         }}
       >
         {({ handleSubmit, errors, touched }) => (
           <Form>
-            <Field name="name" validate={validateName}>
+            <Field name="name">
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.name && form.touched.name}>
-                  <FormLabel htmlFor="name">First name</FormLabel>
-                  <Input {...field} id="name" placeholder="name" />
+                  <FormLabel htmlFor="name">Name (optional)</FormLabel>
+                  <Input
+                    {...field}
+                    id="name"
+                    placeholder="Please enter your name if you'd like"
+                  />
                   <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
+            <Field name="email">
+              {({ field, form }) => (
+                <FormControl
+                  isInvalid={form.errors.email && form.touched.email}
+                >
+                  <FormLabel htmlFor="email">Email (optional)</FormLabel>
+                  <Input
+                    {...field}
+                    id="email"
+                    placeholder="Please enter your email if you'd like"
+                  />
+                  <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>
@@ -97,7 +112,7 @@ const RequestForm = () => {
               isLoading={isSending}
               type="submit"
             >
-              Submit
+              Send Request
             </Button>
           </Form>
         )}
