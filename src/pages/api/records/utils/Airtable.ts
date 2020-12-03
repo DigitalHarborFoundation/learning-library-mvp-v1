@@ -4,6 +4,8 @@ const base = new Airtable({ apiKey: process.env.API_KEY }).base(
 );
 const table = base(process.env.TABLE_NAME);
 
+const requestsTable = base("Requests");
+
 // nice tricks from James Q Quick!
 const getMinifiedRecord = (record) => {
   return {
@@ -16,4 +18,4 @@ const minifyRecords = (records) => {
   return records.map((record) => getMinifiedRecord(record));
 };
 
-export { table, getMinifiedRecord, minifyRecords };
+export { table, requestsTable, getMinifiedRecord, minifyRecords };

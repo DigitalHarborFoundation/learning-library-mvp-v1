@@ -36,7 +36,7 @@ const RequestForm = () => {
   const handleSubmit = async (values) => {
     setSending(true);
     const { category, name, email } = values;
-    const res = await fetch("", {
+    const res = await fetch("/api/records/createResource", {
       method: "POST",
       body: JSON.stringify({
         category: category,
@@ -48,9 +48,9 @@ const RequestForm = () => {
       },
     });
 
-    const fileResponse = await res.json();
-    console.log("response", fileResponse);
-    if (fileResponse) {
+    const apiResponse = await res.json();
+    console.log("response", apiResponse);
+    if (apiResponse) {
       setSending(false);
       alert("sent!");
     }
@@ -67,12 +67,13 @@ const RequestForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          setSending(true);
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
-          setSending(false);
+          // setSending(true);
+          // setTimeout(() => {
+          //   alert(JSON.stringify(values, null, 2));
+          //   actions.setSubmitting(false);
+          // }, 1000);
+          // setSending(false);
+          handleSubmit(values);
         }}
       >
         {({ handleSubmit, errors, touched }) => (
