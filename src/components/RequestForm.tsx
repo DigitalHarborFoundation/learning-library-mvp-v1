@@ -25,9 +25,9 @@ const RequestForm = () => {
     //   "You'll be asked for your email or phone number for us to contact you."
     // ),
     contactOptIn: Yup.bool(),
-    // smsNumber: Yup.string()
-    //   .nullable()
-    //   .matches(smsRegExp, "Phone number is not valid. Please try again."),
+    smsNumber: Yup.string()
+      .nullable()
+      .matches(smsRegExp, "Phone number is not valid. Please try again."),
     name: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
     // .required("Required"),
     email: Yup.string().email("Invalid email"),
@@ -68,13 +68,14 @@ const RequestForm = () => {
           name: "",
           email: "",
           category: "",
+          contactOptIn: false,
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
           handleSubmit(values);
         }}
       >
-        {({ handleSubmit, errors, touched }) => (
+        {({ handleSubmit, errors, touched, values }) => (
           <Form>
             <Field name="category">
               {({ field, form }) => (
@@ -102,9 +103,7 @@ const RequestForm = () => {
                     form.errors.contactOptIn && form.touched.contactOptIn
                   }
                 >
-                  <FormLabel htmlFor="contactOptIn">
-                    Allow us to contact you
-                  </FormLabel>
+                  <FormLabel htmlFor="contactOptIn">Contact Opt In</FormLabel>
                   <Checkbox {...field} id="contactOptIn" placeholder="">
                     Contact Me
                   </Checkbox>
@@ -114,34 +113,40 @@ const RequestForm = () => {
                 </FormControl>
               )}
             </Field>
-            <Field name="name">
-              {({ field, form }) => (
-                <FormControl isInvalid={form.errors.name && form.touched.name}>
-                  <FormLabel htmlFor="name">Name (optional)</FormLabel>
-                  <Input
-                    {...field}
-                    id="name"
-                    placeholder="Please enter your name if you'd like"
-                  />
-                  <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Field name="email">
-              {({ field, form }) => (
-                <FormControl
-                  isInvalid={form.errors.email && form.touched.email}
-                >
-                  <FormLabel htmlFor="email">Email (optional)</FormLabel>
-                  <Input
-                    {...field}
-                    id="email"
-                    placeholder="Please enter your email if you'd like"
-                  />
-                  <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
+            {values.contactOptIn === true ? (
+              <>
+                <Field name="name">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <FormLabel htmlFor="name">Name (optional)</FormLabel>
+                      <Input
+                        {...field}
+                        id="name"
+                        placeholder="Please enter your name if you'd like"
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.email && form.touched.email}
+                    >
+                      <FormLabel htmlFor="email">Email (optional)</FormLabel>
+                      <Input
+                        {...field}
+                        id="email"
+                        placeholder="Please enter your email if you'd like"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+              </>
+            ) : null}
 
             <Button
               marginTop={4}
