@@ -36,11 +36,14 @@ const RequestForm = () => {
 
   const handleSubmit = async (values) => {
     setSending(true);
-    const { category, name, email } = values;
+    const { category, contactOptIn, name, email } = values;
+
+    alert(JSON.stringify(values, null, 2));
     const res = await fetch("/api/records/createResource", {
       method: "POST",
       body: JSON.stringify({
         category: category,
+        contactOptIn: contactOptIn === true ? "Yes" : "No",
         name: name,
         email: email,
       }),

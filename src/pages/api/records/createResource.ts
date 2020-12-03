@@ -5,10 +5,10 @@ import {
 } from "./utils/Airtable";
 
 const createResource = async (req, res) => {
-  const { category } = req.body;
+  const { category, contactOptIn } = req.body;
   try {
     const createdResource = await requestsTable.create([
-      { fields: { category: category } },
+      { fields: { category: category, contactOptIn: contactOptIn } },
     ]);
     res.statusCode = 200;
     res.json(getMinifiedRecord(createdResource));
