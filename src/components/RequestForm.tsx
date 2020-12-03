@@ -20,10 +20,11 @@ const RequestForm = () => {
   const smsRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const SignupSchema = Yup.object().shape({
-    contactOptIn: Yup.bool().oneOf(
-      [false],
-      "Would you like us to contact you to follow up?"
-    ),
+    // contactOptIn: Yup.bool().oneOf(
+    //   [false],
+    //   "You'll be asked for your email or phone number for us to contact you."
+    // ),
+    contactOptIn: Yup.bool(),
     // smsNumber: Yup.string()
     //   .nullable()
     //   .matches(smsRegExp, "Phone number is not valid. Please try again."),
@@ -67,17 +68,49 @@ const RequestForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          // setSending(true);
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   actions.setSubmitting(false);
-          // }, 1000);
-          // setSending(false);
           handleSubmit(values);
         }}
       >
         {({ handleSubmit, errors, touched }) => (
           <Form>
+            <Field name="category">
+              {({ field, form }) => (
+                <FormControl
+                  isInvalid={form.errors.category && form.touched.category}
+                >
+                  <FormLabel htmlFor="category">
+                    Category Request (required)
+                  </FormLabel>
+                  <Select {...field} id="category" placeholder="">
+                    <option value="Professional Development">
+                      Professional Development
+                    </option>
+                    <option value="Tech Literacy">Tech Literacy</option>
+                  </Select>
+
+                  <FormErrorMessage>{form.errors.category}</FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
+            <Field name="contactOptIn">
+              {({ field, form }) => (
+                <FormControl
+                  isInvalid={
+                    form.errors.contactOptIn && form.touched.contactOptIn
+                  }
+                >
+                  <FormLabel htmlFor="contactOptIn">
+                    Allow us to contact you
+                  </FormLabel>
+                  <Checkbox {...field} id="contactOptIn" placeholder="">
+                    Contact Me
+                  </Checkbox>
+                  <FormErrorMessage>
+                    {form.errors.contactOptIn}
+                  </FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
             <Field name="name">
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.name && form.touched.name}>
@@ -106,25 +139,7 @@ const RequestForm = () => {
                 </FormControl>
               )}
             </Field>
-            <Field name="category">
-              {({ field, form }) => (
-                <FormControl
-                  isInvalid={form.errors.category && form.touched.category}
-                >
-                  <FormLabel htmlFor="category">
-                    Category Request (required)
-                  </FormLabel>
-                  <Select {...field} id="category" placeholder="">
-                    <option value="Professional Development">
-                      Professional Development
-                    </option>
-                    <option value="Tech Literacy">Tech Literacy</option>
-                  </Select>
 
-                  <FormErrorMessage>{form.errors.category}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
             <Button
               marginTop={4}
               colorScheme="purple"
