@@ -41,11 +41,10 @@ const RequestPage = ({ categories }) => {
             team.
           </Text>
           <Text color="gray.800">
-            Check out the section below for a description for each category.
+            You're able to request resources without providing your name or
+            contact info.
           </Text>
-          <Divider />
         </Stack>
-        <Divider />
         <RequestForm />
       </Box>
     </Flex>

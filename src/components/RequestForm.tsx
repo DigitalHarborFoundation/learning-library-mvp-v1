@@ -11,6 +11,7 @@ import {
   Input,
   Checkbox,
   Select,
+  VisuallyHidden,
 } from '@chakra-ui/core';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -80,8 +81,12 @@ const RequestForm = () => {
   ];
 
   return (
-    <Box>
-      <Heading>Request Form</Heading>
+    <Box marginY={8} padding={4} borderWidth="1px" borderRadius="md">
+      <VisuallyHidden>
+        <Heading as="h3" size="lg">
+          Request Form
+        </Heading>
+      </VisuallyHidden>
       <Formik
         initialValues={{
           category: '',
