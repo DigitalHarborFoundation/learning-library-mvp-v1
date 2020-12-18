@@ -37,7 +37,7 @@ const RequestPage = ({ categories }) => {
             We want to be sure that we're providing the most useful resources
             possible. We'd welcome and appreciate your feedback on what
             resources we're including in the Learning Library. You can use this
-            page to send resource requests to the Digital Harbor Foundation
+            form to send resource requests to the Digital Harbor Foundation
             team.
           </Text>
           <Text color="gray.800">

@@ -12,6 +12,7 @@ import {
   Checkbox,
   Select,
   VisuallyHidden,
+  Tooltip,
 } from '@chakra-ui/core';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -110,16 +111,21 @@ const RequestForm = () => {
                   <FormLabel htmlFor="category">
                     Category Request (required)
                   </FormLabel>
-                  <Select
-                    {...field}
-                    id="category"
-                    placeholder=""
-                    marginBottom={4}
+                  <Tooltip
+                    label="Please select a resource category"
+                    aria-label="Category select tooltip"
                   >
-                    {availableCategories.map((categoryName) => (
-                      <option value={categoryName}>{categoryName}</option>
-                    ))}
-                  </Select>
+                    <Select
+                      {...field}
+                      id="category"
+                      placeholder=""
+                      marginBottom={4}
+                    >
+                      {availableCategories.map((categoryName) => (
+                        <option value={categoryName}>{categoryName}</option>
+                      ))}
+                    </Select>
+                  </Tooltip>
 
                   <FormErrorMessage>{form.errors.category}</FormErrorMessage>
                 </FormControl>
@@ -133,14 +139,19 @@ const RequestForm = () => {
                   }
                 >
                   <FormLabel htmlFor="contactOptIn">Contact Opt In</FormLabel>
-                  <Checkbox
-                    {...field}
-                    id="contactOptIn"
-                    placeholder=""
-                    marginBottom={4}
+                  <Tooltip
+                    label="Please check if you'd like to provide your contact info"
+                    aria-label="Contact opt in tooltip"
                   >
-                    Contact Me
-                  </Checkbox>
+                    <Checkbox
+                      {...field}
+                      id="contactOptIn"
+                      placeholder=""
+                      marginBottom={4}
+                    >
+                      Contact Me
+                    </Checkbox>
+                  </Tooltip>
                   <FormErrorMessage>
                     {form.errors.contactOptIn}
                   </FormErrorMessage>
