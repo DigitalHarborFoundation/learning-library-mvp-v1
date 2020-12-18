@@ -1,5 +1,5 @@
-import { NextPage } from "next";
-import Link from "next/link";
+import { NextPage } from 'next';
+import Link from 'next/link';
 import {
   Flex,
   Box,
@@ -9,11 +9,11 @@ import {
   HStack,
   Text,
   Divider,
-} from "@chakra-ui/core";
-import RequestForm from "../components/RequestForm";
+} from '@chakra-ui/core';
+import RequestForm from '../components/RequestForm';
 
-const RequestPage: NextPage = ({ id, pathways }) => {
-  console.log({ pathways });
+const RequestPage = ({ categories }) => {
+  console.log(`test: ${categories}`);
   return (
     <Flex
       direction="column"
@@ -53,21 +53,3 @@ const RequestPage: NextPage = ({ id, pathways }) => {
 };
 
 export default RequestPage;
-
-// export async function getServerSideProps({ params, query }) {
-//   const apiKey = process.env.API_KEY;
-//   const baseId = process.env.BASE_ID;
-
-//   const res = await fetch(
-//     `https://api.airtable.com/v0/${baseId}/Requests/recZ25DWku6rvEqAP?api_key=${apiKey}`,
-//     { method: "GET", mode: "no-cors", credentials: "same-origin" }
-//   );
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       id: data.id || null,
-//       pathways: data.fields["Pathways"] || null,
-//     },
-//   };
-// }

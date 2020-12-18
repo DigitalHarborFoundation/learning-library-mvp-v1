@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Box,
   Heading,
@@ -11,9 +11,9 @@ import {
   Input,
   Checkbox,
   Select,
-} from "@chakra-ui/core";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+} from '@chakra-ui/core';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 const RequestForm = () => {
   const [isSending, setSending] = useState(false);
@@ -27,11 +27,11 @@ const RequestForm = () => {
     contactOptIn: Yup.bool(),
     phone: Yup.string()
       .nullable()
-      .matches(phoneRegExp, "Phone number is not valid. Please try again."),
-    name: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+      .matches(phoneRegExp, 'Phone number is not valid. Please try again.'),
+    name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
     // .required("Required"),
-    email: Yup.string().email("Invalid email"),
-    category: Yup.string().required("This field is required"),
+    email: Yup.string().email('Invalid email'),
+    category: Yup.string().required('This field is required'),
   });
 
   const handleSubmit = async (values) => {
@@ -39,38 +39,56 @@ const RequestForm = () => {
     const { category, contactOptIn, name, email, phone } = values;
 
     alert(JSON.stringify(values, null, 2));
-    const res = await fetch("/api/records/createResource", {
-      method: "POST",
+    const res = await fetch('/api/records/createResource', {
+      method: 'POST',
       body: JSON.stringify({
         category: category,
-        contactOptIn: contactOptIn === true ? "Yes" : "No",
-        name: name || "",
-        email: email || "",
-        phone: phone || "",
+        contactOptIn: contactOptIn === true ? 'Yes' : 'No',
+        name: name || '',
+        email: email || '',
+        phone: phone || '',
       }),
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     });
 
     const apiResponse = await res.json();
-    console.log("response", apiResponse);
+    console.log('response', apiResponse);
     if (apiResponse) {
       setSending(false);
-      alert("sent!");
+      alert('sent!');
     }
   };
+
+  // TODO: pull this from live data using a Set
+  const availableCategories = [
+    'Computer Science',
+    'Fabrication',
+    'Communication',
+    'Design',
+    'Electronics',
+    'Privacy & Security',
+    'Professional Development',
+    'Service',
+    'Tech Literacy',
+    'General Education',
+    'Digital Wellbeing',
+    'Financial Aids & Scholarships',
+    'Events',
+    'Other',
+  ];
 
   return (
     <Box>
       <Heading>Request Form</Heading>
       <Formik
         initialValues={{
-          category: "",
+          category: '',
           contactOptIn: false,
-          phone: "",
-          name: "",
-          email: "",
+          phone: '',
+          name: '',
+          email: '',
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
@@ -88,10 +106,9 @@ const RequestForm = () => {
                     Category Request (required)
                   </FormLabel>
                   <Select {...field} id="category" placeholder="">
-                    <option value="Professional Development">
-                      Professional Development
-                    </option>
-                    <option value="Tech Literacy">Tech Literacy</option>
+                    {availableCategories.map((categoryName) => (
+                      <option value={categoryName}>{categoryName}</option>
+                    ))}
                   </Select>
 
                   <FormErrorMessage>{form.errors.category}</FormErrorMessage>
