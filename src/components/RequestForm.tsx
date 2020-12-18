@@ -110,7 +110,12 @@ const RequestForm = () => {
                   <FormLabel htmlFor="category">
                     Category Request (required)
                   </FormLabel>
-                  <Select {...field} id="category" placeholder="">
+                  <Select
+                    {...field}
+                    id="category"
+                    placeholder=""
+                    marginBottom={4}
+                  >
                     {availableCategories.map((categoryName) => (
                       <option value={categoryName}>{categoryName}</option>
                     ))}
@@ -128,7 +133,12 @@ const RequestForm = () => {
                   }
                 >
                   <FormLabel htmlFor="contactOptIn">Contact Opt In</FormLabel>
-                  <Checkbox {...field} id="contactOptIn" placeholder="">
+                  <Checkbox
+                    {...field}
+                    id="contactOptIn"
+                    placeholder=""
+                    marginBottom={4}
+                  >
                     Contact Me
                   </Checkbox>
                   <FormErrorMessage>
@@ -149,6 +159,7 @@ const RequestForm = () => {
                         {...field}
                         id="name"
                         placeholder="Please enter your name if you'd like"
+                        marginBottom={4}
                       />
                       <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                     </FormControl>
@@ -164,6 +175,7 @@ const RequestForm = () => {
                         {...field}
                         id="email"
                         placeholder="Please enter your email if you'd like"
+                        marginBottom={4}
                       />
                       <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                     </FormControl>
