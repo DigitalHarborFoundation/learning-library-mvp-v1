@@ -22,7 +22,7 @@ const Header: React.FC = () => {
       bg="black"
       boxShadow="md"
       paddingY={8}
-      paddingX={8}
+      paddingX={[2, 2, 8, 8]}
     >
       <Flex
         direction="row"
@@ -42,19 +42,30 @@ const Header: React.FC = () => {
           </a>
         </Link>
         <Flex direction="row" align="center" justify="center">
-          <Link href="/playlists">
-            <a>
+          <Link href="/playlists" passHref>
+            <ChakraLink
+              display={['none', 'none', 'inline-flex', 'inline-flex']}
+            >
               <Text fontSize="lg" color="white" marginRight={4}>
                 Playlists
               </Text>
-            </a>
+            </ChakraLink>
           </Link>
-          <Link href="/help">
-            <a>
+          <Link href="/request" passHref>
+            <ChakraLink
+              display={['none', 'none', 'inline-flex', 'inline-flex']}
+            >
+              <Text fontSize="lg" color="white" marginRight={4}>
+                Requests
+              </Text>
+            </ChakraLink>
+          </Link>
+          <Link href="/help" passHref>
+            <ChakraLink>
               <Text fontSize="lg" color="white" marginRight={4}>
                 Help
               </Text>
-            </a>
+            </ChakraLink>
           </Link>
           <Link href="/about">
             <a>

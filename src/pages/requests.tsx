@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/core';
 import RequestForm from '../components/RequestForm';
 
-const RequestPage = ({ categories }) => {
+const RequestsPage = ({ categories }) => {
   return (
     <Flex
       direction="column"
@@ -50,4 +50,4 @@ const RequestPage = ({ categories }) => {
   );
 };
 
-export default RequestPage;
+export default RequestsPage;
