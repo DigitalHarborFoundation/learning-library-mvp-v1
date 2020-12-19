@@ -66,7 +66,7 @@ const RequestForm = () => {
           title: 'Request received',
           description: 'Your request has been received. Thank you!',
           status: 'success',
-          duration: 9000,
+          duration: 3000,
           isClosable: true,
         })
       : null;
