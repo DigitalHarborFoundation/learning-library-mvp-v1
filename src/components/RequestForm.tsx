@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Box,
   Heading,
@@ -13,12 +13,14 @@ import {
   Select,
   VisuallyHidden,
   Tooltip,
+  useToast,
 } from '@chakra-ui/core';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 const RequestForm = () => {
   const [isSending, setSending] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const SignupSchema = Yup.object().shape({
@@ -35,8 +37,6 @@ const RequestForm = () => {
   const handleSubmit = async (values) => {
     setSending(true);
     const { category, contactOptIn, name, email, phone } = values;
-
-    alert(JSON.stringify(values, null, 2));
     const res = await fetch('/api/records/createResource', {
       method: 'POST',
       body: JSON.stringify({
@@ -55,9 +55,22 @@ const RequestForm = () => {
     console.log('response', apiResponse);
     if (apiResponse) {
       setSending(false);
-      alert('sent!');
+      setConfirmed(true);
     }
   };
+
+  const toast = useToast();
+  useEffect(() => {
+    confirmed === true
+      ? toast({
+          title: 'Request received',
+          description: 'Your request has been received. Thank you!',
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      : null;
+  }, [confirmed, setConfirmed]);
 
   // TODO: pull this from live data using a Set
   const availableCategories = [
@@ -221,7 +234,7 @@ const RequestForm = () => {
             ) : null}
 
             <Button
-              marginTop={2}
+              marginTop={4}
               colorScheme="purple"
               variant="outline"
               isLoading={isSending}
