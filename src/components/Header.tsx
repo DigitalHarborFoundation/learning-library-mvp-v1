@@ -52,7 +52,7 @@ const Header: React.FC = () => {
               </Text>
             </ChakraLink>
           </Link>
-          <Link href="/request" passHref>
+          <Link href="/requests" passHref>
             <ChakraLink
               display={['none', 'none', 'inline-flex', 'inline-flex']}
             >
