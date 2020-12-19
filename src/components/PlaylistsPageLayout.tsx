@@ -1,5 +1,5 @@
 /*@jsx jsx*/
-import Link from "next/link";
+import Link from 'next/link';
 import {
   Box,
   Flex,
@@ -14,9 +14,9 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-} from "@chakra-ui/core";
-import { jsx, css } from "@emotion/core";
-const ReactMarkdown = require("react-markdown");
+} from '@chakra-ui/core';
+import { jsx, css } from '@emotion/core';
+const ReactMarkdown = require('react-markdown');
 
 const PlaylistsPageLayout = ({
   title,
@@ -59,6 +59,16 @@ const PlaylistsPageLayout = ({
               }
               > p:first-of-type {
                 padding-bottom: 1rem;
+
+                > a {
+                  color: #3182ce;
+                  cursor: pointer;
+                  text-decoration: none;
+                  transition: all 0.15s ease-out;
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
               }
             `}
             source={landingPageCopy}
