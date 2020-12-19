@@ -13,7 +13,6 @@ import {
 import RequestForm from '../components/RequestForm';
 
 const RequestPage = ({ categories }) => {
-  console.log(`test: ${categories}`);
   return (
     <Flex
       direction="column"

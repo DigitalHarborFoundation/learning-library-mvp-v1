@@ -14,6 +14,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Button,
 } from '@chakra-ui/core';
 import { jsx, css } from '@emotion/core';
 const ReactMarkdown = require('react-markdown');
@@ -27,18 +28,16 @@ const PlaylistsPageLayout = ({
   linkPathways,
 }) => {
   const uniquePathways = [...new Set(linkPathways)];
-  console.log({ resourceLinks });
-  console.log({ linkPathways });
 
   return (
     <Flex direction="column" justify="center" align="center ">
       <Box
         maxWidth="960px"
+        bg="white"
         marginY={8}
         paddingX={8}
         marginX={[4, 4, 10, 12]}
         paddingY={4}
-        bg="white"
         rounded="md"
       >
         <Heading as="h2" size="xl" paddingY={4} textAlign="center">
@@ -49,7 +48,7 @@ const PlaylistsPageLayout = ({
           <Image src={image} alt={title} objectFit="cover" />
         </AspectRatio>
 
-        <Box paddingY={4} maxWidth="65ch">
+        <Box paddingY={4}>
           <ReactMarkdown
             css={css`
               > ul {
@@ -103,19 +102,6 @@ const PlaylistsPageLayout = ({
             </AccordionItem>
           ))}
         </Accordion>
-        {/* {resourceLinks ? (
-          <Stack>
-            {resourceLinks.map((resource, index) => (
-              <Link key={index} href={`/resources/${resource}`}>
-                <ChakraLink color="blue.400">{linkTitles[index]}</ChakraLink>
-              </Link>
-            ))}
-          </Stack>
-        ) : (
-          <Text>
-            There are currently no resources in this playlist. Check back soon.
-          </Text>
-        )} */}
       </Box>
     </Flex>
   );

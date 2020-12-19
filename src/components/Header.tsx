@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   Box,
   Flex,
@@ -6,9 +6,9 @@ import {
   Link as ChakraLink,
   Text,
   IconButton,
-} from "@chakra-ui/core";
-import { GiBookshelf } from "react-icons/gi";
-import { GoMarkGithub } from "react-icons/go";
+} from '@chakra-ui/core';
+import { GiBookshelf } from 'react-icons/gi';
+import { GoMarkGithub } from 'react-icons/go';
 
 const Header: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
         direction="row"
         justify="space-around"
         align="center"
-        width={["100vw", "100vw", "80vw", "80vw"]}
+        width={['100vw', '100vw', '80vw', '80vw']}
         paddingX={[7, 4, 6, 8]}
       >
         <Link href="/" passHref>
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
               aria-label="Link to GitHub repository"
               color="white"
               variant="unstyled"
-              _hover={{ bg: "black", color: "white" }}
+              _hover={{ bg: 'black', color: 'white' }}
               isRound
             ></IconButton>
           </ChakraLink>

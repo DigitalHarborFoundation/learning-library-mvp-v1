@@ -1,5 +1,5 @@
-import { NextPage } from "next";
-import Link from "next/link";
+import { NextPage } from 'next';
+import Link from 'next/link';
 import {
   Flex,
   Box,
@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   Divider,
-} from "@chakra-ui/core";
+} from '@chakra-ui/core';
 
 const AboutPage: NextPage = () => {
   return (
@@ -52,15 +52,15 @@ const AboutPage: NextPage = () => {
           <Divider />
           <Text color="gray.800">
             This application is open source. If you're interested in seeing the
-            code or contributing, please check out the{" "}
+            code or contributing, please check out the{' '}
             <ChakraLink
               href="https://github.com/jonathanprozzi/learning-library-mvp-v1"
               color="blue.500"
               isExternal
             >
               GitHub repo
-            </ChakraLink>{" "}
-            or contact{" "}
+            </ChakraLink>{' '}
+            or contact{' '}
             <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
               Jonathan Prozzi
             </ChakraLink>

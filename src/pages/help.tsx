@@ -1,5 +1,5 @@
-import { NextPage } from "next";
-import Link from "next/link";
+import { NextPage } from 'next';
+import Link from 'next/link';
 import {
   Flex,
   Box,
@@ -9,7 +9,7 @@ import {
   Text,
   Icon,
   Divider,
-} from "@chakra-ui/core";
+} from '@chakra-ui/core';
 
 const HelpPage: NextPage = () => {
   return (
@@ -36,21 +36,21 @@ const HelpPage: NextPage = () => {
           </Text>
           <Text color="gray.800">
             Please let us know what questions you have by submitting a help
-            ticket. Follow{" "}
+            ticket. Follow{' '}
             <ChakraLink
               href="https://digitalharborhelp.freshdesk.com/support/tickets/new"
               isExternal
               color="blue.500"
             >
               this link to the DHF help desk
-            </ChakraLink>{" "}
+            </ChakraLink>{' '}
             and include your name, an email address, a title that describes your
             problem, and then a more detailed description of your problem or
             question.
           </Text>
           <Text color="gray.800">
             DHF staff will do their best to get back to you promptly. If you
-            have additional questions or concerns, please email{" "}
+            have additional questions or concerns, please email{' '}
             <ChakraLink
               href="mailto: contact@digitalharbor.org"
               isExternal
@@ -66,11 +66,11 @@ const HelpPage: NextPage = () => {
           <Divider />
           <Text color="gray.800">
             For technical assistance or support with this app (such as errors),
-            please contact{" "}
+            please contact{' '}
             <ChakraLink href="mailto:jonathanprozzi@gmail.com" color="blue.500">
               Jonathan Prozzi
-            </ChakraLink>{" "}
-            or file an issue on{" "}
+            </ChakraLink>{' '}
+            or file an issue on{' '}
             <ChakraLink
               href="https://github.com/jonathanprozzi/learning-library-mvp-v1"
               color="blue.500"

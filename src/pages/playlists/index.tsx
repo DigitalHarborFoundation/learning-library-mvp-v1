@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { NextPage } from "next";
-import Router from "next/router";
-import useSWR from "swr";
+import { useState, useEffect } from 'react';
+import { NextPage } from 'next';
+import Router from 'next/router';
+import useSWR from 'swr';
 import {
   Box,
   Button,
@@ -12,28 +12,28 @@ import {
   Alert,
   Spinner,
   Stack,
-} from "@chakra-ui/core";
-import PlaylistGrid from "../../components/PlaylistGrid";
+} from '@chakra-ui/core';
+import PlaylistGrid from '../../components/PlaylistGrid';
 // import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-    credentials: "same-origin",
+    method: 'GET',
+    mode: 'no-cors',
+    credentials: 'same-origin',
   });
   if (!res.ok) {
-    throw Error("There is problem with the data request.");
+    throw Error('There is problem with the data request.');
   }
   const { records } = await res.json();
-  console.log("data from swr", records);
-  console.log("typeof data", typeof records);
+  console.log('data from swr', records);
+  console.log('typeof data', typeof records);
 
   return records;
 };
 
 const PlaylistIndexPage = () => {
-  const { data, error } = useSWR("api/records/allPlaylistsFetch", fetcher);
+  const { data, error } = useSWR('api/records/allPlaylistsFetch', fetcher);
 
   if (error) {
     return (
