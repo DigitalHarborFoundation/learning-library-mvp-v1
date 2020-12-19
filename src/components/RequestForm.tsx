@@ -158,6 +158,10 @@ const RequestForm = () => {
             </Field>
             {values.contactOptIn === true ? (
               <>
+                <Text marginBottom={2}>
+                  Please provide some information about yourself so we can
+                  contact you.
+                </Text>
                 <Field name="name">
                   {({ field, form }) => (
                     <FormControl
