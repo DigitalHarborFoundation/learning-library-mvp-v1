@@ -14,7 +14,6 @@ import {
   Stack,
 } from '@chakra-ui/core';
 import PlaylistGrid from '../../components/PlaylistGrid';
-// import ResourceGrid from "../../components/ResourceGrid";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {

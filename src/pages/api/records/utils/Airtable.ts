@@ -1,10 +1,10 @@
-const Airtable = require("airtable");
+const Airtable = require('airtable');
 const base = new Airtable({ apiKey: process.env.API_KEY }).base(
   process.env.BASE_ID
 );
 const table = base(process.env.TABLE_NAME);
 
-const requestsTable = base("Requests");
+const requestsTable = base('Requests');
 
 // nice tricks from James Q Quick!
 const getMinifiedRecord = (record) => {

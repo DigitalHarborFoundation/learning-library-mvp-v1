@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
-import { NextSeo } from "next-seo";
-import { NextPage } from "next";
-import { useRouter, Router } from "next/router";
-import useSWR from "swr";
+import { useState, useEffect, useRef } from 'react';
+import { NextSeo } from 'next-seo';
+import { NextPage } from 'next';
+import { useRouter, Router } from 'next/router';
+import useSWR from 'swr';
 import {
   Box,
   Button,
@@ -12,18 +12,18 @@ import {
   Alert,
   Spinner,
   Select,
-} from "@chakra-ui/core";
-import { RiFilter3Line } from "react-icons/ri";
-import ResourceGrid from "../components/ResourceGrid";
+} from '@chakra-ui/core';
+import { RiFilter3Line } from 'react-icons/ri';
+import ResourceGrid from '../components/ResourceGrid';
 
 const fetcher = async (url: string) => {
   const res = await fetch(url, {
-    method: "GET",
-    mode: "no-cors",
-    credentials: "same-origin",
+    method: 'GET',
+    mode: 'no-cors',
+    credentials: 'same-origin',
   });
   if (!res.ok) {
-    throw Error("There is problem with the data request.");
+    throw Error('There is problem with the data request.');
   }
   const data = await res.json();
 
@@ -31,8 +31,7 @@ const fetcher = async (url: string) => {
 };
 
 const IndexPage = () => {
-  const { data, error } = useSWR("api/records/getAllRecords", fetcher);
-  // const {data, error} = useSWR('api/records/getAllRecords, fetcher')
+  const { data, error } = useSWR('api/records/getAllRecords', fetcher);
   const [filterPathwayValue, setFilterPathwayValue] = useState(0);
   const [filterPathway, setFilterPathway] = useState(true);
   const [filterOS, setFilterOS] = useState(false);
@@ -40,47 +39,36 @@ const IndexPage = () => {
 
   const handleFilterChange = (e, category) => {
     if (filterOS && filterPathway) {
-      console.log("combined!");
       const combined = data
-        .filter((x) => x.fields["Pathway"] === e)
-        .filter((y) => y.fields["Operating System"] === e);
+        .filter((x) => x.fields['Pathway'] === e)
+        .filter((y) => y.fields['Operating System'] === e);
       setCombinedItems(combined);
     }
 
-    if (category === "os" && filterOS) {
-      console.log("os!");
-      console.log("filterOS:", filterOS);
-
-      if (e !== "All") {
-        const combined = data.filter((x) => x.fields["Operating System"] === e);
+    if (category === 'os' && filterOS) {
+      if (e !== 'All') {
+        const combined = data.filter((x) => x.fields['Operating System'] === e);
         setCombinedItems(combined);
       } else {
         setCombinedItems(null);
       }
-      console.log("filterOS changed", e);
-      console.log("combined items", combinedItems);
     }
-    if (category === "pathway" && filterPathway) {
-      console.log("handleFilterChange", e);
+    if (category === 'pathway' && filterPathway) {
       setFilterPathwayValue(e);
-      console.log("filterPathway:", filterPathway);
-      console.log("filterPathwayValue", filterPathwayValue);
       if (e === null) {
         const combined = data.filter(
-          (x) => x.fields["Pathway"] === pathwaysList[e]
+          (x) => x.fields['Pathway'] === pathwaysList[e]
         );
         setCombinedItems(combined);
       }
-      if (e !== "All") {
+      if (e !== 'All') {
         const combined = data.filter(
-          (x) => x.fields["Pathway"] === pathwaysList[e]
+          (x) => x.fields['Pathway'] === pathwaysList[e]
         );
         setCombinedItems(combined);
       } else {
         setCombinedItems(null);
       }
-      console.log("filterPathway changed", e);
-      console.log("combined items", combinedItems);
     }
   };
 
@@ -119,9 +107,9 @@ const IndexPage = () => {
     );
   }
 
-  const pathwaysList = [...new Set(data.map((item) => item.fields["Pathway"]))];
+  const pathwaysList = [...new Set(data.map((item) => item.fields['Pathway']))];
   const osList = [
-    ...new Set(data.map((item) => item.fields["Operating System"])),
+    ...new Set(data.map((item) => item.fields['Operating System'])),
   ];
 
   return (
@@ -134,13 +122,13 @@ const IndexPage = () => {
     >
       {combinedItems ? (
         <Heading as="h2" marginTop={4}>
-          Displaying {combinedItems.length}{" "}
-          {combinedItems.length === 1 ? "Resource" : "Resources"}
+          Displaying {combinedItems.length}{' '}
+          {combinedItems.length === 1 ? 'Resource' : 'Resources'}
         </Heading>
       ) : (
         <Heading as="h2" marginTop={4}>
-          Displaying {data.length}{" "}
-          {data.length === 1 ? "Resource" : "Resources"}
+          Displaying {data.length}{' '}
+          {data.length === 1 ? 'Resource' : 'Resources'}
         </Heading>
       )}
       <Flex direction="row" align="center" justify="center" paddingRight={4}>
@@ -161,8 +149,7 @@ const IndexPage = () => {
           bg="white"
           marginTop={4}
           onChange={(e) => {
-            console.log("filter selected:", e.target.value);
-            handleFilterChange(e.target.value, "pathway");
+            handleFilterChange(e.target.value, 'pathway');
           }}
         >
           <option value="All">All</option>

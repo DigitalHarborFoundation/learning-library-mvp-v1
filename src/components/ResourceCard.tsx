@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   Box,
   AspectRatio,
@@ -9,9 +9,9 @@ import {
   Button,
   Flex,
   Tag,
-} from "@chakra-ui/core";
-import { GoEye } from "react-icons/go";
-import kebabCase from "lodash.kebabcase";
+} from '@chakra-ui/core';
+import { GoEye } from 'react-icons/go';
+import kebabCase from 'lodash.kebabcase';
 
 // type Props = {
 //   data: {
@@ -32,23 +32,19 @@ const ResourceCard = ({ data }) => {
     <Box
       w="100%"
       h="auto"
-      // display="flex"
-      // flexDirection="column"
-      // flexGrow={1}
       maxW="md"
-      // minWidth="md"
       overflow="hidden"
       rounded="lg"
       borderWidth="1px"
       bg="white"
     >
       <Link href="resources/[id]" as={`/resources/${data.id}`}>
-        <Box _hover={{ cursor: "pointer" }} minWidth="md">
+        <Box _hover={{ cursor: 'pointer' }} minWidth="md">
           <AspectRatio height="300px" ratio={16 / 9}>
-            {data.fields["Featured Image"] ? (
+            {data.fields['Featured Image'] ? (
               <Image
-                src={data.fields["Featured Image"][0].url}
-                alt={data.fields["Resource Title"]}
+                src={data.fields['Featured Image'][0].url}
+                alt={data.fields['Resource Title']}
                 objectFit="cover"
               />
             ) : (
@@ -73,7 +69,7 @@ const ResourceCard = ({ data }) => {
         paddingLeft="4"
         paddingTop="4"
       >
-        {data.fields["Resource Title"]}
+        {data.fields['Resource Title']}
       </Box>
       <Box
         paddingTop="2"
@@ -85,23 +81,23 @@ const ResourceCard = ({ data }) => {
         <Box d="flex" alignItems="baseline">
           <Flex direction="row">
             <Badge rounded="md" marginRight="1" colorScheme="purple">
-              {data.fields["Operating System"]}
+              {data.fields['Operating System']}
             </Badge>
             <Badge rounded="md" marginLeft="1" colorScheme="teal">
-              {data.fields["Pathway"]}
+              {data.fields['Pathway']}
             </Badge>
           </Flex>
         </Box>
         <Box
           color="gray.700"
           fontWeight="semibold"
-          letterSpacing={["normal", "normal", "wide", "wide"]}
+          letterSpacing={['normal', 'normal', 'wide', 'wide']}
           fontSize="xs"
           textTransform="uppercase"
           paddingTop={1}
           paddingBottom={6}
         >
-          {data.fields["Content Type"]} &bull; {data.fields["Skill Level"]}
+          {data.fields['Content Type']} &bull; {data.fields['Skill Level']}
         </Box>
         <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
           <Button colorScheme="purple" variant="outline" rightIcon={<GoEye />}>
