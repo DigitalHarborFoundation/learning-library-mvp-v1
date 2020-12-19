@@ -1,8 +1,14 @@
 import Link from 'next/link';
+import {
+  Flex,
+  IconButton,
+  Link as ChakraLink,
+  Text,
+  VStack,
+} from '@chakra-ui/core';
+import { HiOutlineCollection } from 'react-icons/hi';
 
-import { Flex, Link as ChakraLink, Text } from '@chakra-ui/core';
-
-const FooterMenu = () => {
+const BottomNavigation = () => {
   return (
     <Flex
       as="nav"
@@ -29,9 +35,16 @@ const FooterMenu = () => {
       >
         <Link href="/playlists" passHref>
           <ChakraLink color="white">
-            <Text fontSize="lg" color="white" marginRight={4}>
-              Playlists
-            </Text>
+            <VStack>
+              <IconButton
+                colorScheme="blue"
+                aria-label="Search database"
+                icon={<HiOutlineCollection />}
+              />
+              <Text fontSize="lg" color="white" marginRight={4}>
+                Playlists
+              </Text>
+            </VStack>
           </ChakraLink>
         </Link>
         <Link href="/requests" passHref>
@@ -46,4 +59,4 @@ const FooterMenu = () => {
   );
 };
 
-export default FooterMenu;
+export default BottomNavigation;

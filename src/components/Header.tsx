@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/core';
 import { GiBookshelf } from 'react-icons/gi';
 import { GoMarkGithub } from 'react-icons/go';
+import { HiOutlineLibrary } from 'react-icons/hi';
 
 const Header: React.FC = () => {
   return (
