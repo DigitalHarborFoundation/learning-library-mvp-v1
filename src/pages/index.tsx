@@ -154,7 +154,9 @@ const IndexPage = () => {
         >
           <option value="All">All</option>
           {pathwaysList.map((pathway, index) => (
-            <option value={index}>{pathway}</option>
+            <option key={`${pathway}:${index}`} value={index}>
+              {pathway}
+            </option>
           ))}
         </Select>
       </Flex>
