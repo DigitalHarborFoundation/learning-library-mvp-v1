@@ -22,10 +22,6 @@ const RequestForm = () => {
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const SignupSchema = Yup.object().shape({
-    // contactOptIn: Yup.bool().oneOf(
-    //   [false],
-    //   "You'll be asked for your email or phone number for us to contact you."
-    // ),
     contactOptIn: Yup.bool(),
     phone: Yup.string()
       .nullable()
