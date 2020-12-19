@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import {
+  Box,
   Flex,
   IconButton,
   Link as ChakraLink,
   Text,
-  VStack,
 } from '@chakra-ui/core';
-import { HiOutlineCollection } from 'react-icons/hi';
+import { HiOutlineCollection, HiOutlineAnnotation } from 'react-icons/hi';
 
 const BottomNavigation = () => {
   return (
@@ -23,7 +23,7 @@ const BottomNavigation = () => {
       bottom="0"
       zIndex="10"
       boxShadow="md"
-      paddingY={8}
+      paddingY={10}
       paddingX={[2, 2, 8, 8]}
     >
       <Flex
@@ -35,23 +35,35 @@ const BottomNavigation = () => {
       >
         <Link href="/playlists" passHref>
           <ChakraLink color="white">
-            <VStack>
+            <Flex direction="column" align="center" justify="center">
               <IconButton
-                colorScheme="blue"
-                aria-label="Search database"
+                variant="outline"
+                size="sm"
+                colorScheme="white"
+                aria-label="Go to playlists page"
                 icon={<HiOutlineCollection />}
               />
-              <Text fontSize="lg" color="white" marginRight={4}>
+              <Text fontSize="lg" color="white">
                 Playlists
               </Text>
-            </VStack>
+            </Flex>
           </ChakraLink>
         </Link>
+
         <Link href="/requests" passHref>
           <ChakraLink color="white">
-            <Text fontSize="lg" color="white" marginRight={4}>
-              Requests
-            </Text>
+            <Flex direction="column" align="center" justify="center">
+              <IconButton
+                variant="outline"
+                size="sm"
+                colorScheme="white"
+                aria-label="Go to requests page"
+                icon={<HiOutlineAnnotation />}
+              />
+              <Text fontSize="lg" color="white">
+                Requests
+              </Text>
+            </Flex>
           </ChakraLink>
         </Link>
       </Flex>
