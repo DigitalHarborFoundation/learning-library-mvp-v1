@@ -1,6 +1,8 @@
-import { Flex } from '@chakra-ui/core';
+import Link from 'next/link';
 
-const FooterMenu = (props) => {
+import { Flex, Link as ChakraLink, Text } from '@chakra-ui/core';
+
+const FooterMenu = () => {
   return (
     <Flex
       as="nav"
@@ -24,7 +26,22 @@ const FooterMenu = (props) => {
         align="center"
         width={['100vw', '100vw', '80vw', '80vw']}
         paddingX={[7, 4, 6, 8]}
-      ></Flex>
+      >
+        <Link href="/playlists" passHref>
+          <ChakraLink color="white">
+            <Text fontSize="lg" color="white" marginRight={4}>
+              Playlists
+            </Text>
+          </ChakraLink>
+        </Link>
+        <Link href="/requests" passHref>
+          <ChakraLink color="white">
+            <Text fontSize="lg" color="white" marginRight={4}>
+              Requests
+            </Text>
+          </ChakraLink>
+        </Link>
+      </Flex>
     </Flex>
   );
 };
