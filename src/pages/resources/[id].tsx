@@ -1,8 +1,8 @@
-import { NextPage } from "next";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-const ReactMarkdown = require("react-markdown");
-import useSWR from "swr";
+import { NextPage } from 'next';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+const ReactMarkdown = require('react-markdown');
+import useSWR from 'swr';
 import {
   AspectRatio,
   Box,
@@ -19,9 +19,9 @@ import {
   TagRightIcon,
   Divider,
   Icon,
-} from "@chakra-ui/core";
-import { TiTag } from "react-icons/ti";
-import { GoLinkExternal, GoStar } from "react-icons/go";
+} from '@chakra-ui/core';
+import { TiTag } from 'react-icons/ti';
+import { GoLinkExternal, GoStar } from 'react-icons/go';
 
 const ResourcePage = ({
   title,
@@ -59,13 +59,13 @@ const ResourcePage = ({
               <Heading as="h2">{title}</Heading>
             </ChakraLink>
             <Text>
-              Source:{" "}
+              Source:{' '}
               <ChakraLink href={authorSite} isExternal color="blue.500">
                 {author}
                 <Icon as={GoLinkExternal} mx="2px" />
               </ChakraLink>
-              <Divider marginY={2} />
             </Text>
+            <Divider marginY={2} />
             <Flex direction="row" align="center" justify="center">
               <Box
                 color="gray.500"
@@ -79,12 +79,12 @@ const ResourcePage = ({
               </Box>
               <Box d="flex" marginY="1" alignItems="center">
                 {Array(5)
-                  .fill("")
+                  .fill('')
                   .map((_, i) => (
                     <Icon
                       as={GoStar}
                       key={i}
-                      color={i < rating ? "purple.500" : "purple.100"}
+                      color={i < rating ? 'purple.500' : 'purple.100'}
                     />
                   ))}
               </Box>
@@ -111,13 +111,14 @@ const ResourcePage = ({
             </Box>
             {tags && (
               <HStack spacing={2} isInline>
-                {tags.map((tag) => (
+                {tags.map((tag, index) => (
                   <Tag
                     rounded="md"
                     size="md"
                     colorScheme="gray"
                     variant="subtle"
                     id={tag}
+                    key={`${tag}:${index}`}
                   >
                     <TagLabel>{tag}</TagLabel>
                     <TagRightIcon as={TiTag} />
@@ -154,9 +155,7 @@ const ResourcePage = ({
           </Flex>
         </SimpleGrid>
         <Divider />
-        <Text>
-          <ReactMarkdown source={description} />
-        </Text>
+        <ReactMarkdown source={description} />
       </Box>
     </Flex>
   );
@@ -169,27 +168,27 @@ export async function getServerSideProps({ params, query }) {
 
   const res = await fetch(
     `https://api.airtable.com/v0/${baseId}/${tableName}/${params.id}?api_key=${apiKey}`,
-    { method: "GET", mode: "no-cors", credentials: "same-origin" }
+    { method: 'GET', mode: 'no-cors', credentials: 'same-origin' }
   );
   const data = await res.json();
 
   return {
     props: {
       id: data.id,
-      title: data.fields["Resource Title"],
-      image: data.fields["Featured Image"]
-        ? data.fields["Featured Image"][0].url
-        : "/dhf-library-social-scaled.jpg",
-      url: data.fields["URL"],
-      os: data.fields["Operating System"],
-      pathway: data.fields["Pathway"],
-      level: data.fields["Skill Level"],
-      tags: data.fields["Tags"] || null,
-      description: data.fields["Description"],
-      type: data.fields["Content Type"],
-      author: data.fields["Author"],
-      authorSite: data.fields["Author Site"] || null,
-      rating: data.fields["Rating"],
+      title: data.fields['Resource Title'],
+      image: data.fields['Featured Image']
+        ? data.fields['Featured Image'][0].url
+        : '/dhf-library-social-scaled.jpg',
+      url: data.fields['URL'],
+      os: data.fields['Operating System'],
+      pathway: data.fields['Pathway'],
+      level: data.fields['Skill Level'],
+      tags: data.fields['Tags'] || null,
+      description: data.fields['Description'],
+      type: data.fields['Content Type'],
+      author: data.fields['Author'],
+      authorSite: data.fields['Author Site'] || null,
+      rating: data.fields['Rating'],
     },
   };
 }
