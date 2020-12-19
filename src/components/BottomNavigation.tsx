@@ -43,7 +43,7 @@ const BottomNavigation = () => {
                 aria-label="Go to playlists page"
                 icon={<HiOutlineCollection />}
               />
-              <Text fontSize="lg" color="white">
+              <Text fontSize="md" color="white">
                 Playlists
               </Text>
             </Flex>
@@ -60,7 +60,7 @@ const BottomNavigation = () => {
                 aria-label="Go to requests page"
                 icon={<HiOutlineAnnotation />}
               />
-              <Text fontSize="lg" color="white">
+              <Text fontSize="md" color="white">
                 Requests
               </Text>
             </Flex>
