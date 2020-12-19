@@ -107,23 +107,25 @@ const RequestForm = () => {
                   <FormLabel htmlFor="category">
                     Category Request (required)
                   </FormLabel>
-                  <Tooltip
+                  {/* <Tooltip
                     label="Please select a resource category"
                     aria-label="Category select tooltip"
+                  > */}
+                  <Select
+                    {...field}
+                    id="category"
+                    placeholder=""
+                    marginBottom={4}
                   >
-                    <Select
-                      {...field}
-                      id="category"
-                      placeholder=""
-                      marginBottom={4}
-                    >
-                      {availableCategories.map((categoryName) => (
-                        <option value={categoryName}>{categoryName}</option>
-                      ))}
-                    </Select>
-                  </Tooltip>
+                    {availableCategories.map((categoryName) => (
+                      <option value={categoryName}>{categoryName}</option>
+                    ))}
+                  </Select>
+                  {/* </Tooltip> */}
 
-                  <FormErrorMessage>{form.errors.category}</FormErrorMessage>
+                  <FormErrorMessage paddingTop={0} marginTop={0}>
+                    {form.errors.category}
+                  </FormErrorMessage>
                 </FormControl>
               )}
             </Field>
@@ -135,20 +137,20 @@ const RequestForm = () => {
                   }
                 >
                   <FormLabel htmlFor="contactOptIn">Contact Opt In</FormLabel>
-                  <Tooltip
+                  {/* <Tooltip
                     label="Please check if you'd like to provide your contact info"
                     aria-label="Contact opt in tooltip"
+                  > */}
+                  <Checkbox
+                    {...field}
+                    id="contactOptIn"
+                    placeholder=""
+                    marginBottom={4}
                   >
-                    <Checkbox
-                      {...field}
-                      id="contactOptIn"
-                      placeholder=""
-                      marginBottom={4}
-                    >
-                      Contact Me
-                    </Checkbox>
-                  </Tooltip>
-                  <FormErrorMessage>
+                    Contact Me
+                  </Checkbox>
+                  {/* </Tooltip> */}
+                  <FormErrorMessage paddingTop={0} marginTop={0}>
                     {form.errors.contactOptIn}
                   </FormErrorMessage>
                 </FormControl>
@@ -168,7 +170,9 @@ const RequestForm = () => {
                         placeholder="Please enter your name if you'd like"
                         marginBottom={4}
                       />
-                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      <FormErrorMessage paddingTop={0} marginTop={0}>
+                        {form.errors.name}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -184,7 +188,9 @@ const RequestForm = () => {
                         placeholder="Please enter your email if you'd like"
                         marginBottom={4}
                       />
-                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      <FormErrorMessage paddingTop={0} marginTop={0}>
+                        {form.errors.email}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -201,7 +207,9 @@ const RequestForm = () => {
                         id="phone"
                         placeholder="Please enter your phone number if you'd like"
                       />
-                      <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                      <FormErrorMessage paddingTop={0} marginTop={0}>
+                        {form.errors.phone}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -209,7 +217,7 @@ const RequestForm = () => {
             ) : null}
 
             <Button
-              marginTop={4}
+              marginTop={2}
               colorScheme="purple"
               variant="outline"
               isLoading={isSending}
