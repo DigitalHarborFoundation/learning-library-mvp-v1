@@ -36,6 +36,7 @@ const RequestForm = () => {
 
   const handleSubmit = async (values) => {
     setSending(true);
+    setConfirmed(false);
     const { category, contactOptIn, name, email, phone } = values;
     const res = await fetch('/api/records/createResource', {
       method: 'POST',
@@ -52,7 +53,6 @@ const RequestForm = () => {
     });
 
     const apiResponse = await res.json();
-    console.log('response', apiResponse);
     if (apiResponse) {
       setSending(false);
       setConfirmed(true);
