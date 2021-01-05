@@ -57,20 +57,23 @@ const ResourceCard = ({ data }) => {
           </AspectRatio>
         </Box>
       </Link>
-      <Box
-        as="h3"
-        display="flex"
-        flexDirection="column"
-        flexGrow={2}
-        color="gray.700"
-        fontWeight="normal"
-        letterSpacing="wide"
-        fontSize="md"
-        paddingLeft="4"
-        paddingTop="4"
-      >
-        {data.fields['Resource Title']}
-      </Box>
+      <Flex direction="row" alignItems="baseline" paddingX="4" paddingTop="4">
+        <Box
+          as="h3"
+          display="flex"
+          flexDirection="column"
+          flexGrow={2}
+          color="gray.700"
+          fontWeight="normal"
+          letterSpacing="wide"
+          fontSize="md"
+        >
+          {data.fields['Resource Title']}
+        </Box>
+        <Badge rounded="md" marginLeft="1" colorScheme="blue">
+          New
+        </Badge>
+      </Flex>
       <Box
         paddingTop="2"
         paddingLeft="4"
