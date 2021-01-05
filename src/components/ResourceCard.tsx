@@ -70,9 +70,11 @@ const ResourceCard = ({ data }) => {
         >
           {data.fields['Resource Title']}
         </Box>
-        <Badge rounded="md" marginLeft="1" colorScheme="blue">
-          New
-        </Badge>
+        {data.fields['isNew'] === 'New' ? (
+          <Badge rounded="md" marginLeft="1" colorScheme="blue">
+            New
+          </Badge>
+        ) : null}
       </Flex>
       <Box
         paddingTop="2"
