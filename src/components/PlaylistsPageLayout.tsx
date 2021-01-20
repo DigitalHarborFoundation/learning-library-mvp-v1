@@ -16,7 +16,7 @@ import {
   AccordionIcon,
   Button,
 } from '@chakra-ui/react';
-import { jsx, css } from '@emotion/core';
+import { jsx, css } from '@emotion/react';
 const ReactMarkdown = require('react-markdown');
 
 const PlaylistsPageLayout = ({
