@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { AspectRatio, Image, Box, Button, Flex } from "@chakra-ui/core";
-import kebabCase from "lodash.kebabcase";
-import { GoEye } from "react-icons/go";
+import Link from 'next/link';
+import { AspectRatio, Image, Box, Button, Flex } from '@chakra-ui/react';
+import kebabCase from 'lodash.kebabcase';
+import { GoEye } from 'react-icons/go';
 
 // type Props = {
 //   data: {
@@ -20,13 +20,13 @@ import { GoEye } from "react-icons/go";
 const PlaylistCard = ({ data }) => {
   return (
     <Box h="auto" maxW="md" overflow="hidden" rounded="lg" borderWidth="1px">
-      <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
-        <Box _hover={{ cursor: "pointer" }}>
-          {data.fields["Featured Image"] && (
+      <Link href={`/playlists/${kebabCase(data.fields['Playlist Title'])}`}>
+        <Box _hover={{ cursor: 'pointer' }}>
+          {data.fields['Featured Image'] && (
             <AspectRatio width="100%" height="300px" ratio={4 / 3}>
               <Image
-                src={data.fields["Featured Image"][0].url}
-                alt={`${data.fields["Playlist Title"]} Resource Playlist`}
+                src={data.fields['Featured Image'][0].url}
+                alt={`${data.fields['Playlist Title']} Resource Playlist`}
                 objectFit="cover"
               />
             </AspectRatio>
@@ -43,7 +43,7 @@ const PlaylistCard = ({ data }) => {
               fontSize="xs"
               textTransform="uppercase"
             >
-              {data.fields["Skill Level"]}
+              {data.fields['Skill Level']}
             </Box>
           </Flex>
         </Box>
@@ -58,7 +58,7 @@ const PlaylistCard = ({ data }) => {
             ml={0}
             paddingBottom={1}
           >
-            {data.fields["Playlist Title"]}
+            {data.fields['Playlist Title']}
           </Box>
           <Box
             as="p"
@@ -69,9 +69,9 @@ const PlaylistCard = ({ data }) => {
             ml={0}
             paddingBottom={4}
           >
-            {data.fields["Description"]}
+            {data.fields['Description']}
           </Box>
-          <Link href={`/playlists/${kebabCase(data.fields["Playlist Title"])}`}>
+          <Link href={`/playlists/${kebabCase(data.fields['Playlist Title'])}`}>
             <Button
               rightIcon={<GoEye />}
               colorScheme="purple"

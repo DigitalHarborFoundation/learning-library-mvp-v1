@@ -9,7 +9,7 @@ import {
   UnorderedList,
   ListItem,
   ListIcon,
-} from "@chakra-ui/core";
+} from '@chakra-ui/react';
 
 const CategoriesAccordion = () => {
   return (

@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   Divider,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 const AboutPage: NextPage = () => {
   return (

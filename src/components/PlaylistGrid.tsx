@@ -1,5 +1,5 @@
-import { Box, Heading, Grid } from "@chakra-ui/core";
-import PlaylistCard from "../components/PlaylistCard";
+import { Box, Heading, Grid } from '@chakra-ui/react';
+import PlaylistCard from '../components/PlaylistCard';
 
 // TODO: combine this with the ResourceGrid and add props for flexibility instead of making 2 components
 
@@ -8,10 +8,10 @@ const PlaylistGrid = ({ data }) => {
     <Box marginY={4} marginX={[2, 4, 10, 12]}>
       <Grid
         templateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(2, 1fr)",
+          'repeat(1, 1fr)',
+          'repeat(2, 1fr)',
+          'repeat(2, 1fr)',
+          'repeat(2, 1fr)',
         ]}
         gap={6}
       >

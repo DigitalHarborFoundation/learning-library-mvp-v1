@@ -1,4 +1,4 @@
-import { Box, Grid } from '@chakra-ui/core';
+import { Box, Grid } from '@chakra-ui/react';
 import ResourceCard from '../components/ResourceCard';
 
 const ResourceGrid = ({ data }) => {

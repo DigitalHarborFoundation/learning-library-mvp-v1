@@ -6,7 +6,7 @@ import {
   Link as ChakraLink,
   Text,
   IconButton,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { GiBookshelf } from 'react-icons/gi';
 import { GoMarkGithub } from 'react-icons/go';
 import { HiOutlineLibrary } from 'react-icons/hi';

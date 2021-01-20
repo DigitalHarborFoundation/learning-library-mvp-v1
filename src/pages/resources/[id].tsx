@@ -19,7 +19,7 @@ import {
   TagRightIcon,
   Divider,
   Icon,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { TiTag } from 'react-icons/ti';
 import { GoLinkExternal, GoStar } from 'react-icons/go';
 

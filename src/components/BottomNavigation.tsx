@@ -5,7 +5,7 @@ import {
   IconButton,
   Link as ChakraLink,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { HiOutlineCollection, HiOutlineAnnotation } from 'react-icons/hi';
 
 const BottomNavigation = () => {

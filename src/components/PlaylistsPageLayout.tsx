@@ -15,7 +15,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Button,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { jsx, css } from '@emotion/core';
 const ReactMarkdown = require('react-markdown');
 

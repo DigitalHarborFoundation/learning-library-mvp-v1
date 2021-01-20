@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { NextPage } from "next";
-import Router from "next/router";
-import { Flex, Alert } from "@chakra-ui/core";
+import { useEffect } from 'react';
+import { NextPage } from 'next';
+import Router from 'next/router';
+import { Flex, Alert } from '@chakra-ui/react';
 
 const ResourcesIndexPage: NextPage = () => {
   useEffect(() => {
     const { pathname } = Router;
-    if (pathname === "/resources") {
-      Router.push("/");
+    if (pathname === '/resources') {
+      Router.push('/');
     }
   });
   return (

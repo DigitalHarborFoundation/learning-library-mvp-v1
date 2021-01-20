@@ -12,7 +12,7 @@ import {
   Alert,
   Spinner,
   Stack,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import PlaylistGrid from '../../components/PlaylistGrid';
 
 const fetcher = async (url: string) => {

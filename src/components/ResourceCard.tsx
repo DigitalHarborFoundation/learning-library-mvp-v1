@@ -9,7 +9,7 @@ import {
   Button,
   Flex,
   Tag,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { GoEye } from 'react-icons/go';
 import kebabCase from 'lodash.kebabcase';
 

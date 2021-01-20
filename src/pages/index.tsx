@@ -12,7 +12,7 @@ import {
   Alert,
   Spinner,
   Select,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { RiFilter3Line } from 'react-icons/ri';
 import ResourceGrid from '../components/ResourceGrid';
 

@@ -14,7 +14,7 @@ import {
   VisuallyHidden,
   Tooltip,
   useToast,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 

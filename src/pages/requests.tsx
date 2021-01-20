@@ -9,7 +9,7 @@ import {
   HStack,
   Text,
   Divider,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import RequestForm from '../components/RequestForm';
 
 const RequestsPage = ({ categories }) => {

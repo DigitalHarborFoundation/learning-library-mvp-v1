@@ -1,8 +1,8 @@
-import { AppProps } from "next/app";
-import { DefaultSeo } from "next-seo";
-import { ChakraProvider, Flex } from "@chakra-ui/core";
+import { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 
-import SiteLayout from "../components/SiteLayout";
+import SiteLayout from '../components/SiteLayout';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -14,19 +14,19 @@ const App = ({ Component, pageProps }: AppProps) => {
             description="The Learning Library is a living and growing database of resources curated by Digital Harbor Foundation. Some of this content is made up of courses and lessons we’ve written, while others are collected from a broad community of makers and educators."
             canonical="https://library.digitalharbor.org"
             openGraph={{
-              type: "website",
-              locale: "en_IE",
-              url: "https://library.digitalharbor.org",
-              site_name: "Learning Library",
-              title: "Learning Library",
+              type: 'website',
+              locale: 'en_IE',
+              url: 'https://library.digitalharbor.org',
+              site_name: 'Learning Library',
+              title: 'Learning Library',
               description:
-                "The Learning Library is a living and growing database of resources curated by Digital Harbor Foundation. Some of this content is made up of courses and lessons we’ve written, while others are collected from a broad community of makers and educators.",
+                'The Learning Library is a living and growing database of resources curated by Digital Harbor Foundation. Some of this content is made up of courses and lessons we’ve written, while others are collected from a broad community of makers and educators.',
               images: [
                 {
-                  url: "/dhf-library-social-scaled.jpg",
+                  url: '/dhf-library-social-scaled.jpg',
                   width: 1200,
                   height: 630,
-                  alt: "A whiteboard with descriptions of a makerspace",
+                  alt: 'A whiteboard with descriptions of a makerspace',
                 },
               ],
             }}

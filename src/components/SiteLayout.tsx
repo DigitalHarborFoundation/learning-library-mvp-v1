@@ -1,6 +1,6 @@
 import Header from './Header';
 import BottomNavigation from './BottomNavigation';
-import { Box, Flex } from '@chakra-ui/core';
+import { Box, Flex } from '@chakra-ui/react';
 
 const SiteLayout: React.FC = ({ children }) => {
   return (
