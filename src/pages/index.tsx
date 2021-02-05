@@ -112,6 +112,7 @@ const IndexPage = () => {
     ...new Set(data.map((item) => item.fields['Operating System'])),
   ];
 
+  console.log('data from swr', data);
   return (
     <Flex
       direction="column"
