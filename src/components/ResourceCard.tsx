@@ -102,7 +102,12 @@ const ResourceCard = ({ data }) => {
           paddingTop={1}
           paddingBottom={6}
         >
-          {data.fields['Content Type']} &middot; {data.fields['Skill Level']}
+          {data.fields['Content Type']}{' '}
+          {data.fields['Skill Level'] ? (
+            <>
+              <span>&middot;</span> {data.fields['Skill Level']}
+            </>
+          ) : null}
         </Box>
         <Link href={`resources/[id]`} as={`/resources/${data.id}`}>
           <Button colorScheme="purple" variant="outline" rightIcon={<GoEye />}>
